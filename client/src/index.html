@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="/client/vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="/client/vendor/codemirror/lib/codemirror.css" rel="stylesheet">
+    <link href="/client/src/style/style.css" rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-default">
@@ -21,6 +23,7 @@
     <div ui-view class="container"></div>
 
     <script src="/client/vendor/codemirror/lib/codemirror.js"></script>
+    <script src="/client/vendor/codemirror/mode/python/python.js"></script>
     <script src="/client/vendor/angular/angular.js"></script>
     <script src="/client/vendor/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/client/vendor/angular-ui-codemirror/ui-codemirror.js"></script>
@@ -28,5 +31,6 @@
 
     <script src="/client/src/app/rgfiddle.js"></script>
     <script src="/client/src/app/states.js"></script>
+    <script src="/client/src/app/robots/robots.js"></script>
   </body>
 </html>

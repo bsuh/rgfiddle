@@ -1,0 +1,32 @@
+<script type="text/ng-template" id="/client/vendor/src/app/robots/codemirror.tpl.html">
+  <textarea ui-codemirror="codeMirrorOptions(robot.code)" ng-model="robot.code"></textarea>
+</script>
+
+<div ng-controller="RobotsCtrl">
+  <tabset ng-init="getRobots()">
+    <tab ng-repeat="robot in robots" active="robot.active">
+      <tab-heading ng-switch="!!$first">
+        <div ng-switch-when="false">
+          {{robot.name}}
+        </div>
+        <div ng-switch-when="true">
+          <span class="glyphicon glyphicon-plus"></span>&nbsp;New Robot
+        </div>
+      </tab-heading>
+      <div class="editor">
+        <form class="form-inline">
+          <div class="form-group">
+            <input type="text" ng-model="robot.name"
+                   id="newRobotNameInput" class="form-control" />
+          </div>
+          <button type="submit" ng-click="updateRobot($index)"
+                  class="btn btn-default">Save</button>
+          <button type="submit" ng-if="!$first" ng-click="updateRobot($index, true)"
+                  class="btn btn-danger">Delete</button>
+        </form>
+        <div ng-if="robot.active"
+             ng-include="'/client/vendor/src/app/robots/codemirror.tpl.html'"></div>
+      </div>
+    </tab>
+  </tabset>
+</div>

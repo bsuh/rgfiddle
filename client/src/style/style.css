@@ -1,0 +1,10 @@
+.CodeMirror {
+    margin-top: 10px;
+    border: 1px solid #ddd;
+}
+
+.editor {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-top: none;
+}
