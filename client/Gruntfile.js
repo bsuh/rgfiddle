@@ -3,6 +3,7 @@ module.exports = function(grunt) {
     src: {
       js: ['src/**/*.js'],
       tpl: ['src/**/*.tpl.html'],
+      unittests: ['test/unit/**/*.js']
     },
     templateOutput: 'templates/main.js',
 
@@ -37,13 +38,14 @@ module.exports = function(grunt) {
         }
       },
       src: {
-        files: ['<%= src.js %>']
+        files: ['<%= src.js %>', '<%= src.unittests %>']
       }
     },
 
     karma: {
       unit: {
-        configFile: 'test/config/unit.js'
+        configFile: 'test/config/unit.js',
+        background: true
       }
     },
 
@@ -73,5 +75,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-html2js');
 
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['karma:unit:start', 'watch']);
 };
