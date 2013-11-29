@@ -1,0 +1,17 @@
+{
+  "name": "rgfiddle",
+  "version": "0.1.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.3",
+    "angular-ui-router": "~0.2.0",
+    "bootstrap": "~3.0.2",
+    "angular-bootstrap": "~0.7.0"
+  }
+}
