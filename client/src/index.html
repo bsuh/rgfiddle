@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="rgfiddle">
   <head>
     <title>rgfiddle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +7,26 @@
     <link href="/client/vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
   </head>
   <body>
+    <nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <a class="navbar-brand" ui-sref="home">rgfiddle</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li ng-class="{ active: $state.includes('robots') }">
+          <a ui-sref="robots">Robots</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div ui-view class="container"></div>
+
     <script src="/client/vendor/codemirror/lib/codemirror.js"></script>
     <script src="/client/vendor/angular/angular.js"></script>
     <script src="/client/vendor/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/client/vendor/angular-ui-codemirror/ui-codemirror.js"></script>
     <script src="/client/vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+    <script src="/client/src/app/rgfiddle.js"></script>
+    <script src="/client/src/app/states.js"></script>
   </body>
 </html>
