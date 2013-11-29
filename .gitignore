@@ -36,6 +36,7 @@ nosetests.xml
 .pydevproject
 
 # misc
+node_modules
 *~
 .Python
 .DS_Store
