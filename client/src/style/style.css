@@ -8,3 +8,36 @@
     border: 1px solid #ddd;
     border-top: none;
 }
+
+.board {
+    width: 344px;
+    height: 344px;
+    border: 1px solid black;
+}
+
+.board .box {
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid black;
+    float: left;
+}
+
+.box.obstacle {
+    background-color: #888;
+}
+
+.box.normal {
+    background-color: whitesmoke;
+}
+
+.box.blue {
+    background-color: #9999FF;
+}
+
+.box.red {
+    background-color: #AA6666;
+}
