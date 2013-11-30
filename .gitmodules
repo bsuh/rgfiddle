@@ -1,0 +1,3 @@
+[submodule "rgkit"]
+	path = rgkit
+	url = https://github.com/brandonhsiao/rgkit.git
