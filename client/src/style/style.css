@@ -1,6 +1,8 @@
 .CodeMirror {
     margin-top: 10px;
     border: 1px solid #ddd;
+    font-size: 13px;
+    font-family: "Inconsolata";
 }
 
 .editor {
