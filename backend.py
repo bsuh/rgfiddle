@@ -1,5 +1,6 @@
 import bottle
 from models import Robot, model_json
+from runner import run_game
 
 
 @bottle.route('/')
@@ -10,6 +11,13 @@ def index():
 @bottle.route('/client/<path:path>')
 def static(path):
     return bottle.static_file(path, root='client')
+
+
+@bottle.post('/match')
+def run_match():
+    json = bottle.request.json
+
+    return {'history': run_game(json['player1'], json['player2'])}
 
 
 @bottle.route('/v1/robots/')
