@@ -2,6 +2,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     src: {
       js: ['src/**/*.js'],
+      css: ['src/**/*.css'],
       tpl: ['src/**/*.tpl.html'],
       unittests: ['test/unit/**/*.js']
     },
@@ -53,6 +54,12 @@ module.exports = function(grunt) {
       js: {
         files: ['<%= src.js %>', '<%= src.unittests %>'],
         tasks: ['jshint', 'karma:unit:run'],
+        options: {
+          livereload: true
+        }
+      },
+      css: {
+        files: ['<%= src.css %>'],
         options: {
           livereload: true
         }
