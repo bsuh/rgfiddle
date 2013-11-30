@@ -1,6 +1,6 @@
 /*global angular*/
 angular.
-  module('rgfiddle.robots', ['ui.bootstrap', 'ui.codemirror']).
+  module('rgfiddle.robots', ['directives.map', 'ui.bootstrap', 'ui.codemirror']).
   controller('RobotsCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.robots = [];
 
@@ -39,14 +39,16 @@ angular.
       var id = robot.id;
 
       if (remove) {
-        $http['delete']('/v1/robots/' + id, robot).success(function (data) {
-          if (data.rows > 0) {
-            var index = $scope.robots.indexOf(robot);
-            if (index !== -1) {
-              $scope.robots.splice(index, 1);
+        if (window.confirm('Are you sure you want to delete this robot? You cannot undo this!')) {
+          $http['delete']('/v1/robots/' + id, robot).success(function (data) {
+            if (data.rows > 0) {
+              var index = $scope.robots.indexOf(robot);
+              if (index !== -1) {
+                $scope.robots.splice(index, 1);
+              }
             }
-          }
-        });
+          });
+        }
       } else if (!id) {
         $http.post('/v1/robots/', robot).success(function (data) {
           $scope.robots.push(data.robot);
@@ -57,4 +59,25 @@ angular.
         });
       }
     };
+
+    $scope.runMatch = function (index, index2) {
+      var robot1 = $scope.robots[index];
+      var robot2 = $scope.robots[index2];
+      var self = this;
+
+      if (!robot1 || !robot2) {
+        return;
+      }
+
+      $http.post('/match', {player1: robot1.code, player2: robot2.code}).
+        success(function (data) {
+          self.match = {
+            player1: robot1.name,
+            player2: robot2.name,
+            turn: 0
+          };
+          self.history = data.history;
+        });
+    };
+
   }]);
