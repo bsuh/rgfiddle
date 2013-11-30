@@ -12,6 +12,8 @@ Installation
     git submodule update
     python backend.py
 
+Then you can visit `http://localhost:8080/`
+
 Keeping rgkit up to date
 ------
     cd ~/rgfiddle
