@@ -44,17 +44,36 @@ def game_board(game):
 
 
 def run_game(code1, code2):
+    directions = {
+        (-1, 0): 'left',
+        (1, 0): 'right',
+        (0, 1): 'down',
+        (0, -1): 'up'
+    }
+
     def turn():
         return {'scores': g.get_scores(), 'board': game_board(g)}
 
     with open('rgkit/maps/default.py') as mapfile:
         game.init_settings(ast.literal_eval(mapfile.read()))
 
-    g = game.Game(MyPlayer(code=code1), MyPlayer(code=code2))
+    g = game.Game(
+        MyPlayer(code=code1),
+        MyPlayer(code=code2),
+        record_turns=True)
 
     history = [turn()]
     for i in xrange(settings.max_turns):
         g.run_turn()
+
+        for (x, y), action in g.action_at[g.turns-1].iteritems():
+            box = history[-1]['board'][x+y*19]
+            box['action'] = action['name']
+
+            if action['target'] is not None:
+                target_x, target_y = action['target']
+                box['target'] = directions[(target_x - x), (target_y - y)]
+
         history.append(turn())
 
     return history
