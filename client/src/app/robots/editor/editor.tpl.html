@@ -1,0 +1,17 @@
+<script type="text/ng-template" id="/client/vendor/src/app/robots/editor/codemirror.tpl.html">
+  <textarea ui-codemirror="codeMirrorOptions(robot.code)" ng-model="robot.code"></textarea>
+</script>
+
+<form class="form-inline">
+  <div class="form-group">
+    <input type="text" ng-model="robot.name"
+           id="newRobotNameInput" class="form-control" />
+  </div>
+  <button ng-click="updateRobot($index)"
+          class="btn btn-default">Save</button>
+  <button ng-if="!$first" ng-click="updateRobot($index, true)"
+          class="btn btn-danger">Delete</button>
+</form>
+
+<!-- some hacky shit to make ui codemirror work properly w/ ng-repeat -->
+<div ng-if="robot.active" ng-include="'/client/vendor/src/app/robots/editor/codemirror.tpl.html'"></div>

@@ -1,0 +1,40 @@
+<div ng-controller="MatchCtrl">
+  <p class="lead row">
+    <span class="text-danger">{{robots[$index].name}}</span> vs
+    <span class="text-primary">{{robots[opponent.index].name}}</span>
+  </p>
+  
+  <div class="row">
+    <div class="btn-group" ng-init="opponent.index = 0">
+      <button class="btn btn-default dropdown-toggle">
+        Select opponent&nbsp;<span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li ng-repeat="robot in robots">
+          <a ng-click="opponent.index = $index">{{robot.name}}</a>
+        </li>
+      </ul>
+    </div>
+    <button ng-click="runMatch($index, opponent.index)"
+            class="btn btn-primary">Run match</button>
+  </div>
+  
+  <div ng-if="history">
+    <rg-map board="history[match.turn].board" class="row"></rg-map>
+    
+    <div class="row">
+      <input type="range" ng-model="match.turn"
+             min="0" max="{{history.length-1}}" step="1" value="0"/>
+    </div>
+    
+    <div class="row">
+      Turn: {{match.turn}}
+      <span class="text-danger">
+        {{match.player1}}: {{history[match.turn].scores[0]}}
+      </span>
+      <span class="text-primary">
+        {{match.player2}}: {{history[match.turn].scores[1]}}
+      </span>
+    </div>
+  </div>
+</div>

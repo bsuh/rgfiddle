@@ -1,11 +1,74 @@
-angular.module('templates-main', ['/client/src/app/robots/robots.tpl.html', '/client/src/common/directives/rgMap.tpl.html']);
+angular.module('templates-main', ['/client/src/app/robots/editor/editor.tpl.html', '/client/src/app/robots/match/match.tpl.html', '/client/src/app/robots/robots.tpl.html', '/client/src/common/directives/rgMap.tpl.html']);
 
-angular.module("/client/src/app/robots/robots.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("/client/src/app/robots/robots.tpl.html",
-    "<script type=\"text/ng-template\" id=\"/client/vendor/src/app/robots/codemirror.tpl.html\">\n" +
+angular.module("/client/src/app/robots/editor/editor.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("/client/src/app/robots/editor/editor.tpl.html",
+    "<script type=\"text/ng-template\" id=\"/client/vendor/src/app/robots/editor/codemirror.tpl.html\">\n" +
     "  <textarea ui-codemirror=\"codeMirrorOptions(robot.code)\" ng-model=\"robot.code\"></textarea>\n" +
     "</script>\n" +
     "\n" +
+    "<form class=\"form-inline\">\n" +
+    "  <div class=\"form-group\">\n" +
+    "    <input type=\"text\" ng-model=\"robot.name\"\n" +
+    "           id=\"newRobotNameInput\" class=\"form-control\" />\n" +
+    "  </div>\n" +
+    "  <button ng-click=\"updateRobot($index)\"\n" +
+    "          class=\"btn btn-default\">Save</button>\n" +
+    "  <button ng-if=\"!$first\" ng-click=\"updateRobot($index, true)\"\n" +
+    "          class=\"btn btn-danger\">Delete</button>\n" +
+    "</form>\n" +
+    "\n" +
+    "<!-- some hacky shit to make ui codemirror work properly w/ ng-repeat -->\n" +
+    "<div ng-if=\"robot.active\" ng-include=\"'/client/vendor/src/app/robots/editor/codemirror.tpl.html'\"></div>\n" +
+    "");
+}]);
+
+angular.module("/client/src/app/robots/match/match.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("/client/src/app/robots/match/match.tpl.html",
+    "<div ng-controller=\"MatchCtrl\">\n" +
+    "  <p class=\"lead row\">\n" +
+    "    <span class=\"text-danger\">{{robots[$index].name}}</span> vs\n" +
+    "    <span class=\"text-primary\">{{robots[opponent.index].name}}</span>\n" +
+    "  </p>\n" +
+    "  \n" +
+    "  <div class=\"row\">\n" +
+    "    <div class=\"btn-group\" ng-init=\"opponent.index = 0\">\n" +
+    "      <button class=\"btn btn-default dropdown-toggle\">\n" +
+    "        Select opponent&nbsp;<span class=\"caret\"></span>\n" +
+    "      </button>\n" +
+    "      <ul class=\"dropdown-menu\">\n" +
+    "        <li ng-repeat=\"robot in robots\">\n" +
+    "          <a ng-click=\"opponent.index = $index\">{{robot.name}}</a>\n" +
+    "        </li>\n" +
+    "      </ul>\n" +
+    "    </div>\n" +
+    "    <button ng-click=\"runMatch($index, opponent.index)\"\n" +
+    "            class=\"btn btn-primary\">Run match</button>\n" +
+    "  </div>\n" +
+    "  \n" +
+    "  <div ng-if=\"history\">\n" +
+    "    <rg-map board=\"history[match.turn].board\" class=\"row\"></rg-map>\n" +
+    "    \n" +
+    "    <div class=\"row\">\n" +
+    "      <input type=\"range\" ng-model=\"match.turn\"\n" +
+    "             min=\"0\" max=\"{{history.length-1}}\" step=\"1\" value=\"0\"/>\n" +
+    "    </div>\n" +
+    "    \n" +
+    "    <div class=\"row\">\n" +
+    "      Turn: {{match.turn}}\n" +
+    "      <span class=\"text-danger\">\n" +
+    "        {{match.player1}}: {{history[match.turn].scores[0]}}\n" +
+    "      </span>\n" +
+    "      <span class=\"text-primary\">\n" +
+    "        {{match.player2}}: {{history[match.turn].scores[1]}}\n" +
+    "      </span>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "");
+}]);
+
+angular.module("/client/src/app/robots/robots.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("/client/src/app/robots/robots.tpl.html",
     "<div ng-controller=\"RobotsCtrl\" class=\"row\">\n" +
     "  <tabset ng-init=\"getRobots()\">\n" +
     "    <tab ng-repeat=\"robot in robots\" active=\"robot.active\">\n" +
@@ -18,66 +81,16 @@ angular.module("/client/src/app/robots/robots.tpl.html", []).run(["$templateCach
     "        </div>\n" +
     "      </tab-heading>\n" +
     "      <div class=\"col-xs-12\">\n" +
-    "        <div class=\"row editor\">\n" +
+    "        <div class=\"row\">\n" +
     "\n" +
     "          <!-- left column with code mirror -->\n" +
     "          <div class=\"col-lg-8\">\n" +
-    "            <form class=\"form-inline\">\n" +
-    "              <div class=\"form-group\">\n" +
-    "                <input type=\"text\" ng-model=\"robot.name\"\n" +
-    "                       id=\"newRobotNameInput\" class=\"form-control\" />\n" +
-    "              </div>\n" +
-    "              <button ng-click=\"updateRobot($index)\"\n" +
-    "                      class=\"btn btn-default\">Save</button>\n" +
-    "              <button ng-if=\"!$first\" ng-click=\"updateRobot($index, true)\"\n" +
-    "                      class=\"btn btn-danger\">Delete</button>\n" +
-    "            </form>\n" +
-    "            \n" +
-    "            <!-- some hacky shit to make ui codemirror work properly w/ ng-repeat -->\n" +
-    "            <div ng-if=\"robot.active\"\n" +
-    "                 ng-include=\"'/client/vendor/src/app/robots/codemirror.tpl.html'\"></div>\n" +
+    "            <div ng-include=\"'/client/src/app/robots/editor/editor.tpl.html'\"></div>\n" +
     "          </div>\n" +
     "\n" +
     "          <!-- right column with game map -->\n" +
     "          <div class=\"col-lg-4\">\n" +
-    "            <p class=\"lead row\">\n" +
-    "              <span class=\"text-danger\">{{robots[$index].name}}</span> vs\n" +
-    "              <span class=\"text-primary\">{{robots[opponent.index].name}}</span>\n" +
-    "            </p>\n" +
-    "\n" +
-    "            <div class=\"row\">\n" +
-    "              <div class=\"btn-group\" ng-init=\"opponent.index = 0\">\n" +
-    "                <button class=\"btn btn-default dropdown-toggle\">\n" +
-    "                  Select opponent&nbsp;<span class=\"caret\"></span>\n" +
-    "                </button>\n" +
-    "                <ul class=\"dropdown-menu\">\n" +
-    "                  <li ng-repeat=\"robot in robots\">\n" +
-    "                    <a ng-click=\"opponent.index = $index\">{{robot.name}}</a>\n" +
-    "                  </li>\n" +
-    "                </ul>\n" +
-    "              </div>\n" +
-    "              <button ng-click=\"runMatch($index, opponent.index)\"\n" +
-    "                      class=\"btn btn-primary\">Run match</button>\n" +
-    "            </div>\n" +
-    "\n" +
-    "            <div ng-if=\"history\">\n" +
-    "              <rg-map board=\"history[match.turn].board\" class=\"row\"></rg-map>\n" +
-    "\n" +
-    "              <div class=\"row\">\n" +
-    "                <input type=\"range\" ng-model=\"match.turn\"\n" +
-    "                       min=\"0\" max=\"{{history.length-1}}\" step=\"1\" value=\"0\"/>\n" +
-    "              </div>\n" +
-    "\n" +
-    "              <div class=\"row\">\n" +
-    "                Turn: {{match.turn}}\n" +
-    "                <span class=\"text-danger\">\n" +
-    "                  {{match.player1}}: {{history[match.turn].scores[0]}}\n" +
-    "                </span>\n" +
-    "                <span class=\"text-primary\">\n" +
-    "                  {{match.player2}}: {{history[match.turn].scores[1]}}\n" +
-    "                </span>\n" +
-    "              </div>\n" +
-    "            </div>\n" +
+    "            <div ng-include=\"'/client/src/app/robots/match/match.tpl.html'\"></div>\n" +
     "          </div>\n" +
     "        </div>\n" +
     "      </div>\n" +
