@@ -43,6 +43,7 @@ angular.module("/client/src/app/robots/match/match.tpl.html", []).run(["$templat
     "    </div>\n" +
     "    <button ng-click=\"runMatch($index, opponent.index)\"\n" +
     "            class=\"btn btn-primary\">Run match</button>\n" +
+    "    <i ng-if=\"statusClasses\" ng-class=\"statusClasses\" class=\"fa\"></i>\n" +
     "  </div>\n" +
     "  \n" +
     "  <div ng-if=\"history\">\n" +
