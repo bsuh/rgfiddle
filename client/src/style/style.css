@@ -22,10 +22,39 @@
     height: 18px;
     line-height: 18px;
     font-weight: bold;
+    font-size: 12px;
     text-align: center;
     display: inline-block;
     border: 1px solid black;
     float: left;
+    position: relative;
+}
+
+.board .box .glyphicon {
+    font-weight: normal;
+    font-size: 10px;
+    position: absolute;
+    z-index: 5;
+}
+
+.board .box .glyphicon-arrow-up {
+    top: -8px;
+    left: 3px;
+}
+
+.board .box .glyphicon-arrow-right {
+    top: 4px;
+    left: 17px;
+}
+
+.board .box .glyphicon-arrow-down {
+    top: 17px;
+    left: 4px;
+}
+
+.board .box .glyphicon-arrow-left {
+    top: 4px;
+    left: -10px;
 }
 
 .box.obstacle {
@@ -38,8 +67,18 @@
 
 .box.blue {
     background-color: #9999FF;
+    background-color: rgba(153, 153, 255, 0.8);
 }
 
 .box.red {
     background-color: #AA6666;
+    background-color: rgba(170, 102, 102, 0.8);
+}
+
+.box.suicide {
+    border-color: red;
+}
+
+.box.guard {
+    border-color: yellow;
 }

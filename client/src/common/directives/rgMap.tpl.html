@@ -1,1085 +1,2168 @@
 <div class="board">
-  <span ng-class="board[0].type" class="box">
+  <span ng-class="[board[0].type, board[0].action]" class="box">
     {{board[0].hp}}
+    <span ng-show="board[0].target"
+          ng-class="['glyphicon-arrow-' + board[0].target, 'text-' + (board[0].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[1].type" class="box">
+  <span ng-class="[board[1].type, board[1].action]" class="box">
     {{board[1].hp}}
+    <span ng-show="board[1].target"
+          ng-class="['glyphicon-arrow-' + board[1].target, 'text-' + (board[1].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[2].type" class="box">
+  <span ng-class="[board[2].type, board[2].action]" class="box">
     {{board[2].hp}}
+    <span ng-show="board[2].target"
+          ng-class="['glyphicon-arrow-' + board[2].target, 'text-' + (board[2].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[3].type" class="box">
+  <span ng-class="[board[3].type, board[3].action]" class="box">
     {{board[3].hp}}
+    <span ng-show="board[3].target"
+          ng-class="['glyphicon-arrow-' + board[3].target, 'text-' + (board[3].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[4].type" class="box">
+  <span ng-class="[board[4].type, board[4].action]" class="box">
     {{board[4].hp}}
+    <span ng-show="board[4].target"
+          ng-class="['glyphicon-arrow-' + board[4].target, 'text-' + (board[4].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[5].type" class="box">
+  <span ng-class="[board[5].type, board[5].action]" class="box">
     {{board[5].hp}}
+    <span ng-show="board[5].target"
+          ng-class="['glyphicon-arrow-' + board[5].target, 'text-' + (board[5].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[6].type" class="box">
+  <span ng-class="[board[6].type, board[6].action]" class="box">
     {{board[6].hp}}
+    <span ng-show="board[6].target"
+          ng-class="['glyphicon-arrow-' + board[6].target, 'text-' + (board[6].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[7].type" class="box">
+  <span ng-class="[board[7].type, board[7].action]" class="box">
     {{board[7].hp}}
+    <span ng-show="board[7].target"
+          ng-class="['glyphicon-arrow-' + board[7].target, 'text-' + (board[7].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[8].type" class="box">
+  <span ng-class="[board[8].type, board[8].action]" class="box">
     {{board[8].hp}}
+    <span ng-show="board[8].target"
+          ng-class="['glyphicon-arrow-' + board[8].target, 'text-' + (board[8].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[9].type" class="box">
+  <span ng-class="[board[9].type, board[9].action]" class="box">
     {{board[9].hp}}
+    <span ng-show="board[9].target"
+          ng-class="['glyphicon-arrow-' + board[9].target, 'text-' + (board[9].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[10].type" class="box">
+  <span ng-class="[board[10].type, board[10].action]" class="box">
     {{board[10].hp}}
+    <span ng-show="board[10].target"
+          ng-class="['glyphicon-arrow-' + board[10].target, 'text-' + (board[10].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[11].type" class="box">
+  <span ng-class="[board[11].type, board[11].action]" class="box">
     {{board[11].hp}}
+    <span ng-show="board[11].target"
+          ng-class="['glyphicon-arrow-' + board[11].target, 'text-' + (board[11].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[12].type" class="box">
+  <span ng-class="[board[12].type, board[12].action]" class="box">
     {{board[12].hp}}
+    <span ng-show="board[12].target"
+          ng-class="['glyphicon-arrow-' + board[12].target, 'text-' + (board[12].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[13].type" class="box">
+  <span ng-class="[board[13].type, board[13].action]" class="box">
     {{board[13].hp}}
+    <span ng-show="board[13].target"
+          ng-class="['glyphicon-arrow-' + board[13].target, 'text-' + (board[13].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[14].type" class="box">
+  <span ng-class="[board[14].type, board[14].action]" class="box">
     {{board[14].hp}}
+    <span ng-show="board[14].target"
+          ng-class="['glyphicon-arrow-' + board[14].target, 'text-' + (board[14].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[15].type" class="box">
+  <span ng-class="[board[15].type, board[15].action]" class="box">
     {{board[15].hp}}
+    <span ng-show="board[15].target"
+          ng-class="['glyphicon-arrow-' + board[15].target, 'text-' + (board[15].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[16].type" class="box">
+  <span ng-class="[board[16].type, board[16].action]" class="box">
     {{board[16].hp}}
+    <span ng-show="board[16].target"
+          ng-class="['glyphicon-arrow-' + board[16].target, 'text-' + (board[16].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[17].type" class="box">
+  <span ng-class="[board[17].type, board[17].action]" class="box">
     {{board[17].hp}}
+    <span ng-show="board[17].target"
+          ng-class="['glyphicon-arrow-' + board[17].target, 'text-' + (board[17].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[18].type" class="box">
+  <span ng-class="[board[18].type, board[18].action]" class="box">
     {{board[18].hp}}
+    <span ng-show="board[18].target"
+          ng-class="['glyphicon-arrow-' + board[18].target, 'text-' + (board[18].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[19].type" class="box">
+  <span ng-class="[board[19].type, board[19].action]" class="box">
     {{board[19].hp}}
+    <span ng-show="board[19].target"
+          ng-class="['glyphicon-arrow-' + board[19].target, 'text-' + (board[19].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[20].type" class="box">
+  <span ng-class="[board[20].type, board[20].action]" class="box">
     {{board[20].hp}}
+    <span ng-show="board[20].target"
+          ng-class="['glyphicon-arrow-' + board[20].target, 'text-' + (board[20].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[21].type" class="box">
+  <span ng-class="[board[21].type, board[21].action]" class="box">
     {{board[21].hp}}
+    <span ng-show="board[21].target"
+          ng-class="['glyphicon-arrow-' + board[21].target, 'text-' + (board[21].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[22].type" class="box">
+  <span ng-class="[board[22].type, board[22].action]" class="box">
     {{board[22].hp}}
+    <span ng-show="board[22].target"
+          ng-class="['glyphicon-arrow-' + board[22].target, 'text-' + (board[22].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[23].type" class="box">
+  <span ng-class="[board[23].type, board[23].action]" class="box">
     {{board[23].hp}}
+    <span ng-show="board[23].target"
+          ng-class="['glyphicon-arrow-' + board[23].target, 'text-' + (board[23].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[24].type" class="box">
+  <span ng-class="[board[24].type, board[24].action]" class="box">
     {{board[24].hp}}
+    <span ng-show="board[24].target"
+          ng-class="['glyphicon-arrow-' + board[24].target, 'text-' + (board[24].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[25].type" class="box">
+  <span ng-class="[board[25].type, board[25].action]" class="box">
     {{board[25].hp}}
+    <span ng-show="board[25].target"
+          ng-class="['glyphicon-arrow-' + board[25].target, 'text-' + (board[25].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[26].type" class="box">
+  <span ng-class="[board[26].type, board[26].action]" class="box">
     {{board[26].hp}}
+    <span ng-show="board[26].target"
+          ng-class="['glyphicon-arrow-' + board[26].target, 'text-' + (board[26].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[27].type" class="box">
+  <span ng-class="[board[27].type, board[27].action]" class="box">
     {{board[27].hp}}
+    <span ng-show="board[27].target"
+          ng-class="['glyphicon-arrow-' + board[27].target, 'text-' + (board[27].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[28].type" class="box">
+  <span ng-class="[board[28].type, board[28].action]" class="box">
     {{board[28].hp}}
+    <span ng-show="board[28].target"
+          ng-class="['glyphicon-arrow-' + board[28].target, 'text-' + (board[28].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[29].type" class="box">
+  <span ng-class="[board[29].type, board[29].action]" class="box">
     {{board[29].hp}}
+    <span ng-show="board[29].target"
+          ng-class="['glyphicon-arrow-' + board[29].target, 'text-' + (board[29].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[30].type" class="box">
+  <span ng-class="[board[30].type, board[30].action]" class="box">
     {{board[30].hp}}
+    <span ng-show="board[30].target"
+          ng-class="['glyphicon-arrow-' + board[30].target, 'text-' + (board[30].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[31].type" class="box">
+  <span ng-class="[board[31].type, board[31].action]" class="box">
     {{board[31].hp}}
+    <span ng-show="board[31].target"
+          ng-class="['glyphicon-arrow-' + board[31].target, 'text-' + (board[31].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[32].type" class="box">
+  <span ng-class="[board[32].type, board[32].action]" class="box">
     {{board[32].hp}}
+    <span ng-show="board[32].target"
+          ng-class="['glyphicon-arrow-' + board[32].target, 'text-' + (board[32].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[33].type" class="box">
+  <span ng-class="[board[33].type, board[33].action]" class="box">
     {{board[33].hp}}
+    <span ng-show="board[33].target"
+          ng-class="['glyphicon-arrow-' + board[33].target, 'text-' + (board[33].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[34].type" class="box">
+  <span ng-class="[board[34].type, board[34].action]" class="box">
     {{board[34].hp}}
+    <span ng-show="board[34].target"
+          ng-class="['glyphicon-arrow-' + board[34].target, 'text-' + (board[34].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[35].type" class="box">
+  <span ng-class="[board[35].type, board[35].action]" class="box">
     {{board[35].hp}}
+    <span ng-show="board[35].target"
+          ng-class="['glyphicon-arrow-' + board[35].target, 'text-' + (board[35].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[36].type" class="box">
+  <span ng-class="[board[36].type, board[36].action]" class="box">
     {{board[36].hp}}
+    <span ng-show="board[36].target"
+          ng-class="['glyphicon-arrow-' + board[36].target, 'text-' + (board[36].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[37].type" class="box">
+  <span ng-class="[board[37].type, board[37].action]" class="box">
     {{board[37].hp}}
+    <span ng-show="board[37].target"
+          ng-class="['glyphicon-arrow-' + board[37].target, 'text-' + (board[37].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[38].type" class="box">
+  <span ng-class="[board[38].type, board[38].action]" class="box">
     {{board[38].hp}}
+    <span ng-show="board[38].target"
+          ng-class="['glyphicon-arrow-' + board[38].target, 'text-' + (board[38].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[39].type" class="box">
+  <span ng-class="[board[39].type, board[39].action]" class="box">
     {{board[39].hp}}
+    <span ng-show="board[39].target"
+          ng-class="['glyphicon-arrow-' + board[39].target, 'text-' + (board[39].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[40].type" class="box">
+  <span ng-class="[board[40].type, board[40].action]" class="box">
     {{board[40].hp}}
+    <span ng-show="board[40].target"
+          ng-class="['glyphicon-arrow-' + board[40].target, 'text-' + (board[40].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[41].type" class="box">
+  <span ng-class="[board[41].type, board[41].action]" class="box">
     {{board[41].hp}}
+    <span ng-show="board[41].target"
+          ng-class="['glyphicon-arrow-' + board[41].target, 'text-' + (board[41].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[42].type" class="box">
+  <span ng-class="[board[42].type, board[42].action]" class="box">
     {{board[42].hp}}
+    <span ng-show="board[42].target"
+          ng-class="['glyphicon-arrow-' + board[42].target, 'text-' + (board[42].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[43].type" class="box">
+  <span ng-class="[board[43].type, board[43].action]" class="box">
     {{board[43].hp}}
+    <span ng-show="board[43].target"
+          ng-class="['glyphicon-arrow-' + board[43].target, 'text-' + (board[43].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[44].type" class="box">
+  <span ng-class="[board[44].type, board[44].action]" class="box">
     {{board[44].hp}}
+    <span ng-show="board[44].target"
+          ng-class="['glyphicon-arrow-' + board[44].target, 'text-' + (board[44].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[45].type" class="box">
+  <span ng-class="[board[45].type, board[45].action]" class="box">
     {{board[45].hp}}
+    <span ng-show="board[45].target"
+          ng-class="['glyphicon-arrow-' + board[45].target, 'text-' + (board[45].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[46].type" class="box">
+  <span ng-class="[board[46].type, board[46].action]" class="box">
     {{board[46].hp}}
+    <span ng-show="board[46].target"
+          ng-class="['glyphicon-arrow-' + board[46].target, 'text-' + (board[46].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[47].type" class="box">
+  <span ng-class="[board[47].type, board[47].action]" class="box">
     {{board[47].hp}}
+    <span ng-show="board[47].target"
+          ng-class="['glyphicon-arrow-' + board[47].target, 'text-' + (board[47].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[48].type" class="box">
+  <span ng-class="[board[48].type, board[48].action]" class="box">
     {{board[48].hp}}
+    <span ng-show="board[48].target"
+          ng-class="['glyphicon-arrow-' + board[48].target, 'text-' + (board[48].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[49].type" class="box">
+  <span ng-class="[board[49].type, board[49].action]" class="box">
     {{board[49].hp}}
+    <span ng-show="board[49].target"
+          ng-class="['glyphicon-arrow-' + board[49].target, 'text-' + (board[49].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[50].type" class="box">
+  <span ng-class="[board[50].type, board[50].action]" class="box">
     {{board[50].hp}}
+    <span ng-show="board[50].target"
+          ng-class="['glyphicon-arrow-' + board[50].target, 'text-' + (board[50].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[51].type" class="box">
+  <span ng-class="[board[51].type, board[51].action]" class="box">
     {{board[51].hp}}
+    <span ng-show="board[51].target"
+          ng-class="['glyphicon-arrow-' + board[51].target, 'text-' + (board[51].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[52].type" class="box">
+  <span ng-class="[board[52].type, board[52].action]" class="box">
     {{board[52].hp}}
+    <span ng-show="board[52].target"
+          ng-class="['glyphicon-arrow-' + board[52].target, 'text-' + (board[52].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[53].type" class="box">
+  <span ng-class="[board[53].type, board[53].action]" class="box">
     {{board[53].hp}}
+    <span ng-show="board[53].target"
+          ng-class="['glyphicon-arrow-' + board[53].target, 'text-' + (board[53].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[54].type" class="box">
+  <span ng-class="[board[54].type, board[54].action]" class="box">
     {{board[54].hp}}
+    <span ng-show="board[54].target"
+          ng-class="['glyphicon-arrow-' + board[54].target, 'text-' + (board[54].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[55].type" class="box">
+  <span ng-class="[board[55].type, board[55].action]" class="box">
     {{board[55].hp}}
+    <span ng-show="board[55].target"
+          ng-class="['glyphicon-arrow-' + board[55].target, 'text-' + (board[55].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[56].type" class="box">
+  <span ng-class="[board[56].type, board[56].action]" class="box">
     {{board[56].hp}}
+    <span ng-show="board[56].target"
+          ng-class="['glyphicon-arrow-' + board[56].target, 'text-' + (board[56].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[57].type" class="box">
+  <span ng-class="[board[57].type, board[57].action]" class="box">
     {{board[57].hp}}
+    <span ng-show="board[57].target"
+          ng-class="['glyphicon-arrow-' + board[57].target, 'text-' + (board[57].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[58].type" class="box">
+  <span ng-class="[board[58].type, board[58].action]" class="box">
     {{board[58].hp}}
+    <span ng-show="board[58].target"
+          ng-class="['glyphicon-arrow-' + board[58].target, 'text-' + (board[58].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[59].type" class="box">
+  <span ng-class="[board[59].type, board[59].action]" class="box">
     {{board[59].hp}}
+    <span ng-show="board[59].target"
+          ng-class="['glyphicon-arrow-' + board[59].target, 'text-' + (board[59].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[60].type" class="box">
+  <span ng-class="[board[60].type, board[60].action]" class="box">
     {{board[60].hp}}
+    <span ng-show="board[60].target"
+          ng-class="['glyphicon-arrow-' + board[60].target, 'text-' + (board[60].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[61].type" class="box">
+  <span ng-class="[board[61].type, board[61].action]" class="box">
     {{board[61].hp}}
+    <span ng-show="board[61].target"
+          ng-class="['glyphicon-arrow-' + board[61].target, 'text-' + (board[61].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[62].type" class="box">
+  <span ng-class="[board[62].type, board[62].action]" class="box">
     {{board[62].hp}}
+    <span ng-show="board[62].target"
+          ng-class="['glyphicon-arrow-' + board[62].target, 'text-' + (board[62].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[63].type" class="box">
+  <span ng-class="[board[63].type, board[63].action]" class="box">
     {{board[63].hp}}
+    <span ng-show="board[63].target"
+          ng-class="['glyphicon-arrow-' + board[63].target, 'text-' + (board[63].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[64].type" class="box">
+  <span ng-class="[board[64].type, board[64].action]" class="box">
     {{board[64].hp}}
+    <span ng-show="board[64].target"
+          ng-class="['glyphicon-arrow-' + board[64].target, 'text-' + (board[64].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[65].type" class="box">
+  <span ng-class="[board[65].type, board[65].action]" class="box">
     {{board[65].hp}}
+    <span ng-show="board[65].target"
+          ng-class="['glyphicon-arrow-' + board[65].target, 'text-' + (board[65].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[66].type" class="box">
+  <span ng-class="[board[66].type, board[66].action]" class="box">
     {{board[66].hp}}
+    <span ng-show="board[66].target"
+          ng-class="['glyphicon-arrow-' + board[66].target, 'text-' + (board[66].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[67].type" class="box">
+  <span ng-class="[board[67].type, board[67].action]" class="box">
     {{board[67].hp}}
+    <span ng-show="board[67].target"
+          ng-class="['glyphicon-arrow-' + board[67].target, 'text-' + (board[67].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[68].type" class="box">
+  <span ng-class="[board[68].type, board[68].action]" class="box">
     {{board[68].hp}}
+    <span ng-show="board[68].target"
+          ng-class="['glyphicon-arrow-' + board[68].target, 'text-' + (board[68].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[69].type" class="box">
+  <span ng-class="[board[69].type, board[69].action]" class="box">
     {{board[69].hp}}
+    <span ng-show="board[69].target"
+          ng-class="['glyphicon-arrow-' + board[69].target, 'text-' + (board[69].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[70].type" class="box">
+  <span ng-class="[board[70].type, board[70].action]" class="box">
     {{board[70].hp}}
+    <span ng-show="board[70].target"
+          ng-class="['glyphicon-arrow-' + board[70].target, 'text-' + (board[70].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[71].type" class="box">
+  <span ng-class="[board[71].type, board[71].action]" class="box">
     {{board[71].hp}}
+    <span ng-show="board[71].target"
+          ng-class="['glyphicon-arrow-' + board[71].target, 'text-' + (board[71].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[72].type" class="box">
+  <span ng-class="[board[72].type, board[72].action]" class="box">
     {{board[72].hp}}
+    <span ng-show="board[72].target"
+          ng-class="['glyphicon-arrow-' + board[72].target, 'text-' + (board[72].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[73].type" class="box">
+  <span ng-class="[board[73].type, board[73].action]" class="box">
     {{board[73].hp}}
+    <span ng-show="board[73].target"
+          ng-class="['glyphicon-arrow-' + board[73].target, 'text-' + (board[73].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[74].type" class="box">
+  <span ng-class="[board[74].type, board[74].action]" class="box">
     {{board[74].hp}}
+    <span ng-show="board[74].target"
+          ng-class="['glyphicon-arrow-' + board[74].target, 'text-' + (board[74].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[75].type" class="box">
+  <span ng-class="[board[75].type, board[75].action]" class="box">
     {{board[75].hp}}
+    <span ng-show="board[75].target"
+          ng-class="['glyphicon-arrow-' + board[75].target, 'text-' + (board[75].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[76].type" class="box">
+  <span ng-class="[board[76].type, board[76].action]" class="box">
     {{board[76].hp}}
+    <span ng-show="board[76].target"
+          ng-class="['glyphicon-arrow-' + board[76].target, 'text-' + (board[76].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[77].type" class="box">
+  <span ng-class="[board[77].type, board[77].action]" class="box">
     {{board[77].hp}}
+    <span ng-show="board[77].target"
+          ng-class="['glyphicon-arrow-' + board[77].target, 'text-' + (board[77].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[78].type" class="box">
+  <span ng-class="[board[78].type, board[78].action]" class="box">
     {{board[78].hp}}
+    <span ng-show="board[78].target"
+          ng-class="['glyphicon-arrow-' + board[78].target, 'text-' + (board[78].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[79].type" class="box">
+  <span ng-class="[board[79].type, board[79].action]" class="box">
     {{board[79].hp}}
+    <span ng-show="board[79].target"
+          ng-class="['glyphicon-arrow-' + board[79].target, 'text-' + (board[79].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[80].type" class="box">
+  <span ng-class="[board[80].type, board[80].action]" class="box">
     {{board[80].hp}}
+    <span ng-show="board[80].target"
+          ng-class="['glyphicon-arrow-' + board[80].target, 'text-' + (board[80].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[81].type" class="box">
+  <span ng-class="[board[81].type, board[81].action]" class="box">
     {{board[81].hp}}
+    <span ng-show="board[81].target"
+          ng-class="['glyphicon-arrow-' + board[81].target, 'text-' + (board[81].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[82].type" class="box">
+  <span ng-class="[board[82].type, board[82].action]" class="box">
     {{board[82].hp}}
+    <span ng-show="board[82].target"
+          ng-class="['glyphicon-arrow-' + board[82].target, 'text-' + (board[82].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[83].type" class="box">
+  <span ng-class="[board[83].type, board[83].action]" class="box">
     {{board[83].hp}}
+    <span ng-show="board[83].target"
+          ng-class="['glyphicon-arrow-' + board[83].target, 'text-' + (board[83].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[84].type" class="box">
+  <span ng-class="[board[84].type, board[84].action]" class="box">
     {{board[84].hp}}
+    <span ng-show="board[84].target"
+          ng-class="['glyphicon-arrow-' + board[84].target, 'text-' + (board[84].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[85].type" class="box">
+  <span ng-class="[board[85].type, board[85].action]" class="box">
     {{board[85].hp}}
+    <span ng-show="board[85].target"
+          ng-class="['glyphicon-arrow-' + board[85].target, 'text-' + (board[85].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[86].type" class="box">
+  <span ng-class="[board[86].type, board[86].action]" class="box">
     {{board[86].hp}}
+    <span ng-show="board[86].target"
+          ng-class="['glyphicon-arrow-' + board[86].target, 'text-' + (board[86].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[87].type" class="box">
+  <span ng-class="[board[87].type, board[87].action]" class="box">
     {{board[87].hp}}
+    <span ng-show="board[87].target"
+          ng-class="['glyphicon-arrow-' + board[87].target, 'text-' + (board[87].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[88].type" class="box">
+  <span ng-class="[board[88].type, board[88].action]" class="box">
     {{board[88].hp}}
+    <span ng-show="board[88].target"
+          ng-class="['glyphicon-arrow-' + board[88].target, 'text-' + (board[88].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[89].type" class="box">
+  <span ng-class="[board[89].type, board[89].action]" class="box">
     {{board[89].hp}}
+    <span ng-show="board[89].target"
+          ng-class="['glyphicon-arrow-' + board[89].target, 'text-' + (board[89].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[90].type" class="box">
+  <span ng-class="[board[90].type, board[90].action]" class="box">
     {{board[90].hp}}
+    <span ng-show="board[90].target"
+          ng-class="['glyphicon-arrow-' + board[90].target, 'text-' + (board[90].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[91].type" class="box">
+  <span ng-class="[board[91].type, board[91].action]" class="box">
     {{board[91].hp}}
+    <span ng-show="board[91].target"
+          ng-class="['glyphicon-arrow-' + board[91].target, 'text-' + (board[91].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[92].type" class="box">
+  <span ng-class="[board[92].type, board[92].action]" class="box">
     {{board[92].hp}}
+    <span ng-show="board[92].target"
+          ng-class="['glyphicon-arrow-' + board[92].target, 'text-' + (board[92].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[93].type" class="box">
+  <span ng-class="[board[93].type, board[93].action]" class="box">
     {{board[93].hp}}
+    <span ng-show="board[93].target"
+          ng-class="['glyphicon-arrow-' + board[93].target, 'text-' + (board[93].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[94].type" class="box">
+  <span ng-class="[board[94].type, board[94].action]" class="box">
     {{board[94].hp}}
+    <span ng-show="board[94].target"
+          ng-class="['glyphicon-arrow-' + board[94].target, 'text-' + (board[94].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[95].type" class="box">
+  <span ng-class="[board[95].type, board[95].action]" class="box">
     {{board[95].hp}}
+    <span ng-show="board[95].target"
+          ng-class="['glyphicon-arrow-' + board[95].target, 'text-' + (board[95].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[96].type" class="box">
+  <span ng-class="[board[96].type, board[96].action]" class="box">
     {{board[96].hp}}
+    <span ng-show="board[96].target"
+          ng-class="['glyphicon-arrow-' + board[96].target, 'text-' + (board[96].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[97].type" class="box">
+  <span ng-class="[board[97].type, board[97].action]" class="box">
     {{board[97].hp}}
+    <span ng-show="board[97].target"
+          ng-class="['glyphicon-arrow-' + board[97].target, 'text-' + (board[97].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[98].type" class="box">
+  <span ng-class="[board[98].type, board[98].action]" class="box">
     {{board[98].hp}}
+    <span ng-show="board[98].target"
+          ng-class="['glyphicon-arrow-' + board[98].target, 'text-' + (board[98].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[99].type" class="box">
+  <span ng-class="[board[99].type, board[99].action]" class="box">
     {{board[99].hp}}
+    <span ng-show="board[99].target"
+          ng-class="['glyphicon-arrow-' + board[99].target, 'text-' + (board[99].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[100].type" class="box">
+  <span ng-class="[board[100].type, board[100].action]" class="box">
     {{board[100].hp}}
+    <span ng-show="board[100].target"
+          ng-class="['glyphicon-arrow-' + board[100].target, 'text-' + (board[100].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[101].type" class="box">
+  <span ng-class="[board[101].type, board[101].action]" class="box">
     {{board[101].hp}}
+    <span ng-show="board[101].target"
+          ng-class="['glyphicon-arrow-' + board[101].target, 'text-' + (board[101].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[102].type" class="box">
+  <span ng-class="[board[102].type, board[102].action]" class="box">
     {{board[102].hp}}
+    <span ng-show="board[102].target"
+          ng-class="['glyphicon-arrow-' + board[102].target, 'text-' + (board[102].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[103].type" class="box">
+  <span ng-class="[board[103].type, board[103].action]" class="box">
     {{board[103].hp}}
+    <span ng-show="board[103].target"
+          ng-class="['glyphicon-arrow-' + board[103].target, 'text-' + (board[103].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[104].type" class="box">
+  <span ng-class="[board[104].type, board[104].action]" class="box">
     {{board[104].hp}}
+    <span ng-show="board[104].target"
+          ng-class="['glyphicon-arrow-' + board[104].target, 'text-' + (board[104].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[105].type" class="box">
+  <span ng-class="[board[105].type, board[105].action]" class="box">
     {{board[105].hp}}
+    <span ng-show="board[105].target"
+          ng-class="['glyphicon-arrow-' + board[105].target, 'text-' + (board[105].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[106].type" class="box">
+  <span ng-class="[board[106].type, board[106].action]" class="box">
     {{board[106].hp}}
+    <span ng-show="board[106].target"
+          ng-class="['glyphicon-arrow-' + board[106].target, 'text-' + (board[106].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[107].type" class="box">
+  <span ng-class="[board[107].type, board[107].action]" class="box">
     {{board[107].hp}}
+    <span ng-show="board[107].target"
+          ng-class="['glyphicon-arrow-' + board[107].target, 'text-' + (board[107].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[108].type" class="box">
+  <span ng-class="[board[108].type, board[108].action]" class="box">
     {{board[108].hp}}
+    <span ng-show="board[108].target"
+          ng-class="['glyphicon-arrow-' + board[108].target, 'text-' + (board[108].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[109].type" class="box">
+  <span ng-class="[board[109].type, board[109].action]" class="box">
     {{board[109].hp}}
+    <span ng-show="board[109].target"
+          ng-class="['glyphicon-arrow-' + board[109].target, 'text-' + (board[109].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[110].type" class="box">
+  <span ng-class="[board[110].type, board[110].action]" class="box">
     {{board[110].hp}}
+    <span ng-show="board[110].target"
+          ng-class="['glyphicon-arrow-' + board[110].target, 'text-' + (board[110].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[111].type" class="box">
+  <span ng-class="[board[111].type, board[111].action]" class="box">
     {{board[111].hp}}
+    <span ng-show="board[111].target"
+          ng-class="['glyphicon-arrow-' + board[111].target, 'text-' + (board[111].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[112].type" class="box">
+  <span ng-class="[board[112].type, board[112].action]" class="box">
     {{board[112].hp}}
+    <span ng-show="board[112].target"
+          ng-class="['glyphicon-arrow-' + board[112].target, 'text-' + (board[112].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[113].type" class="box">
+  <span ng-class="[board[113].type, board[113].action]" class="box">
     {{board[113].hp}}
+    <span ng-show="board[113].target"
+          ng-class="['glyphicon-arrow-' + board[113].target, 'text-' + (board[113].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[114].type" class="box">
+  <span ng-class="[board[114].type, board[114].action]" class="box">
     {{board[114].hp}}
+    <span ng-show="board[114].target"
+          ng-class="['glyphicon-arrow-' + board[114].target, 'text-' + (board[114].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[115].type" class="box">
+  <span ng-class="[board[115].type, board[115].action]" class="box">
     {{board[115].hp}}
+    <span ng-show="board[115].target"
+          ng-class="['glyphicon-arrow-' + board[115].target, 'text-' + (board[115].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[116].type" class="box">
+  <span ng-class="[board[116].type, board[116].action]" class="box">
     {{board[116].hp}}
+    <span ng-show="board[116].target"
+          ng-class="['glyphicon-arrow-' + board[116].target, 'text-' + (board[116].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[117].type" class="box">
+  <span ng-class="[board[117].type, board[117].action]" class="box">
     {{board[117].hp}}
+    <span ng-show="board[117].target"
+          ng-class="['glyphicon-arrow-' + board[117].target, 'text-' + (board[117].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[118].type" class="box">
+  <span ng-class="[board[118].type, board[118].action]" class="box">
     {{board[118].hp}}
+    <span ng-show="board[118].target"
+          ng-class="['glyphicon-arrow-' + board[118].target, 'text-' + (board[118].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[119].type" class="box">
+  <span ng-class="[board[119].type, board[119].action]" class="box">
     {{board[119].hp}}
+    <span ng-show="board[119].target"
+          ng-class="['glyphicon-arrow-' + board[119].target, 'text-' + (board[119].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[120].type" class="box">
+  <span ng-class="[board[120].type, board[120].action]" class="box">
     {{board[120].hp}}
+    <span ng-show="board[120].target"
+          ng-class="['glyphicon-arrow-' + board[120].target, 'text-' + (board[120].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[121].type" class="box">
+  <span ng-class="[board[121].type, board[121].action]" class="box">
     {{board[121].hp}}
+    <span ng-show="board[121].target"
+          ng-class="['glyphicon-arrow-' + board[121].target, 'text-' + (board[121].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[122].type" class="box">
+  <span ng-class="[board[122].type, board[122].action]" class="box">
     {{board[122].hp}}
+    <span ng-show="board[122].target"
+          ng-class="['glyphicon-arrow-' + board[122].target, 'text-' + (board[122].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[123].type" class="box">
+  <span ng-class="[board[123].type, board[123].action]" class="box">
     {{board[123].hp}}
+    <span ng-show="board[123].target"
+          ng-class="['glyphicon-arrow-' + board[123].target, 'text-' + (board[123].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[124].type" class="box">
+  <span ng-class="[board[124].type, board[124].action]" class="box">
     {{board[124].hp}}
+    <span ng-show="board[124].target"
+          ng-class="['glyphicon-arrow-' + board[124].target, 'text-' + (board[124].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[125].type" class="box">
+  <span ng-class="[board[125].type, board[125].action]" class="box">
     {{board[125].hp}}
+    <span ng-show="board[125].target"
+          ng-class="['glyphicon-arrow-' + board[125].target, 'text-' + (board[125].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[126].type" class="box">
+  <span ng-class="[board[126].type, board[126].action]" class="box">
     {{board[126].hp}}
+    <span ng-show="board[126].target"
+          ng-class="['glyphicon-arrow-' + board[126].target, 'text-' + (board[126].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[127].type" class="box">
+  <span ng-class="[board[127].type, board[127].action]" class="box">
     {{board[127].hp}}
+    <span ng-show="board[127].target"
+          ng-class="['glyphicon-arrow-' + board[127].target, 'text-' + (board[127].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[128].type" class="box">
+  <span ng-class="[board[128].type, board[128].action]" class="box">
     {{board[128].hp}}
+    <span ng-show="board[128].target"
+          ng-class="['glyphicon-arrow-' + board[128].target, 'text-' + (board[128].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[129].type" class="box">
+  <span ng-class="[board[129].type, board[129].action]" class="box">
     {{board[129].hp}}
+    <span ng-show="board[129].target"
+          ng-class="['glyphicon-arrow-' + board[129].target, 'text-' + (board[129].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[130].type" class="box">
+  <span ng-class="[board[130].type, board[130].action]" class="box">
     {{board[130].hp}}
+    <span ng-show="board[130].target"
+          ng-class="['glyphicon-arrow-' + board[130].target, 'text-' + (board[130].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[131].type" class="box">
+  <span ng-class="[board[131].type, board[131].action]" class="box">
     {{board[131].hp}}
+    <span ng-show="board[131].target"
+          ng-class="['glyphicon-arrow-' + board[131].target, 'text-' + (board[131].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[132].type" class="box">
+  <span ng-class="[board[132].type, board[132].action]" class="box">
     {{board[132].hp}}
+    <span ng-show="board[132].target"
+          ng-class="['glyphicon-arrow-' + board[132].target, 'text-' + (board[132].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[133].type" class="box">
+  <span ng-class="[board[133].type, board[133].action]" class="box">
     {{board[133].hp}}
+    <span ng-show="board[133].target"
+          ng-class="['glyphicon-arrow-' + board[133].target, 'text-' + (board[133].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[134].type" class="box">
+  <span ng-class="[board[134].type, board[134].action]" class="box">
     {{board[134].hp}}
+    <span ng-show="board[134].target"
+          ng-class="['glyphicon-arrow-' + board[134].target, 'text-' + (board[134].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[135].type" class="box">
+  <span ng-class="[board[135].type, board[135].action]" class="box">
     {{board[135].hp}}
+    <span ng-show="board[135].target"
+          ng-class="['glyphicon-arrow-' + board[135].target, 'text-' + (board[135].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[136].type" class="box">
+  <span ng-class="[board[136].type, board[136].action]" class="box">
     {{board[136].hp}}
+    <span ng-show="board[136].target"
+          ng-class="['glyphicon-arrow-' + board[136].target, 'text-' + (board[136].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[137].type" class="box">
+  <span ng-class="[board[137].type, board[137].action]" class="box">
     {{board[137].hp}}
+    <span ng-show="board[137].target"
+          ng-class="['glyphicon-arrow-' + board[137].target, 'text-' + (board[137].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[138].type" class="box">
+  <span ng-class="[board[138].type, board[138].action]" class="box">
     {{board[138].hp}}
+    <span ng-show="board[138].target"
+          ng-class="['glyphicon-arrow-' + board[138].target, 'text-' + (board[138].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[139].type" class="box">
+  <span ng-class="[board[139].type, board[139].action]" class="box">
     {{board[139].hp}}
+    <span ng-show="board[139].target"
+          ng-class="['glyphicon-arrow-' + board[139].target, 'text-' + (board[139].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[140].type" class="box">
+  <span ng-class="[board[140].type, board[140].action]" class="box">
     {{board[140].hp}}
+    <span ng-show="board[140].target"
+          ng-class="['glyphicon-arrow-' + board[140].target, 'text-' + (board[140].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[141].type" class="box">
+  <span ng-class="[board[141].type, board[141].action]" class="box">
     {{board[141].hp}}
+    <span ng-show="board[141].target"
+          ng-class="['glyphicon-arrow-' + board[141].target, 'text-' + (board[141].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[142].type" class="box">
+  <span ng-class="[board[142].type, board[142].action]" class="box">
     {{board[142].hp}}
+    <span ng-show="board[142].target"
+          ng-class="['glyphicon-arrow-' + board[142].target, 'text-' + (board[142].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[143].type" class="box">
+  <span ng-class="[board[143].type, board[143].action]" class="box">
     {{board[143].hp}}
+    <span ng-show="board[143].target"
+          ng-class="['glyphicon-arrow-' + board[143].target, 'text-' + (board[143].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[144].type" class="box">
+  <span ng-class="[board[144].type, board[144].action]" class="box">
     {{board[144].hp}}
+    <span ng-show="board[144].target"
+          ng-class="['glyphicon-arrow-' + board[144].target, 'text-' + (board[144].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[145].type" class="box">
+  <span ng-class="[board[145].type, board[145].action]" class="box">
     {{board[145].hp}}
+    <span ng-show="board[145].target"
+          ng-class="['glyphicon-arrow-' + board[145].target, 'text-' + (board[145].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[146].type" class="box">
+  <span ng-class="[board[146].type, board[146].action]" class="box">
     {{board[146].hp}}
+    <span ng-show="board[146].target"
+          ng-class="['glyphicon-arrow-' + board[146].target, 'text-' + (board[146].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[147].type" class="box">
+  <span ng-class="[board[147].type, board[147].action]" class="box">
     {{board[147].hp}}
+    <span ng-show="board[147].target"
+          ng-class="['glyphicon-arrow-' + board[147].target, 'text-' + (board[147].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[148].type" class="box">
+  <span ng-class="[board[148].type, board[148].action]" class="box">
     {{board[148].hp}}
+    <span ng-show="board[148].target"
+          ng-class="['glyphicon-arrow-' + board[148].target, 'text-' + (board[148].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[149].type" class="box">
+  <span ng-class="[board[149].type, board[149].action]" class="box">
     {{board[149].hp}}
+    <span ng-show="board[149].target"
+          ng-class="['glyphicon-arrow-' + board[149].target, 'text-' + (board[149].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[150].type" class="box">
+  <span ng-class="[board[150].type, board[150].action]" class="box">
     {{board[150].hp}}
+    <span ng-show="board[150].target"
+          ng-class="['glyphicon-arrow-' + board[150].target, 'text-' + (board[150].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[151].type" class="box">
+  <span ng-class="[board[151].type, board[151].action]" class="box">
     {{board[151].hp}}
+    <span ng-show="board[151].target"
+          ng-class="['glyphicon-arrow-' + board[151].target, 'text-' + (board[151].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[152].type" class="box">
+  <span ng-class="[board[152].type, board[152].action]" class="box">
     {{board[152].hp}}
+    <span ng-show="board[152].target"
+          ng-class="['glyphicon-arrow-' + board[152].target, 'text-' + (board[152].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[153].type" class="box">
+  <span ng-class="[board[153].type, board[153].action]" class="box">
     {{board[153].hp}}
+    <span ng-show="board[153].target"
+          ng-class="['glyphicon-arrow-' + board[153].target, 'text-' + (board[153].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[154].type" class="box">
+  <span ng-class="[board[154].type, board[154].action]" class="box">
     {{board[154].hp}}
+    <span ng-show="board[154].target"
+          ng-class="['glyphicon-arrow-' + board[154].target, 'text-' + (board[154].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[155].type" class="box">
+  <span ng-class="[board[155].type, board[155].action]" class="box">
     {{board[155].hp}}
+    <span ng-show="board[155].target"
+          ng-class="['glyphicon-arrow-' + board[155].target, 'text-' + (board[155].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[156].type" class="box">
+  <span ng-class="[board[156].type, board[156].action]" class="box">
     {{board[156].hp}}
+    <span ng-show="board[156].target"
+          ng-class="['glyphicon-arrow-' + board[156].target, 'text-' + (board[156].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[157].type" class="box">
+  <span ng-class="[board[157].type, board[157].action]" class="box">
     {{board[157].hp}}
+    <span ng-show="board[157].target"
+          ng-class="['glyphicon-arrow-' + board[157].target, 'text-' + (board[157].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[158].type" class="box">
+  <span ng-class="[board[158].type, board[158].action]" class="box">
     {{board[158].hp}}
+    <span ng-show="board[158].target"
+          ng-class="['glyphicon-arrow-' + board[158].target, 'text-' + (board[158].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[159].type" class="box">
+  <span ng-class="[board[159].type, board[159].action]" class="box">
     {{board[159].hp}}
+    <span ng-show="board[159].target"
+          ng-class="['glyphicon-arrow-' + board[159].target, 'text-' + (board[159].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[160].type" class="box">
+  <span ng-class="[board[160].type, board[160].action]" class="box">
     {{board[160].hp}}
+    <span ng-show="board[160].target"
+          ng-class="['glyphicon-arrow-' + board[160].target, 'text-' + (board[160].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[161].type" class="box">
+  <span ng-class="[board[161].type, board[161].action]" class="box">
     {{board[161].hp}}
+    <span ng-show="board[161].target"
+          ng-class="['glyphicon-arrow-' + board[161].target, 'text-' + (board[161].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[162].type" class="box">
+  <span ng-class="[board[162].type, board[162].action]" class="box">
     {{board[162].hp}}
+    <span ng-show="board[162].target"
+          ng-class="['glyphicon-arrow-' + board[162].target, 'text-' + (board[162].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[163].type" class="box">
+  <span ng-class="[board[163].type, board[163].action]" class="box">
     {{board[163].hp}}
+    <span ng-show="board[163].target"
+          ng-class="['glyphicon-arrow-' + board[163].target, 'text-' + (board[163].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[164].type" class="box">
+  <span ng-class="[board[164].type, board[164].action]" class="box">
     {{board[164].hp}}
+    <span ng-show="board[164].target"
+          ng-class="['glyphicon-arrow-' + board[164].target, 'text-' + (board[164].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[165].type" class="box">
+  <span ng-class="[board[165].type, board[165].action]" class="box">
     {{board[165].hp}}
+    <span ng-show="board[165].target"
+          ng-class="['glyphicon-arrow-' + board[165].target, 'text-' + (board[165].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[166].type" class="box">
+  <span ng-class="[board[166].type, board[166].action]" class="box">
     {{board[166].hp}}
+    <span ng-show="board[166].target"
+          ng-class="['glyphicon-arrow-' + board[166].target, 'text-' + (board[166].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[167].type" class="box">
+  <span ng-class="[board[167].type, board[167].action]" class="box">
     {{board[167].hp}}
+    <span ng-show="board[167].target"
+          ng-class="['glyphicon-arrow-' + board[167].target, 'text-' + (board[167].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[168].type" class="box">
+  <span ng-class="[board[168].type, board[168].action]" class="box">
     {{board[168].hp}}
+    <span ng-show="board[168].target"
+          ng-class="['glyphicon-arrow-' + board[168].target, 'text-' + (board[168].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[169].type" class="box">
+  <span ng-class="[board[169].type, board[169].action]" class="box">
     {{board[169].hp}}
+    <span ng-show="board[169].target"
+          ng-class="['glyphicon-arrow-' + board[169].target, 'text-' + (board[169].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[170].type" class="box">
+  <span ng-class="[board[170].type, board[170].action]" class="box">
     {{board[170].hp}}
+    <span ng-show="board[170].target"
+          ng-class="['glyphicon-arrow-' + board[170].target, 'text-' + (board[170].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[171].type" class="box">
+  <span ng-class="[board[171].type, board[171].action]" class="box">
     {{board[171].hp}}
+    <span ng-show="board[171].target"
+          ng-class="['glyphicon-arrow-' + board[171].target, 'text-' + (board[171].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[172].type" class="box">
+  <span ng-class="[board[172].type, board[172].action]" class="box">
     {{board[172].hp}}
+    <span ng-show="board[172].target"
+          ng-class="['glyphicon-arrow-' + board[172].target, 'text-' + (board[172].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[173].type" class="box">
+  <span ng-class="[board[173].type, board[173].action]" class="box">
     {{board[173].hp}}
+    <span ng-show="board[173].target"
+          ng-class="['glyphicon-arrow-' + board[173].target, 'text-' + (board[173].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[174].type" class="box">
+  <span ng-class="[board[174].type, board[174].action]" class="box">
     {{board[174].hp}}
+    <span ng-show="board[174].target"
+          ng-class="['glyphicon-arrow-' + board[174].target, 'text-' + (board[174].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[175].type" class="box">
+  <span ng-class="[board[175].type, board[175].action]" class="box">
     {{board[175].hp}}
+    <span ng-show="board[175].target"
+          ng-class="['glyphicon-arrow-' + board[175].target, 'text-' + (board[175].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[176].type" class="box">
+  <span ng-class="[board[176].type, board[176].action]" class="box">
     {{board[176].hp}}
+    <span ng-show="board[176].target"
+          ng-class="['glyphicon-arrow-' + board[176].target, 'text-' + (board[176].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[177].type" class="box">
+  <span ng-class="[board[177].type, board[177].action]" class="box">
     {{board[177].hp}}
+    <span ng-show="board[177].target"
+          ng-class="['glyphicon-arrow-' + board[177].target, 'text-' + (board[177].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[178].type" class="box">
+  <span ng-class="[board[178].type, board[178].action]" class="box">
     {{board[178].hp}}
+    <span ng-show="board[178].target"
+          ng-class="['glyphicon-arrow-' + board[178].target, 'text-' + (board[178].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[179].type" class="box">
+  <span ng-class="[board[179].type, board[179].action]" class="box">
     {{board[179].hp}}
+    <span ng-show="board[179].target"
+          ng-class="['glyphicon-arrow-' + board[179].target, 'text-' + (board[179].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[180].type" class="box">
+  <span ng-class="[board[180].type, board[180].action]" class="box">
     {{board[180].hp}}
+    <span ng-show="board[180].target"
+          ng-class="['glyphicon-arrow-' + board[180].target, 'text-' + (board[180].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[181].type" class="box">
+  <span ng-class="[board[181].type, board[181].action]" class="box">
     {{board[181].hp}}
+    <span ng-show="board[181].target"
+          ng-class="['glyphicon-arrow-' + board[181].target, 'text-' + (board[181].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[182].type" class="box">
+  <span ng-class="[board[182].type, board[182].action]" class="box">
     {{board[182].hp}}
+    <span ng-show="board[182].target"
+          ng-class="['glyphicon-arrow-' + board[182].target, 'text-' + (board[182].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[183].type" class="box">
+  <span ng-class="[board[183].type, board[183].action]" class="box">
     {{board[183].hp}}
+    <span ng-show="board[183].target"
+          ng-class="['glyphicon-arrow-' + board[183].target, 'text-' + (board[183].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[184].type" class="box">
+  <span ng-class="[board[184].type, board[184].action]" class="box">
     {{board[184].hp}}
+    <span ng-show="board[184].target"
+          ng-class="['glyphicon-arrow-' + board[184].target, 'text-' + (board[184].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[185].type" class="box">
+  <span ng-class="[board[185].type, board[185].action]" class="box">
     {{board[185].hp}}
+    <span ng-show="board[185].target"
+          ng-class="['glyphicon-arrow-' + board[185].target, 'text-' + (board[185].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[186].type" class="box">
+  <span ng-class="[board[186].type, board[186].action]" class="box">
     {{board[186].hp}}
+    <span ng-show="board[186].target"
+          ng-class="['glyphicon-arrow-' + board[186].target, 'text-' + (board[186].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[187].type" class="box">
+  <span ng-class="[board[187].type, board[187].action]" class="box">
     {{board[187].hp}}
+    <span ng-show="board[187].target"
+          ng-class="['glyphicon-arrow-' + board[187].target, 'text-' + (board[187].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[188].type" class="box">
+  <span ng-class="[board[188].type, board[188].action]" class="box">
     {{board[188].hp}}
+    <span ng-show="board[188].target"
+          ng-class="['glyphicon-arrow-' + board[188].target, 'text-' + (board[188].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[189].type" class="box">
+  <span ng-class="[board[189].type, board[189].action]" class="box">
     {{board[189].hp}}
+    <span ng-show="board[189].target"
+          ng-class="['glyphicon-arrow-' + board[189].target, 'text-' + (board[189].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[190].type" class="box">
+  <span ng-class="[board[190].type, board[190].action]" class="box">
     {{board[190].hp}}
+    <span ng-show="board[190].target"
+          ng-class="['glyphicon-arrow-' + board[190].target, 'text-' + (board[190].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[191].type" class="box">
+  <span ng-class="[board[191].type, board[191].action]" class="box">
     {{board[191].hp}}
+    <span ng-show="board[191].target"
+          ng-class="['glyphicon-arrow-' + board[191].target, 'text-' + (board[191].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[192].type" class="box">
+  <span ng-class="[board[192].type, board[192].action]" class="box">
     {{board[192].hp}}
+    <span ng-show="board[192].target"
+          ng-class="['glyphicon-arrow-' + board[192].target, 'text-' + (board[192].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[193].type" class="box">
+  <span ng-class="[board[193].type, board[193].action]" class="box">
     {{board[193].hp}}
+    <span ng-show="board[193].target"
+          ng-class="['glyphicon-arrow-' + board[193].target, 'text-' + (board[193].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[194].type" class="box">
+  <span ng-class="[board[194].type, board[194].action]" class="box">
     {{board[194].hp}}
+    <span ng-show="board[194].target"
+          ng-class="['glyphicon-arrow-' + board[194].target, 'text-' + (board[194].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[195].type" class="box">
+  <span ng-class="[board[195].type, board[195].action]" class="box">
     {{board[195].hp}}
+    <span ng-show="board[195].target"
+          ng-class="['glyphicon-arrow-' + board[195].target, 'text-' + (board[195].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[196].type" class="box">
+  <span ng-class="[board[196].type, board[196].action]" class="box">
     {{board[196].hp}}
+    <span ng-show="board[196].target"
+          ng-class="['glyphicon-arrow-' + board[196].target, 'text-' + (board[196].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[197].type" class="box">
+  <span ng-class="[board[197].type, board[197].action]" class="box">
     {{board[197].hp}}
+    <span ng-show="board[197].target"
+          ng-class="['glyphicon-arrow-' + board[197].target, 'text-' + (board[197].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[198].type" class="box">
+  <span ng-class="[board[198].type, board[198].action]" class="box">
     {{board[198].hp}}
+    <span ng-show="board[198].target"
+          ng-class="['glyphicon-arrow-' + board[198].target, 'text-' + (board[198].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[199].type" class="box">
+  <span ng-class="[board[199].type, board[199].action]" class="box">
     {{board[199].hp}}
+    <span ng-show="board[199].target"
+          ng-class="['glyphicon-arrow-' + board[199].target, 'text-' + (board[199].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[200].type" class="box">
+  <span ng-class="[board[200].type, board[200].action]" class="box">
     {{board[200].hp}}
+    <span ng-show="board[200].target"
+          ng-class="['glyphicon-arrow-' + board[200].target, 'text-' + (board[200].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[201].type" class="box">
+  <span ng-class="[board[201].type, board[201].action]" class="box">
     {{board[201].hp}}
+    <span ng-show="board[201].target"
+          ng-class="['glyphicon-arrow-' + board[201].target, 'text-' + (board[201].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[202].type" class="box">
+  <span ng-class="[board[202].type, board[202].action]" class="box">
     {{board[202].hp}}
+    <span ng-show="board[202].target"
+          ng-class="['glyphicon-arrow-' + board[202].target, 'text-' + (board[202].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[203].type" class="box">
+  <span ng-class="[board[203].type, board[203].action]" class="box">
     {{board[203].hp}}
+    <span ng-show="board[203].target"
+          ng-class="['glyphicon-arrow-' + board[203].target, 'text-' + (board[203].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[204].type" class="box">
+  <span ng-class="[board[204].type, board[204].action]" class="box">
     {{board[204].hp}}
+    <span ng-show="board[204].target"
+          ng-class="['glyphicon-arrow-' + board[204].target, 'text-' + (board[204].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[205].type" class="box">
+  <span ng-class="[board[205].type, board[205].action]" class="box">
     {{board[205].hp}}
+    <span ng-show="board[205].target"
+          ng-class="['glyphicon-arrow-' + board[205].target, 'text-' + (board[205].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[206].type" class="box">
+  <span ng-class="[board[206].type, board[206].action]" class="box">
     {{board[206].hp}}
+    <span ng-show="board[206].target"
+          ng-class="['glyphicon-arrow-' + board[206].target, 'text-' + (board[206].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[207].type" class="box">
+  <span ng-class="[board[207].type, board[207].action]" class="box">
     {{board[207].hp}}
+    <span ng-show="board[207].target"
+          ng-class="['glyphicon-arrow-' + board[207].target, 'text-' + (board[207].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[208].type" class="box">
+  <span ng-class="[board[208].type, board[208].action]" class="box">
     {{board[208].hp}}
+    <span ng-show="board[208].target"
+          ng-class="['glyphicon-arrow-' + board[208].target, 'text-' + (board[208].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[209].type" class="box">
+  <span ng-class="[board[209].type, board[209].action]" class="box">
     {{board[209].hp}}
+    <span ng-show="board[209].target"
+          ng-class="['glyphicon-arrow-' + board[209].target, 'text-' + (board[209].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[210].type" class="box">
+  <span ng-class="[board[210].type, board[210].action]" class="box">
     {{board[210].hp}}
+    <span ng-show="board[210].target"
+          ng-class="['glyphicon-arrow-' + board[210].target, 'text-' + (board[210].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[211].type" class="box">
+  <span ng-class="[board[211].type, board[211].action]" class="box">
     {{board[211].hp}}
+    <span ng-show="board[211].target"
+          ng-class="['glyphicon-arrow-' + board[211].target, 'text-' + (board[211].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[212].type" class="box">
+  <span ng-class="[board[212].type, board[212].action]" class="box">
     {{board[212].hp}}
+    <span ng-show="board[212].target"
+          ng-class="['glyphicon-arrow-' + board[212].target, 'text-' + (board[212].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[213].type" class="box">
+  <span ng-class="[board[213].type, board[213].action]" class="box">
     {{board[213].hp}}
+    <span ng-show="board[213].target"
+          ng-class="['glyphicon-arrow-' + board[213].target, 'text-' + (board[213].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[214].type" class="box">
+  <span ng-class="[board[214].type, board[214].action]" class="box">
     {{board[214].hp}}
+    <span ng-show="board[214].target"
+          ng-class="['glyphicon-arrow-' + board[214].target, 'text-' + (board[214].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[215].type" class="box">
+  <span ng-class="[board[215].type, board[215].action]" class="box">
     {{board[215].hp}}
+    <span ng-show="board[215].target"
+          ng-class="['glyphicon-arrow-' + board[215].target, 'text-' + (board[215].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[216].type" class="box">
+  <span ng-class="[board[216].type, board[216].action]" class="box">
     {{board[216].hp}}
+    <span ng-show="board[216].target"
+          ng-class="['glyphicon-arrow-' + board[216].target, 'text-' + (board[216].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[217].type" class="box">
+  <span ng-class="[board[217].type, board[217].action]" class="box">
     {{board[217].hp}}
+    <span ng-show="board[217].target"
+          ng-class="['glyphicon-arrow-' + board[217].target, 'text-' + (board[217].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[218].type" class="box">
+  <span ng-class="[board[218].type, board[218].action]" class="box">
     {{board[218].hp}}
+    <span ng-show="board[218].target"
+          ng-class="['glyphicon-arrow-' + board[218].target, 'text-' + (board[218].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[219].type" class="box">
+  <span ng-class="[board[219].type, board[219].action]" class="box">
     {{board[219].hp}}
+    <span ng-show="board[219].target"
+          ng-class="['glyphicon-arrow-' + board[219].target, 'text-' + (board[219].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[220].type" class="box">
+  <span ng-class="[board[220].type, board[220].action]" class="box">
     {{board[220].hp}}
+    <span ng-show="board[220].target"
+          ng-class="['glyphicon-arrow-' + board[220].target, 'text-' + (board[220].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[221].type" class="box">
+  <span ng-class="[board[221].type, board[221].action]" class="box">
     {{board[221].hp}}
+    <span ng-show="board[221].target"
+          ng-class="['glyphicon-arrow-' + board[221].target, 'text-' + (board[221].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[222].type" class="box">
+  <span ng-class="[board[222].type, board[222].action]" class="box">
     {{board[222].hp}}
+    <span ng-show="board[222].target"
+          ng-class="['glyphicon-arrow-' + board[222].target, 'text-' + (board[222].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[223].type" class="box">
+  <span ng-class="[board[223].type, board[223].action]" class="box">
     {{board[223].hp}}
+    <span ng-show="board[223].target"
+          ng-class="['glyphicon-arrow-' + board[223].target, 'text-' + (board[223].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[224].type" class="box">
+  <span ng-class="[board[224].type, board[224].action]" class="box">
     {{board[224].hp}}
+    <span ng-show="board[224].target"
+          ng-class="['glyphicon-arrow-' + board[224].target, 'text-' + (board[224].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[225].type" class="box">
+  <span ng-class="[board[225].type, board[225].action]" class="box">
     {{board[225].hp}}
+    <span ng-show="board[225].target"
+          ng-class="['glyphicon-arrow-' + board[225].target, 'text-' + (board[225].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[226].type" class="box">
+  <span ng-class="[board[226].type, board[226].action]" class="box">
     {{board[226].hp}}
+    <span ng-show="board[226].target"
+          ng-class="['glyphicon-arrow-' + board[226].target, 'text-' + (board[226].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[227].type" class="box">
+  <span ng-class="[board[227].type, board[227].action]" class="box">
     {{board[227].hp}}
+    <span ng-show="board[227].target"
+          ng-class="['glyphicon-arrow-' + board[227].target, 'text-' + (board[227].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[228].type" class="box">
+  <span ng-class="[board[228].type, board[228].action]" class="box">
     {{board[228].hp}}
+    <span ng-show="board[228].target"
+          ng-class="['glyphicon-arrow-' + board[228].target, 'text-' + (board[228].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[229].type" class="box">
+  <span ng-class="[board[229].type, board[229].action]" class="box">
     {{board[229].hp}}
+    <span ng-show="board[229].target"
+          ng-class="['glyphicon-arrow-' + board[229].target, 'text-' + (board[229].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[230].type" class="box">
+  <span ng-class="[board[230].type, board[230].action]" class="box">
     {{board[230].hp}}
+    <span ng-show="board[230].target"
+          ng-class="['glyphicon-arrow-' + board[230].target, 'text-' + (board[230].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[231].type" class="box">
+  <span ng-class="[board[231].type, board[231].action]" class="box">
     {{board[231].hp}}
+    <span ng-show="board[231].target"
+          ng-class="['glyphicon-arrow-' + board[231].target, 'text-' + (board[231].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[232].type" class="box">
+  <span ng-class="[board[232].type, board[232].action]" class="box">
     {{board[232].hp}}
+    <span ng-show="board[232].target"
+          ng-class="['glyphicon-arrow-' + board[232].target, 'text-' + (board[232].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[233].type" class="box">
+  <span ng-class="[board[233].type, board[233].action]" class="box">
     {{board[233].hp}}
+    <span ng-show="board[233].target"
+          ng-class="['glyphicon-arrow-' + board[233].target, 'text-' + (board[233].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[234].type" class="box">
+  <span ng-class="[board[234].type, board[234].action]" class="box">
     {{board[234].hp}}
+    <span ng-show="board[234].target"
+          ng-class="['glyphicon-arrow-' + board[234].target, 'text-' + (board[234].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[235].type" class="box">
+  <span ng-class="[board[235].type, board[235].action]" class="box">
     {{board[235].hp}}
+    <span ng-show="board[235].target"
+          ng-class="['glyphicon-arrow-' + board[235].target, 'text-' + (board[235].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[236].type" class="box">
+  <span ng-class="[board[236].type, board[236].action]" class="box">
     {{board[236].hp}}
+    <span ng-show="board[236].target"
+          ng-class="['glyphicon-arrow-' + board[236].target, 'text-' + (board[236].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[237].type" class="box">
+  <span ng-class="[board[237].type, board[237].action]" class="box">
     {{board[237].hp}}
+    <span ng-show="board[237].target"
+          ng-class="['glyphicon-arrow-' + board[237].target, 'text-' + (board[237].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[238].type" class="box">
+  <span ng-class="[board[238].type, board[238].action]" class="box">
     {{board[238].hp}}
+    <span ng-show="board[238].target"
+          ng-class="['glyphicon-arrow-' + board[238].target, 'text-' + (board[238].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[239].type" class="box">
+  <span ng-class="[board[239].type, board[239].action]" class="box">
     {{board[239].hp}}
+    <span ng-show="board[239].target"
+          ng-class="['glyphicon-arrow-' + board[239].target, 'text-' + (board[239].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[240].type" class="box">
+  <span ng-class="[board[240].type, board[240].action]" class="box">
     {{board[240].hp}}
+    <span ng-show="board[240].target"
+          ng-class="['glyphicon-arrow-' + board[240].target, 'text-' + (board[240].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[241].type" class="box">
+  <span ng-class="[board[241].type, board[241].action]" class="box">
     {{board[241].hp}}
+    <span ng-show="board[241].target"
+          ng-class="['glyphicon-arrow-' + board[241].target, 'text-' + (board[241].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[242].type" class="box">
+  <span ng-class="[board[242].type, board[242].action]" class="box">
     {{board[242].hp}}
+    <span ng-show="board[242].target"
+          ng-class="['glyphicon-arrow-' + board[242].target, 'text-' + (board[242].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[243].type" class="box">
+  <span ng-class="[board[243].type, board[243].action]" class="box">
     {{board[243].hp}}
+    <span ng-show="board[243].target"
+          ng-class="['glyphicon-arrow-' + board[243].target, 'text-' + (board[243].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[244].type" class="box">
+  <span ng-class="[board[244].type, board[244].action]" class="box">
     {{board[244].hp}}
+    <span ng-show="board[244].target"
+          ng-class="['glyphicon-arrow-' + board[244].target, 'text-' + (board[244].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[245].type" class="box">
+  <span ng-class="[board[245].type, board[245].action]" class="box">
     {{board[245].hp}}
+    <span ng-show="board[245].target"
+          ng-class="['glyphicon-arrow-' + board[245].target, 'text-' + (board[245].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[246].type" class="box">
+  <span ng-class="[board[246].type, board[246].action]" class="box">
     {{board[246].hp}}
+    <span ng-show="board[246].target"
+          ng-class="['glyphicon-arrow-' + board[246].target, 'text-' + (board[246].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[247].type" class="box">
+  <span ng-class="[board[247].type, board[247].action]" class="box">
     {{board[247].hp}}
+    <span ng-show="board[247].target"
+          ng-class="['glyphicon-arrow-' + board[247].target, 'text-' + (board[247].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[248].type" class="box">
+  <span ng-class="[board[248].type, board[248].action]" class="box">
     {{board[248].hp}}
+    <span ng-show="board[248].target"
+          ng-class="['glyphicon-arrow-' + board[248].target, 'text-' + (board[248].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[249].type" class="box">
+  <span ng-class="[board[249].type, board[249].action]" class="box">
     {{board[249].hp}}
+    <span ng-show="board[249].target"
+          ng-class="['glyphicon-arrow-' + board[249].target, 'text-' + (board[249].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[250].type" class="box">
+  <span ng-class="[board[250].type, board[250].action]" class="box">
     {{board[250].hp}}
+    <span ng-show="board[250].target"
+          ng-class="['glyphicon-arrow-' + board[250].target, 'text-' + (board[250].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[251].type" class="box">
+  <span ng-class="[board[251].type, board[251].action]" class="box">
     {{board[251].hp}}
+    <span ng-show="board[251].target"
+          ng-class="['glyphicon-arrow-' + board[251].target, 'text-' + (board[251].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[252].type" class="box">
+  <span ng-class="[board[252].type, board[252].action]" class="box">
     {{board[252].hp}}
+    <span ng-show="board[252].target"
+          ng-class="['glyphicon-arrow-' + board[252].target, 'text-' + (board[252].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[253].type" class="box">
+  <span ng-class="[board[253].type, board[253].action]" class="box">
     {{board[253].hp}}
+    <span ng-show="board[253].target"
+          ng-class="['glyphicon-arrow-' + board[253].target, 'text-' + (board[253].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[254].type" class="box">
+  <span ng-class="[board[254].type, board[254].action]" class="box">
     {{board[254].hp}}
+    <span ng-show="board[254].target"
+          ng-class="['glyphicon-arrow-' + board[254].target, 'text-' + (board[254].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[255].type" class="box">
+  <span ng-class="[board[255].type, board[255].action]" class="box">
     {{board[255].hp}}
+    <span ng-show="board[255].target"
+          ng-class="['glyphicon-arrow-' + board[255].target, 'text-' + (board[255].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[256].type" class="box">
+  <span ng-class="[board[256].type, board[256].action]" class="box">
     {{board[256].hp}}
+    <span ng-show="board[256].target"
+          ng-class="['glyphicon-arrow-' + board[256].target, 'text-' + (board[256].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[257].type" class="box">
+  <span ng-class="[board[257].type, board[257].action]" class="box">
     {{board[257].hp}}
+    <span ng-show="board[257].target"
+          ng-class="['glyphicon-arrow-' + board[257].target, 'text-' + (board[257].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[258].type" class="box">
+  <span ng-class="[board[258].type, board[258].action]" class="box">
     {{board[258].hp}}
+    <span ng-show="board[258].target"
+          ng-class="['glyphicon-arrow-' + board[258].target, 'text-' + (board[258].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[259].type" class="box">
+  <span ng-class="[board[259].type, board[259].action]" class="box">
     {{board[259].hp}}
+    <span ng-show="board[259].target"
+          ng-class="['glyphicon-arrow-' + board[259].target, 'text-' + (board[259].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[260].type" class="box">
+  <span ng-class="[board[260].type, board[260].action]" class="box">
     {{board[260].hp}}
+    <span ng-show="board[260].target"
+          ng-class="['glyphicon-arrow-' + board[260].target, 'text-' + (board[260].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[261].type" class="box">
+  <span ng-class="[board[261].type, board[261].action]" class="box">
     {{board[261].hp}}
+    <span ng-show="board[261].target"
+          ng-class="['glyphicon-arrow-' + board[261].target, 'text-' + (board[261].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[262].type" class="box">
+  <span ng-class="[board[262].type, board[262].action]" class="box">
     {{board[262].hp}}
+    <span ng-show="board[262].target"
+          ng-class="['glyphicon-arrow-' + board[262].target, 'text-' + (board[262].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[263].type" class="box">
+  <span ng-class="[board[263].type, board[263].action]" class="box">
     {{board[263].hp}}
+    <span ng-show="board[263].target"
+          ng-class="['glyphicon-arrow-' + board[263].target, 'text-' + (board[263].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[264].type" class="box">
+  <span ng-class="[board[264].type, board[264].action]" class="box">
     {{board[264].hp}}
+    <span ng-show="board[264].target"
+          ng-class="['glyphicon-arrow-' + board[264].target, 'text-' + (board[264].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[265].type" class="box">
+  <span ng-class="[board[265].type, board[265].action]" class="box">
     {{board[265].hp}}
+    <span ng-show="board[265].target"
+          ng-class="['glyphicon-arrow-' + board[265].target, 'text-' + (board[265].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[266].type" class="box">
+  <span ng-class="[board[266].type, board[266].action]" class="box">
     {{board[266].hp}}
+    <span ng-show="board[266].target"
+          ng-class="['glyphicon-arrow-' + board[266].target, 'text-' + (board[266].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[267].type" class="box">
+  <span ng-class="[board[267].type, board[267].action]" class="box">
     {{board[267].hp}}
+    <span ng-show="board[267].target"
+          ng-class="['glyphicon-arrow-' + board[267].target, 'text-' + (board[267].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[268].type" class="box">
+  <span ng-class="[board[268].type, board[268].action]" class="box">
     {{board[268].hp}}
+    <span ng-show="board[268].target"
+          ng-class="['glyphicon-arrow-' + board[268].target, 'text-' + (board[268].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[269].type" class="box">
+  <span ng-class="[board[269].type, board[269].action]" class="box">
     {{board[269].hp}}
+    <span ng-show="board[269].target"
+          ng-class="['glyphicon-arrow-' + board[269].target, 'text-' + (board[269].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[270].type" class="box">
+  <span ng-class="[board[270].type, board[270].action]" class="box">
     {{board[270].hp}}
+    <span ng-show="board[270].target"
+          ng-class="['glyphicon-arrow-' + board[270].target, 'text-' + (board[270].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[271].type" class="box">
+  <span ng-class="[board[271].type, board[271].action]" class="box">
     {{board[271].hp}}
+    <span ng-show="board[271].target"
+          ng-class="['glyphicon-arrow-' + board[271].target, 'text-' + (board[271].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[272].type" class="box">
+  <span ng-class="[board[272].type, board[272].action]" class="box">
     {{board[272].hp}}
+    <span ng-show="board[272].target"
+          ng-class="['glyphicon-arrow-' + board[272].target, 'text-' + (board[272].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[273].type" class="box">
+  <span ng-class="[board[273].type, board[273].action]" class="box">
     {{board[273].hp}}
+    <span ng-show="board[273].target"
+          ng-class="['glyphicon-arrow-' + board[273].target, 'text-' + (board[273].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[274].type" class="box">
+  <span ng-class="[board[274].type, board[274].action]" class="box">
     {{board[274].hp}}
+    <span ng-show="board[274].target"
+          ng-class="['glyphicon-arrow-' + board[274].target, 'text-' + (board[274].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[275].type" class="box">
+  <span ng-class="[board[275].type, board[275].action]" class="box">
     {{board[275].hp}}
+    <span ng-show="board[275].target"
+          ng-class="['glyphicon-arrow-' + board[275].target, 'text-' + (board[275].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[276].type" class="box">
+  <span ng-class="[board[276].type, board[276].action]" class="box">
     {{board[276].hp}}
+    <span ng-show="board[276].target"
+          ng-class="['glyphicon-arrow-' + board[276].target, 'text-' + (board[276].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[277].type" class="box">
+  <span ng-class="[board[277].type, board[277].action]" class="box">
     {{board[277].hp}}
+    <span ng-show="board[277].target"
+          ng-class="['glyphicon-arrow-' + board[277].target, 'text-' + (board[277].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[278].type" class="box">
+  <span ng-class="[board[278].type, board[278].action]" class="box">
     {{board[278].hp}}
+    <span ng-show="board[278].target"
+          ng-class="['glyphicon-arrow-' + board[278].target, 'text-' + (board[278].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[279].type" class="box">
+  <span ng-class="[board[279].type, board[279].action]" class="box">
     {{board[279].hp}}
+    <span ng-show="board[279].target"
+          ng-class="['glyphicon-arrow-' + board[279].target, 'text-' + (board[279].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[280].type" class="box">
+  <span ng-class="[board[280].type, board[280].action]" class="box">
     {{board[280].hp}}
+    <span ng-show="board[280].target"
+          ng-class="['glyphicon-arrow-' + board[280].target, 'text-' + (board[280].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[281].type" class="box">
+  <span ng-class="[board[281].type, board[281].action]" class="box">
     {{board[281].hp}}
+    <span ng-show="board[281].target"
+          ng-class="['glyphicon-arrow-' + board[281].target, 'text-' + (board[281].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[282].type" class="box">
+  <span ng-class="[board[282].type, board[282].action]" class="box">
     {{board[282].hp}}
+    <span ng-show="board[282].target"
+          ng-class="['glyphicon-arrow-' + board[282].target, 'text-' + (board[282].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[283].type" class="box">
+  <span ng-class="[board[283].type, board[283].action]" class="box">
     {{board[283].hp}}
+    <span ng-show="board[283].target"
+          ng-class="['glyphicon-arrow-' + board[283].target, 'text-' + (board[283].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[284].type" class="box">
+  <span ng-class="[board[284].type, board[284].action]" class="box">
     {{board[284].hp}}
+    <span ng-show="board[284].target"
+          ng-class="['glyphicon-arrow-' + board[284].target, 'text-' + (board[284].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[285].type" class="box">
+  <span ng-class="[board[285].type, board[285].action]" class="box">
     {{board[285].hp}}
+    <span ng-show="board[285].target"
+          ng-class="['glyphicon-arrow-' + board[285].target, 'text-' + (board[285].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[286].type" class="box">
+  <span ng-class="[board[286].type, board[286].action]" class="box">
     {{board[286].hp}}
+    <span ng-show="board[286].target"
+          ng-class="['glyphicon-arrow-' + board[286].target, 'text-' + (board[286].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[287].type" class="box">
+  <span ng-class="[board[287].type, board[287].action]" class="box">
     {{board[287].hp}}
+    <span ng-show="board[287].target"
+          ng-class="['glyphicon-arrow-' + board[287].target, 'text-' + (board[287].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[288].type" class="box">
+  <span ng-class="[board[288].type, board[288].action]" class="box">
     {{board[288].hp}}
+    <span ng-show="board[288].target"
+          ng-class="['glyphicon-arrow-' + board[288].target, 'text-' + (board[288].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[289].type" class="box">
+  <span ng-class="[board[289].type, board[289].action]" class="box">
     {{board[289].hp}}
+    <span ng-show="board[289].target"
+          ng-class="['glyphicon-arrow-' + board[289].target, 'text-' + (board[289].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[290].type" class="box">
+  <span ng-class="[board[290].type, board[290].action]" class="box">
     {{board[290].hp}}
+    <span ng-show="board[290].target"
+          ng-class="['glyphicon-arrow-' + board[290].target, 'text-' + (board[290].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[291].type" class="box">
+  <span ng-class="[board[291].type, board[291].action]" class="box">
     {{board[291].hp}}
+    <span ng-show="board[291].target"
+          ng-class="['glyphicon-arrow-' + board[291].target, 'text-' + (board[291].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[292].type" class="box">
+  <span ng-class="[board[292].type, board[292].action]" class="box">
     {{board[292].hp}}
+    <span ng-show="board[292].target"
+          ng-class="['glyphicon-arrow-' + board[292].target, 'text-' + (board[292].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[293].type" class="box">
+  <span ng-class="[board[293].type, board[293].action]" class="box">
     {{board[293].hp}}
+    <span ng-show="board[293].target"
+          ng-class="['glyphicon-arrow-' + board[293].target, 'text-' + (board[293].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[294].type" class="box">
+  <span ng-class="[board[294].type, board[294].action]" class="box">
     {{board[294].hp}}
+    <span ng-show="board[294].target"
+          ng-class="['glyphicon-arrow-' + board[294].target, 'text-' + (board[294].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[295].type" class="box">
+  <span ng-class="[board[295].type, board[295].action]" class="box">
     {{board[295].hp}}
+    <span ng-show="board[295].target"
+          ng-class="['glyphicon-arrow-' + board[295].target, 'text-' + (board[295].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[296].type" class="box">
+  <span ng-class="[board[296].type, board[296].action]" class="box">
     {{board[296].hp}}
+    <span ng-show="board[296].target"
+          ng-class="['glyphicon-arrow-' + board[296].target, 'text-' + (board[296].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[297].type" class="box">
+  <span ng-class="[board[297].type, board[297].action]" class="box">
     {{board[297].hp}}
+    <span ng-show="board[297].target"
+          ng-class="['glyphicon-arrow-' + board[297].target, 'text-' + (board[297].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[298].type" class="box">
+  <span ng-class="[board[298].type, board[298].action]" class="box">
     {{board[298].hp}}
+    <span ng-show="board[298].target"
+          ng-class="['glyphicon-arrow-' + board[298].target, 'text-' + (board[298].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[299].type" class="box">
+  <span ng-class="[board[299].type, board[299].action]" class="box">
     {{board[299].hp}}
+    <span ng-show="board[299].target"
+          ng-class="['glyphicon-arrow-' + board[299].target, 'text-' + (board[299].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[300].type" class="box">
+  <span ng-class="[board[300].type, board[300].action]" class="box">
     {{board[300].hp}}
+    <span ng-show="board[300].target"
+          ng-class="['glyphicon-arrow-' + board[300].target, 'text-' + (board[300].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[301].type" class="box">
+  <span ng-class="[board[301].type, board[301].action]" class="box">
     {{board[301].hp}}
+    <span ng-show="board[301].target"
+          ng-class="['glyphicon-arrow-' + board[301].target, 'text-' + (board[301].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[302].type" class="box">
+  <span ng-class="[board[302].type, board[302].action]" class="box">
     {{board[302].hp}}
+    <span ng-show="board[302].target"
+          ng-class="['glyphicon-arrow-' + board[302].target, 'text-' + (board[302].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[303].type" class="box">
+  <span ng-class="[board[303].type, board[303].action]" class="box">
     {{board[303].hp}}
+    <span ng-show="board[303].target"
+          ng-class="['glyphicon-arrow-' + board[303].target, 'text-' + (board[303].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[304].type" class="box">
+  <span ng-class="[board[304].type, board[304].action]" class="box">
     {{board[304].hp}}
+    <span ng-show="board[304].target"
+          ng-class="['glyphicon-arrow-' + board[304].target, 'text-' + (board[304].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[305].type" class="box">
+  <span ng-class="[board[305].type, board[305].action]" class="box">
     {{board[305].hp}}
+    <span ng-show="board[305].target"
+          ng-class="['glyphicon-arrow-' + board[305].target, 'text-' + (board[305].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[306].type" class="box">
+  <span ng-class="[board[306].type, board[306].action]" class="box">
     {{board[306].hp}}
+    <span ng-show="board[306].target"
+          ng-class="['glyphicon-arrow-' + board[306].target, 'text-' + (board[306].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[307].type" class="box">
+  <span ng-class="[board[307].type, board[307].action]" class="box">
     {{board[307].hp}}
+    <span ng-show="board[307].target"
+          ng-class="['glyphicon-arrow-' + board[307].target, 'text-' + (board[307].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[308].type" class="box">
+  <span ng-class="[board[308].type, board[308].action]" class="box">
     {{board[308].hp}}
+    <span ng-show="board[308].target"
+          ng-class="['glyphicon-arrow-' + board[308].target, 'text-' + (board[308].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[309].type" class="box">
+  <span ng-class="[board[309].type, board[309].action]" class="box">
     {{board[309].hp}}
+    <span ng-show="board[309].target"
+          ng-class="['glyphicon-arrow-' + board[309].target, 'text-' + (board[309].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[310].type" class="box">
+  <span ng-class="[board[310].type, board[310].action]" class="box">
     {{board[310].hp}}
+    <span ng-show="board[310].target"
+          ng-class="['glyphicon-arrow-' + board[310].target, 'text-' + (board[310].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[311].type" class="box">
+  <span ng-class="[board[311].type, board[311].action]" class="box">
     {{board[311].hp}}
+    <span ng-show="board[311].target"
+          ng-class="['glyphicon-arrow-' + board[311].target, 'text-' + (board[311].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[312].type" class="box">
+  <span ng-class="[board[312].type, board[312].action]" class="box">
     {{board[312].hp}}
+    <span ng-show="board[312].target"
+          ng-class="['glyphicon-arrow-' + board[312].target, 'text-' + (board[312].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[313].type" class="box">
+  <span ng-class="[board[313].type, board[313].action]" class="box">
     {{board[313].hp}}
+    <span ng-show="board[313].target"
+          ng-class="['glyphicon-arrow-' + board[313].target, 'text-' + (board[313].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[314].type" class="box">
+  <span ng-class="[board[314].type, board[314].action]" class="box">
     {{board[314].hp}}
+    <span ng-show="board[314].target"
+          ng-class="['glyphicon-arrow-' + board[314].target, 'text-' + (board[314].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[315].type" class="box">
+  <span ng-class="[board[315].type, board[315].action]" class="box">
     {{board[315].hp}}
+    <span ng-show="board[315].target"
+          ng-class="['glyphicon-arrow-' + board[315].target, 'text-' + (board[315].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[316].type" class="box">
+  <span ng-class="[board[316].type, board[316].action]" class="box">
     {{board[316].hp}}
+    <span ng-show="board[316].target"
+          ng-class="['glyphicon-arrow-' + board[316].target, 'text-' + (board[316].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[317].type" class="box">
+  <span ng-class="[board[317].type, board[317].action]" class="box">
     {{board[317].hp}}
+    <span ng-show="board[317].target"
+          ng-class="['glyphicon-arrow-' + board[317].target, 'text-' + (board[317].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[318].type" class="box">
+  <span ng-class="[board[318].type, board[318].action]" class="box">
     {{board[318].hp}}
+    <span ng-show="board[318].target"
+          ng-class="['glyphicon-arrow-' + board[318].target, 'text-' + (board[318].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[319].type" class="box">
+  <span ng-class="[board[319].type, board[319].action]" class="box">
     {{board[319].hp}}
+    <span ng-show="board[319].target"
+          ng-class="['glyphicon-arrow-' + board[319].target, 'text-' + (board[319].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[320].type" class="box">
+  <span ng-class="[board[320].type, board[320].action]" class="box">
     {{board[320].hp}}
+    <span ng-show="board[320].target"
+          ng-class="['glyphicon-arrow-' + board[320].target, 'text-' + (board[320].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[321].type" class="box">
+  <span ng-class="[board[321].type, board[321].action]" class="box">
     {{board[321].hp}}
+    <span ng-show="board[321].target"
+          ng-class="['glyphicon-arrow-' + board[321].target, 'text-' + (board[321].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[322].type" class="box">
+  <span ng-class="[board[322].type, board[322].action]" class="box">
     {{board[322].hp}}
+    <span ng-show="board[322].target"
+          ng-class="['glyphicon-arrow-' + board[322].target, 'text-' + (board[322].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[323].type" class="box">
+  <span ng-class="[board[323].type, board[323].action]" class="box">
     {{board[323].hp}}
+    <span ng-show="board[323].target"
+          ng-class="['glyphicon-arrow-' + board[323].target, 'text-' + (board[323].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[324].type" class="box">
+  <span ng-class="[board[324].type, board[324].action]" class="box">
     {{board[324].hp}}
+    <span ng-show="board[324].target"
+          ng-class="['glyphicon-arrow-' + board[324].target, 'text-' + (board[324].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[325].type" class="box">
+  <span ng-class="[board[325].type, board[325].action]" class="box">
     {{board[325].hp}}
+    <span ng-show="board[325].target"
+          ng-class="['glyphicon-arrow-' + board[325].target, 'text-' + (board[325].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[326].type" class="box">
+  <span ng-class="[board[326].type, board[326].action]" class="box">
     {{board[326].hp}}
+    <span ng-show="board[326].target"
+          ng-class="['glyphicon-arrow-' + board[326].target, 'text-' + (board[326].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[327].type" class="box">
+  <span ng-class="[board[327].type, board[327].action]" class="box">
     {{board[327].hp}}
+    <span ng-show="board[327].target"
+          ng-class="['glyphicon-arrow-' + board[327].target, 'text-' + (board[327].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[328].type" class="box">
+  <span ng-class="[board[328].type, board[328].action]" class="box">
     {{board[328].hp}}
+    <span ng-show="board[328].target"
+          ng-class="['glyphicon-arrow-' + board[328].target, 'text-' + (board[328].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[329].type" class="box">
+  <span ng-class="[board[329].type, board[329].action]" class="box">
     {{board[329].hp}}
+    <span ng-show="board[329].target"
+          ng-class="['glyphicon-arrow-' + board[329].target, 'text-' + (board[329].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[330].type" class="box">
+  <span ng-class="[board[330].type, board[330].action]" class="box">
     {{board[330].hp}}
+    <span ng-show="board[330].target"
+          ng-class="['glyphicon-arrow-' + board[330].target, 'text-' + (board[330].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[331].type" class="box">
+  <span ng-class="[board[331].type, board[331].action]" class="box">
     {{board[331].hp}}
+    <span ng-show="board[331].target"
+          ng-class="['glyphicon-arrow-' + board[331].target, 'text-' + (board[331].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[332].type" class="box">
+  <span ng-class="[board[332].type, board[332].action]" class="box">
     {{board[332].hp}}
+    <span ng-show="board[332].target"
+          ng-class="['glyphicon-arrow-' + board[332].target, 'text-' + (board[332].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[333].type" class="box">
+  <span ng-class="[board[333].type, board[333].action]" class="box">
     {{board[333].hp}}
+    <span ng-show="board[333].target"
+          ng-class="['glyphicon-arrow-' + board[333].target, 'text-' + (board[333].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[334].type" class="box">
+  <span ng-class="[board[334].type, board[334].action]" class="box">
     {{board[334].hp}}
+    <span ng-show="board[334].target"
+          ng-class="['glyphicon-arrow-' + board[334].target, 'text-' + (board[334].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[335].type" class="box">
+  <span ng-class="[board[335].type, board[335].action]" class="box">
     {{board[335].hp}}
+    <span ng-show="board[335].target"
+          ng-class="['glyphicon-arrow-' + board[335].target, 'text-' + (board[335].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[336].type" class="box">
+  <span ng-class="[board[336].type, board[336].action]" class="box">
     {{board[336].hp}}
+    <span ng-show="board[336].target"
+          ng-class="['glyphicon-arrow-' + board[336].target, 'text-' + (board[336].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[337].type" class="box">
+  <span ng-class="[board[337].type, board[337].action]" class="box">
     {{board[337].hp}}
+    <span ng-show="board[337].target"
+          ng-class="['glyphicon-arrow-' + board[337].target, 'text-' + (board[337].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[338].type" class="box">
+  <span ng-class="[board[338].type, board[338].action]" class="box">
     {{board[338].hp}}
+    <span ng-show="board[338].target"
+          ng-class="['glyphicon-arrow-' + board[338].target, 'text-' + (board[338].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[339].type" class="box">
+  <span ng-class="[board[339].type, board[339].action]" class="box">
     {{board[339].hp}}
+    <span ng-show="board[339].target"
+          ng-class="['glyphicon-arrow-' + board[339].target, 'text-' + (board[339].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[340].type" class="box">
+  <span ng-class="[board[340].type, board[340].action]" class="box">
     {{board[340].hp}}
+    <span ng-show="board[340].target"
+          ng-class="['glyphicon-arrow-' + board[340].target, 'text-' + (board[340].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[341].type" class="box">
+  <span ng-class="[board[341].type, board[341].action]" class="box">
     {{board[341].hp}}
+    <span ng-show="board[341].target"
+          ng-class="['glyphicon-arrow-' + board[341].target, 'text-' + (board[341].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[342].type" class="box">
+  <span ng-class="[board[342].type, board[342].action]" class="box">
     {{board[342].hp}}
+    <span ng-show="board[342].target"
+          ng-class="['glyphicon-arrow-' + board[342].target, 'text-' + (board[342].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[343].type" class="box">
+  <span ng-class="[board[343].type, board[343].action]" class="box">
     {{board[343].hp}}
+    <span ng-show="board[343].target"
+          ng-class="['glyphicon-arrow-' + board[343].target, 'text-' + (board[343].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[344].type" class="box">
+  <span ng-class="[board[344].type, board[344].action]" class="box">
     {{board[344].hp}}
+    <span ng-show="board[344].target"
+          ng-class="['glyphicon-arrow-' + board[344].target, 'text-' + (board[344].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[345].type" class="box">
+  <span ng-class="[board[345].type, board[345].action]" class="box">
     {{board[345].hp}}
+    <span ng-show="board[345].target"
+          ng-class="['glyphicon-arrow-' + board[345].target, 'text-' + (board[345].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[346].type" class="box">
+  <span ng-class="[board[346].type, board[346].action]" class="box">
     {{board[346].hp}}
+    <span ng-show="board[346].target"
+          ng-class="['glyphicon-arrow-' + board[346].target, 'text-' + (board[346].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[347].type" class="box">
+  <span ng-class="[board[347].type, board[347].action]" class="box">
     {{board[347].hp}}
+    <span ng-show="board[347].target"
+          ng-class="['glyphicon-arrow-' + board[347].target, 'text-' + (board[347].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[348].type" class="box">
+  <span ng-class="[board[348].type, board[348].action]" class="box">
     {{board[348].hp}}
+    <span ng-show="board[348].target"
+          ng-class="['glyphicon-arrow-' + board[348].target, 'text-' + (board[348].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[349].type" class="box">
+  <span ng-class="[board[349].type, board[349].action]" class="box">
     {{board[349].hp}}
+    <span ng-show="board[349].target"
+          ng-class="['glyphicon-arrow-' + board[349].target, 'text-' + (board[349].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[350].type" class="box">
+  <span ng-class="[board[350].type, board[350].action]" class="box">
     {{board[350].hp}}
+    <span ng-show="board[350].target"
+          ng-class="['glyphicon-arrow-' + board[350].target, 'text-' + (board[350].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[351].type" class="box">
+  <span ng-class="[board[351].type, board[351].action]" class="box">
     {{board[351].hp}}
+    <span ng-show="board[351].target"
+          ng-class="['glyphicon-arrow-' + board[351].target, 'text-' + (board[351].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[352].type" class="box">
+  <span ng-class="[board[352].type, board[352].action]" class="box">
     {{board[352].hp}}
+    <span ng-show="board[352].target"
+          ng-class="['glyphicon-arrow-' + board[352].target, 'text-' + (board[352].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[353].type" class="box">
+  <span ng-class="[board[353].type, board[353].action]" class="box">
     {{board[353].hp}}
+    <span ng-show="board[353].target"
+          ng-class="['glyphicon-arrow-' + board[353].target, 'text-' + (board[353].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[354].type" class="box">
+  <span ng-class="[board[354].type, board[354].action]" class="box">
     {{board[354].hp}}
+    <span ng-show="board[354].target"
+          ng-class="['glyphicon-arrow-' + board[354].target, 'text-' + (board[354].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[355].type" class="box">
+  <span ng-class="[board[355].type, board[355].action]" class="box">
     {{board[355].hp}}
+    <span ng-show="board[355].target"
+          ng-class="['glyphicon-arrow-' + board[355].target, 'text-' + (board[355].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[356].type" class="box">
+  <span ng-class="[board[356].type, board[356].action]" class="box">
     {{board[356].hp}}
+    <span ng-show="board[356].target"
+          ng-class="['glyphicon-arrow-' + board[356].target, 'text-' + (board[356].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[357].type" class="box">
+  <span ng-class="[board[357].type, board[357].action]" class="box">
     {{board[357].hp}}
+    <span ng-show="board[357].target"
+          ng-class="['glyphicon-arrow-' + board[357].target, 'text-' + (board[357].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[358].type" class="box">
+  <span ng-class="[board[358].type, board[358].action]" class="box">
     {{board[358].hp}}
+    <span ng-show="board[358].target"
+          ng-class="['glyphicon-arrow-' + board[358].target, 'text-' + (board[358].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[359].type" class="box">
+  <span ng-class="[board[359].type, board[359].action]" class="box">
     {{board[359].hp}}
+    <span ng-show="board[359].target"
+          ng-class="['glyphicon-arrow-' + board[359].target, 'text-' + (board[359].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
-  <span ng-class="board[360].type" class="box">
+  <span ng-class="[board[360].type, board[360].action]" class="box">
     {{board[360].hp}}
+    <span ng-show="board[360].target"
+          ng-class="['glyphicon-arrow-' + board[360].target, 'text-' + (board[360].action === 'move' ? 'primary' : 'danger')]"
+          class="glyphicon"></span>
   </span>
 </div>
