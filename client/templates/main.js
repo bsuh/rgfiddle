@@ -21,7 +21,7 @@ angular.module("/client/src/app/robots/robots.tpl.html", []).run(["$templateCach
     "        <div class=\"row editor\">\n" +
     "\n" +
     "          <!-- left column with code mirror -->\n" +
-    "          <div class=\"col-md-8\">\n" +
+    "          <div class=\"col-lg-8\">\n" +
     "            <form class=\"form-inline\">\n" +
     "              <div class=\"form-group\">\n" +
     "                <input type=\"text\" ng-model=\"robot.name\"\n" +
@@ -39,7 +39,7 @@ angular.module("/client/src/app/robots/robots.tpl.html", []).run(["$templateCach
     "          </div>\n" +
     "\n" +
     "          <!-- right column with game map -->\n" +
-    "          <div class=\"col-md-4\">\n" +
+    "          <div class=\"col-lg-4\">\n" +
     "            <p class=\"lead row\">\n" +
     "              <span class=\"text-danger\">{{robots[$index].name}}</span> vs\n" +
     "              <span class=\"text-primary\">{{robots[opponent.index].name}}</span>\n" +
