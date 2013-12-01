@@ -32,10 +32,19 @@ angular.
       };
     };
 
+    function error(msg) {
+      $scope.alerts.push({type: 'danger', msg: msg });
+    }
+
     $scope.getRobots = function () {
       $http.get('/v1/robots/').success(function (data) {
         $scope.robots = data.robots;
         $scope.robots.unshift($scope.newRobot);
+      }).error(function () {
+        $scope.alerts.push({
+          type: 'danger',
+          msg: 'Could not obtain list of robots'
+        });
       });
     };
 
@@ -51,16 +60,24 @@ angular.
               if (index !== -1) {
                 $scope.robots.splice(index, 1);
               }
+            } else {
+              error('Could not find robot to delete');
             }
+          }).error(function () {
+            error('Could not delete robot');
           });
         }
       } else if (!id) {
         $http.post('/v1/robots/', robot).success(function (data) {
           $scope.robots.push(data.robot);
+        }).error(function () {
+          error('Could not create robot');
         });
       } else {
         $http.put('/v1/robots/' + id, robot).success(function (data) {
           angular.extend(robot, data.robot);
+        }).error(function () {
+          error('Could not update robot');
         });
       }
     };

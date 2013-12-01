@@ -24,6 +24,10 @@ angular.
           };
           $scope.history = data.history;
         }).error(function () {
+          $scope.alerts.push({
+            type: 'danger',
+            msg: 'Could not run match'
+          });
           $scope.statusClasses = 'fa-warning';
         });
     };

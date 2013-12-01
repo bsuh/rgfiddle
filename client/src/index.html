@@ -25,6 +25,15 @@
       </ul>
     </nav>
 
+    <div class="container" ng-init="alerts = []">
+      <alert ng-if="alerts.length" type="'info'">
+        Is the backend running? If it is perhaps try updating rgfiddle and rgkit.
+      </alert>
+
+      <alert ng-repeat="alert in alerts" type="alert.type"
+             close="alerts.splice($index, 1)">{{alert.msg}}</alert>
+    </div>
+
     <div ui-view class="container"></div>
 
     <script src="/client/vendor/codemirror/lib/codemirror.js"></script>
