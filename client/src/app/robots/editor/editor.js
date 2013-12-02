@@ -1,3 +1,3 @@
 /*global angular*/
 angular.
-  module('rgfiddle.robots.editor', ['ui.codemirror']);
+  module('rgfiddle.robots.editor', ['directives.keepModelValue', 'ui.codemirror']);

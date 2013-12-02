@@ -2,10 +2,12 @@
   <textarea ui-codemirror="codeMirrorOptions(robot.code)" ng-model="robot.code"></textarea>
 </script>
 
-<form class="form-inline">
-  <div class="form-group">
+<form name="robotForm" class="form-inline" novalidate>
+  <div class="form-group" ng-class="{ 'has-error': robotForm.robotName.$dirty && !robotForm.robotName.$valid }">
     <input type="text" ng-model="robot.name"
-           id="newRobotNameInput" class="form-control" />
+           ng-minlength="2" ng-maxlength="20"
+           keep-model-value=""
+           name="robotName" required class="form-control" />
   </div>
   <button ng-click="updateRobot($index)"
           class="btn btn-default">Save</button>

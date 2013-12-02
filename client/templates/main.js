@@ -6,10 +6,12 @@ angular.module("/client/src/app/robots/editor/editor.tpl.html", []).run(["$templ
     "  <textarea ui-codemirror=\"codeMirrorOptions(robot.code)\" ng-model=\"robot.code\"></textarea>\n" +
     "</script>\n" +
     "\n" +
-    "<form class=\"form-inline\">\n" +
-    "  <div class=\"form-group\">\n" +
+    "<form name=\"robotForm\" class=\"form-inline\" novalidate>\n" +
+    "  <div class=\"form-group\" ng-class=\"{ 'has-error': robotForm.robotName.$dirty && !robotForm.robotName.$valid }\">\n" +
     "    <input type=\"text\" ng-model=\"robot.name\"\n" +
-    "           id=\"newRobotNameInput\" class=\"form-control\" />\n" +
+    "           ng-minlength=\"2\" ng-maxlength=\"20\"\n" +
+    "           keep-model-value=\"\"\n" +
+    "           name=\"robotName\" required class=\"form-control\" />\n" +
     "  </div>\n" +
     "  <button ng-click=\"updateRobot($index)\"\n" +
     "          class=\"btn btn-default\">Save</button>\n" +
