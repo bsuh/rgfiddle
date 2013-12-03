@@ -21,7 +21,9 @@
   </div>
   
   <div ng-if="history">
-    <rg-map board="history[match.turn].board" class="row"></rg-map>
+    <rg-map board="history[match.turn].board"
+            click="chosenRobotIndex = index"
+            class="row"></rg-map>
     
     <div class="row">
       <input type="range" ng-model="match.turn"
@@ -36,6 +38,13 @@
       <span class="text-primary">
         {{match.player2}}: {{history[match.turn].scores[1]}}
       </span>
+    </div>
+
+    <div ng-if="history[match.turn].board[chosenRobotIndex].log"
+         class="row">
+      <br/>
+      Robot Log:
+      <pre>{{history[match.turn].board[chosenRobotIndex].log}}</pre>
     </div>
   </div>
 </div>

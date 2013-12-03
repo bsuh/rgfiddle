@@ -49,7 +49,9 @@ angular.module("/client/src/app/robots/match/match.tpl.html", []).run(["$templat
     "  </div>\n" +
     "  \n" +
     "  <div ng-if=\"history\">\n" +
-    "    <rg-map board=\"history[match.turn].board\" class=\"row\"></rg-map>\n" +
+    "    <rg-map board=\"history[match.turn].board\"\n" +
+    "            click=\"chosenRobotIndex = index\"\n" +
+    "            class=\"row\"></rg-map>\n" +
     "    \n" +
     "    <div class=\"row\">\n" +
     "      <input type=\"range\" ng-model=\"match.turn\"\n" +
@@ -64,6 +66,13 @@ angular.module("/client/src/app/robots/match/match.tpl.html", []).run(["$templat
     "      <span class=\"text-primary\">\n" +
     "        {{match.player2}}: {{history[match.turn].scores[1]}}\n" +
     "      </span>\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <div ng-if=\"history[match.turn].board[chosenRobotIndex].log\"\n" +
+    "         class=\"row\">\n" +
+    "      <br/>\n" +
+    "      Robot Log:\n" +
+    "      <pre>{{history[match.turn].board[chosenRobotIndex].log}}</pre>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "</div>\n" +
