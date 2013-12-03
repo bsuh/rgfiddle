@@ -82,3 +82,7 @@
 .box.guard {
     border-color: yellow;
 }
+
+.box.selected {
+    border-color: aqua;
+}
