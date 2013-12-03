@@ -2,10 +2,16 @@ import ast
 import imp
 import rgkit.game as game
 import rgkit.rg as rg
+import traceback
+import types
+import sys
+from cStringIO import StringIO
 from rgkit.settings import settings
 
 
 class MyPlayer(game.Player):
+    log = {}
+
     def __init__(self, code):
         game.Player.__init__(self, code='')
 
@@ -21,8 +27,38 @@ class MyPlayer(game.Player):
         real_import, builtins['__import__'] = builtins['__import__'], my_import
         self._mod.__dict__['__builtins__'] = builtins
         exec code in self._mod.__dict__
-        self._robots = None
-        self._cache = {}
+
+    def get_robot(self):
+        robot = game.Player.get_robot(self)
+
+        def my_act(self, game):
+            try:
+                old_stdout = sys.stdout
+                sys.stdout = my_stdout = StringIO()
+                action = real_act(game)
+            except Exception:
+                traceback.print_exc(file=sys.stdout)
+                action = ['guard']
+            finally:
+                sys.stdout = old_stdout
+                MyPlayer.log[self.location] = log = my_stdout.getvalue()
+                if len(log) > 0:
+                    print log,
+
+            return action
+
+        if not hasattr(self, '_hooked'):
+            real_act = robot.act
+            robot.act = types.MethodType(my_act, robot)
+            self._hooked = True
+
+        return robot
+
+
+class MyGame(game.Game):
+    def make_robots_act(self):
+        MyPlayer.log = {}
+        game.Game.make_robots_act(self)
 
 
 def game_board(game):
@@ -68,6 +104,7 @@ def run_game(code1, code2):
 
         for (x, y), action in g.action_at[g.turns-1].iteritems():
             box = history[-1]['board'][x+y*19]
+            box['log'] = MyPlayer.log.get((x, y), '')
             box['action'] = action['name']
 
             if action['target'] is not None:
