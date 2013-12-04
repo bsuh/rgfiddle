@@ -79,6 +79,13 @@ def game_board(game):
     return boxes
 
 
+def find_robot(robots, robot_id):
+    for r in robots:
+        if r['robot_id'] == robot_id:
+            return r
+    return None
+
+
 def run_game(code1, code2):
     directions = {
         (-1, 0): 'left',
@@ -102,14 +109,24 @@ def run_game(code1, code2):
     for i in xrange(settings.max_turns):
         g.run_turn()
 
-        for (x, y), action in g.action_at[g.turns-1].iteritems():
-            box = history[-1]['board'][x+y*19]
-            box['log'] = MyPlayer.log.get((x, y), '')
-            box['action'] = action['name']
+        if len(history) >= 2:
+            for robot in g.history[g.turns - 1]:
+                last_robot = find_robot(g.history[g.turns - 2],
+                                        robot['robot_id'])
+                if last_robot is None:
+                    continue
 
-            if action['target'] is not None:
-                target_x, target_y = action['target']
-                box['target'] = directions[(target_x - x), (target_y - y)]
+                x, y = last_robot['location']
+                box = history[-1]['board'][x+y*19]
+                box['log'] = MyPlayer.log.get((x, y), '')
+
+                if 'action' in robot:
+                    action = robot['action']
+                    box['action'] = action[0]
+                    if action[0] in ('move', 'attack'):
+                        target_x, target_y = action[1]
+                        box['target'] = directions[(target_x - x),
+                                                   (target_y - y)]
 
         history.append(turn())
 
