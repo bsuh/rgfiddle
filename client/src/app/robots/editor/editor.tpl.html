@@ -5,6 +5,11 @@
     <select ng-model="codeMirrorOptions.theme"
             ng-options="t for t in themes"
             class="mt10"></select>
+    &nbsp;
+    <label>
+      <input type="checkbox" ng-model="vim" ng-change="vimToggle()" />
+      Vim mode
+    </label>
   </script>
 
   <form name="robotForm" class="form-inline" novalidate>

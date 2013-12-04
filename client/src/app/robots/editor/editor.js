@@ -9,6 +9,7 @@ angular.
       mode: 'python',
       lineNumbers: true,
       theme: 'default',
+      keyMap: 'default',
       indentUnit: 4,
       extraKeys: {
         Tab: function(cm) {
@@ -66,5 +67,9 @@ angular.
       };
 
       reader.readAsText(file);
+    };
+
+    $scope.vimToggle = function () {
+      $scope.codeMirrorOptions.keyMap = this.vim ? 'vim' : 'default';
     };
   }]);

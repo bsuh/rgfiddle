@@ -9,6 +9,11 @@ angular.module("/client/src/app/robots/editor/editor.tpl.html", []).run(["$templ
     "    <select ng-model=\"codeMirrorOptions.theme\"\n" +
     "            ng-options=\"t for t in themes\"\n" +
     "            class=\"mt10\"></select>\n" +
+    "    &nbsp;\n" +
+    "    <label>\n" +
+    "      <input type=\"checkbox\" ng-model=\"vim\" ng-change=\"vimToggle()\" />\n" +
+    "      Vim mode\n" +
+    "    </label>\n" +
     "  </script>\n" +
     "\n" +
     "  <form name=\"robotForm\" class=\"form-inline\" novalidate>\n" +
