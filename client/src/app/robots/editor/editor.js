@@ -1,7 +1,9 @@
 /*global angular*/
 angular.
   module('rgfiddle.robots.editor',
-         ['directives.keepModelValue', 'ui.codemirror']).
+         ['directives.keepModelValue',
+          'directives.filechooser',
+          'ui.codemirror']).
   run(['$rootScope', function ($rootScope) {
     $rootScope.codeMirrorOptions = {
       mode: 'python',
@@ -46,4 +48,23 @@ angular.
       'xq-dark',
       'xq-light'
     ];
+
+    $scope.importFile = function (files) {
+      var file = files[0];
+
+      if (!file.type.match('text.*')) {
+        return;
+      }
+
+      var reader = new window.FileReader();
+
+      reader.onload = function (e) {
+        $scope.$apply(function () {
+          $scope.robot.name = file.name;
+          $scope.robot.code = e.target.result;
+        });
+      };
+
+      reader.readAsText(file);
+    };
   }]);

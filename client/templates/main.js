@@ -20,6 +20,8 @@ angular.module("/client/src/app/robots/editor/editor.tpl.html", []).run(["$templ
     "    </div>\n" +
     "    <button ng-click=\"updateRobot($index)\"\n" +
     "            class=\"btn btn-default\">Save</button>\n" +
+    "    <filechooser ng-if=\"$first\" button-class=\"btn btn-default\"\n" +
+    "                 change=\"importFile(files)\">Import from file</filechooser>\n" +
     "    <button ng-if=\"!$first\" ng-click=\"updateRobot($index, true)\"\n" +
     "            class=\"btn btn-danger\">Delete</button>\n" +
     "  </form>\n" +
