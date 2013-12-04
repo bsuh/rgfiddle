@@ -11,6 +11,10 @@
     border-top: none;
 }
 
+.mt10 {
+    margin-top: 10px;
+}
+
 .board {
     width: 344px;
     height: 344px;

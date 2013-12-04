@@ -17,21 +17,6 @@ angular.
         '        return [\'guard\']'
     };
 
-    $scope.codeMirrorOptions = function (code) {
-      return {
-        mode: 'python',
-        lineNumbers: true,
-        value: code,
-        indentUnit: 4,
-        extraKeys: {
-          Tab: function(cm) {
-            var spaces = new Array(cm.getOption('indentUnit') + 1).join(' ');
-            cm.replaceSelection(spaces, 'end', '+input');
-          }
-        }
-      };
-    };
-
     function error(msg) {
       $scope.alerts.push({type: 'danger', msg: msg });
     }

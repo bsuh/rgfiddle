@@ -2,25 +2,31 @@ angular.module('templates-main', ['/client/src/app/robots/editor/editor.tpl.html
 
 angular.module("/client/src/app/robots/editor/editor.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("/client/src/app/robots/editor/editor.tpl.html",
-    "<script type=\"text/ng-template\" id=\"/client/vendor/src/app/robots/editor/codemirror.tpl.html\">\n" +
-    "  <textarea ui-codemirror=\"codeMirrorOptions(robot.code)\" ng-model=\"robot.code\"></textarea>\n" +
-    "</script>\n" +
+    "<div ng-controller=\"EditorCtrl\">\n" +
+    "  <script type=\"text/ng-template\" id=\"/client/vendor/src/app/robots/editor/codemirror.tpl.html\">\n" +
+    "    <textarea ui-codemirror=\"codeMirrorOptions\"\n" +
+    "              ng-model=\"robot.code\"></textarea>\n" +
+    "    <select ng-model=\"codeMirrorOptions.theme\"\n" +
+    "            ng-options=\"t for t in themes\"\n" +
+    "            class=\"mt10\"></select>\n" +
+    "  </script>\n" +
     "\n" +
-    "<form name=\"robotForm\" class=\"form-inline\" novalidate>\n" +
-    "  <div class=\"form-group\" ng-class=\"{ 'has-error': robotForm.robotName.$dirty && !robotForm.robotName.$valid }\">\n" +
-    "    <input type=\"text\" ng-model=\"robot.name\"\n" +
-    "           ng-minlength=\"2\" ng-maxlength=\"20\"\n" +
-    "           keep-model-value=\"\"\n" +
-    "           name=\"robotName\" required class=\"form-control\" />\n" +
-    "  </div>\n" +
-    "  <button ng-click=\"updateRobot($index)\"\n" +
-    "          class=\"btn btn-default\">Save</button>\n" +
-    "  <button ng-if=\"!$first\" ng-click=\"updateRobot($index, true)\"\n" +
-    "          class=\"btn btn-danger\">Delete</button>\n" +
-    "</form>\n" +
-    "\n" +
-    "<!-- some hacky shit to make ui codemirror work properly w/ ng-repeat -->\n" +
-    "<div ng-if=\"robot.active\" ng-include=\"'/client/vendor/src/app/robots/editor/codemirror.tpl.html'\"></div>\n" +
+    "  <form name=\"robotForm\" class=\"form-inline\" novalidate>\n" +
+    "    <div class=\"form-group\" ng-class=\"{ 'has-error': robotForm.robotName.$dirty && !robotForm.robotName.$valid }\">\n" +
+    "      <input type=\"text\" ng-model=\"robot.name\"\n" +
+    "             ng-minlength=\"2\" ng-maxlength=\"20\"\n" +
+    "             keep-model-value=\"\"\n" +
+    "             name=\"robotName\" required class=\"form-control\" />\n" +
+    "    </div>\n" +
+    "    <button ng-click=\"updateRobot($index)\"\n" +
+    "            class=\"btn btn-default\">Save</button>\n" +
+    "    <button ng-if=\"!$first\" ng-click=\"updateRobot($index, true)\"\n" +
+    "            class=\"btn btn-danger\">Delete</button>\n" +
+    "  </form>\n" +
+    "  \n" +
+    "  <!-- some hacky shit to make ui codemirror work properly w/ ng-repeat -->\n" +
+    "  <div ng-if=\"robot.active\" ng-include=\"'/client/vendor/src/app/robots/editor/codemirror.tpl.html'\"></div>\n" +
+    "</div>\n" +
     "");
 }]);
 
