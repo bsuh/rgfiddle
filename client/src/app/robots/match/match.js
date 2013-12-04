@@ -2,6 +2,12 @@
 angular.
   module('rgfiddle.robots.match', ['directives.map']).
   controller('MatchCtrl', ['$scope', '$http', function ($scope, $http) {
+    $scope.changeTurn = function (diff) {
+      $scope.match.turn = Math.min(Math.max(
+        parseInt($scope.match.turn, 10) + diff, 0),
+                                   $scope.history.length - 1);
+    };
+
     $scope.runMatch = function (index, index2) {
       $scope.statusClasses = 'fa-spinner fa-spin';
 

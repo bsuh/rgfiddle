@@ -32,12 +32,21 @@
     </div>
     
     <div class="row">
-      Turn: {{match.turn}}
-      <span class="text-danger">
-        {{match.player1}}: {{history[match.turn].scores[0]}}
-      </span>
-      <span class="text-primary">
-        {{match.player2}}: {{history[match.turn].scores[1]}}
+      <button ng-click="changeTurn(-1)" class="btn btn-success">
+        <i class="fa fa-step-backward"></i>
+      </button>
+      <button ng-click="changeTurn(1)" class="btn btn-success">
+        <i class="fa fa-step-forward"></i>
+      </button>
+
+      <span class="pull-right">
+        Turn: {{match.turn}}
+        <span class="text-danger">
+          {{match.player1}}: {{history[match.turn].scores[0]}}
+        </span>
+        <span class="text-primary">
+          {{match.player2}}: {{history[match.turn].scores[1]}}
+        </span>
       </span>
     </div>
 

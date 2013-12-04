@@ -73,12 +73,21 @@ angular.module("/client/src/app/robots/match/match.tpl.html", []).run(["$templat
     "    </div>\n" +
     "    \n" +
     "    <div class=\"row\">\n" +
-    "      Turn: {{match.turn}}\n" +
-    "      <span class=\"text-danger\">\n" +
-    "        {{match.player1}}: {{history[match.turn].scores[0]}}\n" +
-    "      </span>\n" +
-    "      <span class=\"text-primary\">\n" +
-    "        {{match.player2}}: {{history[match.turn].scores[1]}}\n" +
+    "      <button ng-click=\"changeTurn(-1)\" class=\"btn btn-success\">\n" +
+    "        <i class=\"fa fa-step-backward\"></i>\n" +
+    "      </button>\n" +
+    "      <button ng-click=\"changeTurn(1)\" class=\"btn btn-success\">\n" +
+    "        <i class=\"fa fa-step-forward\"></i>\n" +
+    "      </button>\n" +
+    "\n" +
+    "      <span class=\"pull-right\">\n" +
+    "        Turn: {{match.turn}}\n" +
+    "        <span class=\"text-danger\">\n" +
+    "          {{match.player1}}: {{history[match.turn].scores[0]}}\n" +
+    "        </span>\n" +
+    "        <span class=\"text-primary\">\n" +
+    "          {{match.player2}}: {{history[match.turn].scores[1]}}\n" +
+    "        </span>\n" +
     "      </span>\n" +
     "    </div>\n" +
     "\n" +
