@@ -13,7 +13,7 @@
     "angular-ui-router": "~0.2.0",
     "bootstrap": "~3.0.2",
     "angular-bootstrap": "~0.7.0",
-    "angular-ui-codemirror": "~0.0.6",
-    "font-awesome": "~4.0.3"
+    "font-awesome": "~4.0.3",
+    "angular-ui-codemirror": "https://github.com/angular-ui/ui-codemirror/archive/master.zip"
   }
 }

@@ -29,14 +29,13 @@
     "angular-ui-bootstrap-bower": "~0.5.0",
     "angular-ui-docs": "angular-ui/angular-ui-docs"
   },
-  "_release": "0.0.6",
-  "_resolution": {
-    "type": "version",
-    "tag": "v0.0.6",
-    "commit": "012e5507346857f4fcafa864b29307b16a0a5767"
+  "_cacheHeaders": {
+    "Content-Length": "16831",
+    "Content-Type": "application/zip",
+    "Content-Disposition": "attachment; filename=ui-codemirror-master.zip"
   },
-  "_source": "git://github.com/angular-ui/ui-codemirror.git",
-  "_target": "~0.0.6",
-  "_originalSource": "angular-ui-codemirror",
+  "_source": "https://github.com/angular-ui/ui-codemirror/archive/master.zip",
+  "_target": "*",
+  "_originalSource": "https://github.com/angular-ui/ui-codemirror/archive/master.zip",
   "_direct": true
 }

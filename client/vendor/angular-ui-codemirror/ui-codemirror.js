@@ -9,6 +9,7 @@ angular.module('ui.codemirror', [])
     return {
       restrict: 'EA',
       require: '?ngModel',
+      priority: 1,
       compile: function compile(tElement, tAttrs, transclude) {
 
         // Require CodeMirror
@@ -56,7 +57,7 @@ angular.module('ui.codemirror', [])
 
           updateOptions(opts);
 
-          if (angular.isDefined(scope[iAttrs.uiCodemirror])) {
+          if (angular.isDefined(scope.$eval(iAttrs.uiCodemirror))) {
             scope.$watch(iAttrs.uiCodemirror, updateOptions, true);
           }
           // Specialize change event
