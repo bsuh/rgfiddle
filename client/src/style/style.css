@@ -15,6 +15,10 @@
     margin-top: 10px;
 }
 
+.match-turn-slider {
+    width: 100%;
+}
+
 .board {
     width: 344px;
     height: 344px;

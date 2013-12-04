@@ -63,7 +63,8 @@ angular.module("/client/src/app/robots/match/match.tpl.html", []).run(["$templat
     "    \n" +
     "    <div class=\"row\">\n" +
     "      <input type=\"range\" ng-model=\"match.turn\"\n" +
-    "             min=\"0\" max=\"{{history.length-1}}\" step=\"1\" value=\"0\"/>\n" +
+    "             min=\"0\" max=\"{{history.length-1}}\" step=\"1\" value=\"0\"\n" +
+    "             class=\"match-turn-slider\" />\n" +
     "    </div>\n" +
     "    \n" +
     "    <div class=\"row\">\n" +
