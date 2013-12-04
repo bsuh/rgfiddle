@@ -1,11 +1,7 @@
 /*global angular*/
 angular.
   module('rgfiddle.robots',
-         [
-           'rgfiddle.robots.editor',
-           'rgfiddle.robots.match',
-           'ui.bootstrap',
-         ]).
+         ['rgfiddle.robots.editor', 'rgfiddle.robots.match', 'ui.bootstrap']).
   controller('RobotsCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.robots = [];
 
@@ -38,7 +34,8 @@ angular.
       var id = robot.id;
 
       if (remove) {
-        if (window.confirm('Are you sure you want to delete this robot? You cannot undo this!')) {
+        if (window.confirm('Are you sure you want to delete this robot?' +
+                           ' You cannot undo this!')) {
           $http['delete']('/v1/robots/' + id, robot).success(function (data) {
             if (data.rows > 0) {
               var index = $scope.robots.indexOf(robot);

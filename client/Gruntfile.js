@@ -36,7 +36,8 @@ module.exports = function(grunt) {
         browser: true,
         globals: {
           jQuery: true
-        }
+        },
+        maxlen: 80
       },
       src: {
         files: ['<%= src.js %>', '<%= src.unittests %>']
