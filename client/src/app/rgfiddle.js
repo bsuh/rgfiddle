@@ -1,6 +1,6 @@
 /*global angular*/
 angular.
-  module('rgfiddle', ['rgfiddle.states', 'rgfiddle.robots']).
+  module('rgfiddle', ['templates-main', 'rgfiddle.states', 'rgfiddle.robots']).
   run(['$rootScope', '$state', '$stateParams',
        function ($rootScope, $state, $stateParams) {
          $rootScope.$state = $state;
