@@ -5,7 +5,8 @@ angular.
     return {
       restrict: 'EA',
       scope: {
-        board: '='
+        board: '=',
+        click: '&'
       },
       templateUrl: '/client/src/common/directives/rgMap.tpl.html',
       link: function (scope, element, attrs) {
@@ -18,7 +19,7 @@ angular.
               siblings().removeClass('selected');
 
             scope.$apply(function () {
-              scope.$parent.$eval(attrs.click, { index: index });
+              scope.click({ index: index });
             });
           });
         }
