@@ -1,5 +1,5 @@
 function parseStateRef(ref) {
-  var parsed = ref.match(/^([^(]+?)\s*(\((.*)\))?$/);
+  var parsed = ref.replace(/\n/g, " ").match(/^([^(]+?)\s*(\((.*)\))?$/);
   if (!parsed || parsed.length !== 4) throw new Error("Invalid state ref '" + ref + "'");
   return { state: parsed[1], paramExpr: parsed[3] || null };
 }
@@ -35,7 +35,7 @@ function $StateRefDirective($state) {
 
       if (ref.paramExpr) {
         scope.$watch(ref.paramExpr, function(newVal, oldVal) {
-          if (newVal !== oldVal) update(newVal);
+          if (newVal !== params) update(newVal);
         }, true);
         params = scope.$eval(ref.paramExpr);
       }
@@ -44,9 +44,12 @@ function $StateRefDirective($state) {
       if (isForm) return;
 
       element.bind("click", function(e) {
-        if ((e.which == 1) && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
-          $state.go(ref.state, params, { relative: base });
-          scope.$apply();
+        var button = e.which || e.button;
+
+        if ((button === 0 || button == 1) && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+          scope.$evalAsync(function() {
+            $state.go(ref.state, params, { relative: base });
+          });
           e.preventDefault();
         }
       });
