@@ -3,19 +3,6 @@ angular.module('templates-main', ['/client/src/app/robots/editor/editor.tpl.html
 angular.module("/client/src/app/robots/editor/editor.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("/client/src/app/robots/editor/editor.tpl.html",
     "<div ng-controller=\"EditorCtrl\">\n" +
-    "  <script type=\"text/ng-template\" id=\"/client/vendor/src/app/robots/editor/codemirror.tpl.html\">\n" +
-    "    <textarea ui-codemirror=\"codeMirrorOptions\"\n" +
-    "              ng-model=\"robot.code\"></textarea>\n" +
-    "    <select ng-model=\"codeMirrorOptions.theme\"\n" +
-    "            ng-options=\"t for t in themes\"\n" +
-    "            class=\"mt10\"></select>\n" +
-    "    &nbsp;\n" +
-    "    <label>\n" +
-    "      <input type=\"checkbox\" ng-model=\"vim\" ng-change=\"vimToggle()\" />\n" +
-    "      Vim mode\n" +
-    "    </label>\n" +
-    "  </script>\n" +
-    "\n" +
     "  <form name=\"robotForm\" class=\"form-inline\" novalidate>\n" +
     "    <div class=\"form-group\" ng-class=\"{ 'has-error': robotForm.robotName.$dirty && !robotForm.robotName.$valid }\">\n" +
     "      <input type=\"text\" ng-model=\"robot.name\"\n" +
@@ -30,9 +17,20 @@ angular.module("/client/src/app/robots/editor/editor.tpl.html", []).run(["$templ
     "    <button ng-if=\"!$first\" ng-click=\"updateRobot($index, true)\"\n" +
     "            class=\"btn btn-danger\">Delete</button>\n" +
     "  </form>\n" +
-    "  \n" +
-    "  <!-- some hacky shit to make ui codemirror work properly w/ ng-repeat -->\n" +
-    "  <div ng-if=\"robot.active\" ng-include=\"'/client/vendor/src/app/robots/editor/codemirror.tpl.html'\"></div>\n" +
+    "\n" +
+    "  <div>\n" +
+    "    <textarea ui-codemirror=\"codeMirrorOptions\"\n" +
+    "              ui-refresh=\"robot.init\"\n" +
+    "              ng-model=\"robot.code\"></textarea>\n" +
+    "    <select ng-model=\"codeMirrorOptions.theme\"\n" +
+    "            ng-options=\"t for t in themes\"\n" +
+    "            class=\"mt10\"></select>\n" +
+    "    &nbsp;\n" +
+    "    <label>\n" +
+    "      <input type=\"checkbox\" ng-model=\"vim\" ng-change=\"vimToggle()\" />\n" +
+    "      Vim mode\n" +
+    "    </label>\n" +
+    "  </div>\n" +
     "</div>\n" +
     "");
 }]);
@@ -106,7 +104,9 @@ angular.module("/client/src/app/robots/robots.tpl.html", []).run(["$templateCach
   $templateCache.put("/client/src/app/robots/robots.tpl.html",
     "<div ng-controller=\"RobotsCtrl\" class=\"row\">\n" +
     "  <tabset ng-init=\"getRobots()\">\n" +
-    "    <tab ng-repeat=\"robot in robots\" active=\"robot.active\">\n" +
+    "    <tab ng-repeat=\"robot in robots\"\n" +
+    "         active=\"robot.active\"\n" +
+    "         select=\"robot.init = true\">\n" +
     "      <tab-heading ng-switch=\"!!$first\">\n" +
     "        <div ng-switch-when=\"false\">\n" +
     "          {{robot.name}}\n" +

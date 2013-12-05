@@ -1,6 +1,8 @@
 <div ng-controller="RobotsCtrl" class="row">
   <tabset ng-init="getRobots()">
-    <tab ng-repeat="robot in robots" active="robot.active">
+    <tab ng-repeat="robot in robots"
+         active="robot.active"
+         select="robot.init = true">
       <tab-heading ng-switch="!!$first">
         <div ng-switch-when="false">
           {{robot.name}}

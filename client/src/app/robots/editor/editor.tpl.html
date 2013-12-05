@@ -1,17 +1,4 @@
 <div ng-controller="EditorCtrl">
-  <script type="text/ng-template" id="/client/vendor/src/app/robots/editor/codemirror.tpl.html">
-    <textarea ui-codemirror="codeMirrorOptions"
-              ng-model="robot.code"></textarea>
-    <select ng-model="codeMirrorOptions.theme"
-            ng-options="t for t in themes"
-            class="mt10"></select>
-    &nbsp;
-    <label>
-      <input type="checkbox" ng-model="vim" ng-change="vimToggle()" />
-      Vim mode
-    </label>
-  </script>
-
   <form name="robotForm" class="form-inline" novalidate>
     <div class="form-group" ng-class="{ 'has-error': robotForm.robotName.$dirty && !robotForm.robotName.$valid }">
       <input type="text" ng-model="robot.name"
@@ -26,7 +13,18 @@
     <button ng-if="!$first" ng-click="updateRobot($index, true)"
             class="btn btn-danger">Delete</button>
   </form>
-  
-  <!-- some hacky shit to make ui codemirror work properly w/ ng-repeat -->
-  <div ng-if="robot.active" ng-include="'/client/vendor/src/app/robots/editor/codemirror.tpl.html'"></div>
+
+  <div>
+    <textarea ui-codemirror="codeMirrorOptions"
+              ui-refresh="robot.init"
+              ng-model="robot.code"></textarea>
+    <select ng-model="codeMirrorOptions.theme"
+            ng-options="t for t in themes"
+            class="mt10"></select>
+    &nbsp;
+    <label>
+      <input type="checkbox" ng-model="vim" ng-change="vimToggle()" />
+      Vim mode
+    </label>
+  </div>
 </div>
