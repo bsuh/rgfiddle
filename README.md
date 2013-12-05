@@ -14,9 +14,10 @@ Installation
 
 Then you can visit `http://localhost:8080/`
 
-Keeping rgkit up to date
+Updating rgfiddle
 ------
     cd ~/rgfiddle
+    git pull
     git submodule update
     
 Screenshot
