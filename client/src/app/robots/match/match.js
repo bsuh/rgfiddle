@@ -8,6 +8,18 @@ angular.
                                    $scope.history.length - 1);
     };
 
+    var _normalBox = {type: 'normal'};
+    function optimizeHistory(history) {
+      angular.forEach(history, function (turn) {
+        for (var i = 0; i < turn.board.length; i += 1) {
+          if (turn.board[i].type === 'normal') {
+            turn.board[i] = _normalBox;
+          }
+        }
+      });
+      return history;
+    }
+
     $scope.runMatch = function (index, index2) {
       $scope.statusClasses = 'fa-spinner fa-spin';
 
@@ -28,7 +40,7 @@ angular.
             player2: robot2.name,
             turn: 0
           };
-          $scope.history = data.history;
+          $scope.history = optimizeHistory(data.history);
         }).error(function () {
           $scope.alerts.push({
             type: 'danger',
