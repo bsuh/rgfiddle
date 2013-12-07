@@ -15,9 +15,9 @@
   </form>
 
   <div>
-    <textarea ui-codemirror="codeMirrorOptions"
-              ui-refresh="robot.init"
-              ng-model="robot.code"></textarea>
+    <div ui-codemirror="codeMirrorOptions"
+         ui-refresh="robot.init"
+         ng-model="robot.code"></div>
     <select ng-model="codeMirrorOptions.theme"
             ng-options="t for t in themes"
             class="mt10"></select>

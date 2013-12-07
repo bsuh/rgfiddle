@@ -19,9 +19,9 @@ angular.module("/client/src/app/robots/editor/editor.tpl.html", []).run(["$templ
     "  </form>\n" +
     "\n" +
     "  <div>\n" +
-    "    <textarea ui-codemirror=\"codeMirrorOptions\"\n" +
-    "              ui-refresh=\"robot.init\"\n" +
-    "              ng-model=\"robot.code\"></textarea>\n" +
+    "    <div ui-codemirror=\"codeMirrorOptions\"\n" +
+    "         ui-refresh=\"robot.init\"\n" +
+    "         ng-model=\"robot.code\"></div>\n" +
     "    <select ng-model=\"codeMirrorOptions.theme\"\n" +
     "            ng-options=\"t for t in themes\"\n" +
     "            class=\"mt10\"></select>\n" +
