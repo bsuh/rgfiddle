@@ -102,7 +102,7 @@ angular.module("/client/src/app/robots/match/match.tpl.html", []).run(["$templat
 
 angular.module("/client/src/app/robots/robots.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("/client/src/app/robots/robots.tpl.html",
-    "<div ng-controller=\"RobotsCtrl\" class=\"row\">\n" +
+    "<div ng-controller=\"RobotsCtrl\">\n" +
     "  <tabset ng-init=\"getRobots()\">\n" +
     "    <tab ng-repeat=\"robot in robots\"\n" +
     "         active=\"robot.active\"\n" +
@@ -115,18 +115,16 @@ angular.module("/client/src/app/robots/robots.tpl.html", []).run(["$templateCach
     "          <span class=\"glyphicon glyphicon-plus\"></span>&nbsp;New Robot\n" +
     "        </div>\n" +
     "      </tab-heading>\n" +
-    "      <div class=\"col-xs-12\">\n" +
-    "        <div class=\"row\">\n" +
+    "      <div class=\"row\">\n" +
     "\n" +
-    "          <!-- left column with code mirror -->\n" +
-    "          <div class=\"col-lg-8\">\n" +
-    "            <div ng-include=\"'/client/src/app/robots/editor/editor.tpl.html'\"></div>\n" +
-    "          </div>\n" +
+    "        <!-- left column with code mirror -->\n" +
+    "        <div class=\"col-lg-8\">\n" +
+    "          <div ng-include=\"'/client/src/app/robots/editor/editor.tpl.html'\"></div>\n" +
+    "        </div>\n" +
     "\n" +
-    "          <!-- right column with game map -->\n" +
-    "          <div class=\"col-lg-4\">\n" +
-    "            <div ng-include=\"'/client/src/app/robots/match/match.tpl.html'\"></div>\n" +
-    "          </div>\n" +
+    "        <!-- right column with game map -->\n" +
+    "        <div class=\"col-lg-4\">\n" +
+    "          <div ng-include=\"'/client/src/app/robots/match/match.tpl.html'\"></div>\n" +
     "        </div>\n" +
     "      </div>\n" +
     "    </tab>\n" +

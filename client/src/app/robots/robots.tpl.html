@@ -1,4 +1,4 @@
-<div ng-controller="RobotsCtrl" class="row">
+<div ng-controller="RobotsCtrl">
   <tabset ng-init="getRobots()">
     <tab ng-repeat="robot in robots"
          active="robot.active"
@@ -11,18 +11,16 @@
           <span class="glyphicon glyphicon-plus"></span>&nbsp;New Robot
         </div>
       </tab-heading>
-      <div class="col-xs-12">
-        <div class="row">
+      <div class="row">
 
-          <!-- left column with code mirror -->
-          <div class="col-lg-8">
-            <div ng-include="'/client/src/app/robots/editor/editor.tpl.html'"></div>
-          </div>
+        <!-- left column with code mirror -->
+        <div class="col-lg-8">
+          <div ng-include="'/client/src/app/robots/editor/editor.tpl.html'"></div>
+        </div>
 
-          <!-- right column with game map -->
-          <div class="col-lg-4">
-            <div ng-include="'/client/src/app/robots/match/match.tpl.html'"></div>
-          </div>
+        <!-- right column with game map -->
+        <div class="col-lg-4">
+          <div ng-include="'/client/src/app/robots/match/match.tpl.html'"></div>
         </div>
       </div>
     </tab>
