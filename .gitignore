@@ -41,3 +41,7 @@ node_modules
 *~
 .Python
 .DS_Store
+.tern-port
+.tern-project
+.Projectile
+rgfiddle.db
