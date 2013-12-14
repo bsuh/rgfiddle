@@ -1,5 +1,6 @@
 import ast
 import imp
+import os.path as path
 import rgkit.game as game
 import rgkit.rg as rg
 import traceback
@@ -60,6 +61,9 @@ class MyGame(game.Game):
         MyPlayer.log = {}
         return game.Game.make_robots_act(self)
 
+    def finish_running_turns_if_necessary(self):
+        return
+
 
 def game_board(game):
     boxes = []
@@ -97,36 +101,38 @@ def run_game(code1, code2):
     def turn():
         return {'scores': g.get_scores(), 'board': game_board(g)}
 
-    with open('rgkit/maps/default.py') as mapfile:
+    rgkit_dir = path.dirname(game.__file__)
+    with open(path.join(rgkit_dir, 'maps/default.py')) as mapfile:
         game.init_settings(ast.literal_eval(mapfile.read()))
 
     g = MyGame(
         MyPlayer(code=code1),
         MyPlayer(code=code2),
-        record_turns=True)
+        record_history=True)
 
     history = [turn()]
     for i in xrange(settings.max_turns):
         g.run_turn()
 
         if len(history) >= 2:
-            for robot in g.history[g.turns - 1]:
-                last_robot = find_robot(g.history[g.turns - 2],
-                                        robot['robot_id'])
-                if last_robot is None:
-                    continue
+            for player_id in (0, 1):
+                for robot in g.history[player_id][g.turns - 1]:
+                    last_robot = find_robot(g.history[player_id][g.turns - 2],
+                                            robot['robot_id'])
+                    if last_robot is None:
+                        continue
 
-                x, y = last_robot['location']
-                box = history[-1]['board'][x+y*19]
-                box['log'] = MyPlayer.log.get((x, y), '')
+                    x, y = last_robot['location']
+                    box = history[-1]['board'][x+y*19]
+                    box['log'] = MyPlayer.log.get((x, y), '')
 
-                if 'action' in robot:
-                    action = robot['action']
-                    box['action'] = action[0]
-                    if action[0] in ('move', 'attack'):
-                        target_x, target_y = action[1]
-                        box['target'] = directions[(target_x - x),
-                                                   (target_y - y)]
+                    if 'action' in robot:
+                        action = robot['action']
+                        box['action'] = action[0]
+                        if action[0] in ('move', 'attack'):
+                            target_x, target_y = action[1]
+                            box['target'] = directions[(target_x - x),
+                                                       (target_y - y)]
 
         history.append(turn())
 
