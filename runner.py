@@ -58,7 +58,7 @@ class MyPlayer(game.Player):
 class MyGame(game.Game):
     def make_robots_act(self):
         MyPlayer.log = {}
-        game.Game.make_robots_act(self)
+        return game.Game.make_robots_act(self)
 
 
 def game_board(game):
@@ -70,7 +70,7 @@ def game_board(game):
                 boxes.append({'type': 'obstacle'})
             elif robot is not None:
                 boxes.append({
-                    'type': {0: 'red', 1: 'blue'}[robot.player_id],
+                    'type': ['red', 'blue'][robot.player_id],
                     'hp': robot.hp
                 })
             else:
@@ -100,7 +100,7 @@ def run_game(code1, code2):
     with open('rgkit/maps/default.py') as mapfile:
         game.init_settings(ast.literal_eval(mapfile.read()))
 
-    g = game.Game(
+    g = MyGame(
         MyPlayer(code=code1),
         MyPlayer(code=code2),
         record_turns=True)
