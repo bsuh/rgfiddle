@@ -1,9 +1,7 @@
 
 $ViewDirective.$inject = ['$state', '$compile', '$controller', '$injector', '$anchorScroll'];
 function $ViewDirective(   $state,   $compile,   $controller,   $injector,   $anchorScroll) {
-  // TODO: Change to $injector.has() when we version bump to Angular 1.1.5.
-  // See: https://github.com/angular/angular.js/blob/master/CHANGELOG.md#115-triangle-squarification-2013-05-22
-  var $animator; try { $animator = $injector.get('$animator'); } catch (e) { /* do nothing */ }
+  var $animator = $injector.has('$animator') ? $injector.get('$animator') : false;
   var viewIsUpdating = false;
 
   var directive = {
@@ -16,7 +14,7 @@ function $ViewDirective(   $state,   $compile,   $controller,   $injector,   $an
         var viewScope, viewLocals,
             name = attr[directive.name] || attr.name || '',
             onloadExp = attr.onload || '',
-            animate = isDefined($animator) && $animator(scope, attr),
+            animate = $animator && $animator(scope, attr),
             initialView = transclude(scope);
 
         // Returns a set of DOM manipulation functions based on whether animation
