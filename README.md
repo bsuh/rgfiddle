@@ -8,8 +8,6 @@ Installation
     git clone https://github.com/bsuh/rgfiddle.git
     cd rgfiddle
     pip install -r requirements.txt
-    git submodule init
-    git submodule update
     python backend.py
 
 Then you can visit `http://localhost:8080/`
@@ -18,8 +16,7 @@ Updating rgfiddle
 ------
     cd ~/rgfiddle
     git pull
-    git submodule update
-    
+
 Screenshot
 ------
 ![Screenshot](https://raw.github.com/bsuh/rgfiddle/master/screenshot.png)
