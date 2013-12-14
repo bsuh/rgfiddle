@@ -107,7 +107,7 @@ angular.module("/client/src/app/robots/robots.tpl.html", []).run(["$templateCach
     "    <tab ng-repeat=\"robot in robots\"\n" +
     "         active=\"robot.active\"\n" +
     "         select=\"robot.init = true\">\n" +
-    "      <tab-heading ng-switch=\"!!$first\">\n" +
+    "      <tab-heading ng-switch=\"$first\">\n" +
     "        <div ng-switch-when=\"false\">\n" +
     "          {{robot.name}}\n" +
     "        </div>\n" +

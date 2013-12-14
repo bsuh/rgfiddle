@@ -22,10 +22,7 @@ angular.
         $scope.robots = data.robots;
         $scope.robots.unshift($scope.newRobot);
       }).error(function () {
-        $scope.alerts.push({
-          type: 'danger',
-          msg: 'Could not obtain list of robots'
-        });
+        error('Could not obtain list of robots');
       });
     };
 

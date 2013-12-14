@@ -3,7 +3,7 @@
     <tab ng-repeat="robot in robots"
          active="robot.active"
          select="robot.init = true">
-      <tab-heading ng-switch="!!$first">
+      <tab-heading ng-switch="$first">
         <div ng-switch-when="false">
           {{robot.name}}
         </div>
