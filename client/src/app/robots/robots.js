@@ -1,63 +1,69 @@
 /*global angular*/
 angular.
-  module('rgfiddle.robots',
-         ['rgfiddle.robots.editor', 'rgfiddle.robots.match', 'ui.bootstrap']).
-  controller('RobotsCtrl', ['$scope', '$http', function ($scope, $http) {
-    $scope.robots = [];
+  module('rgfiddle.robots', [
+    'rgfiddle.robots.editor',
+    'rgfiddle.robots.match',
+    'ui.bootstrap',
+    'ngResource'
+  ]).
+  controller('RobotsCtrl', [
+    '$scope', '$http', '$resource',
+    function ($scope, $http, $resource) {
+      var Robot = $resource('/v1/robots/:id');
 
-    $scope.newRobot = {
-      id: null,
-      name: 'Guardian',
-      code: 'class Robot:\n' +
-        '    def act(self, game):\n' +
-        '        return [\'guard\']'
-    };
+      $scope.robots = [];
 
-    function error(msg) {
-      $scope.alerts.push({type: 'danger', msg: msg });
-    }
+      $scope.newRobot = {
+        id: null,
+        name: 'Guardian',
+        code: 'class Robot:\n' +
+          '    def act(self, game):\n' +
+          '        return [\'guard\']'
+      };
 
-    $scope.getRobots = function () {
-      $http.get('/v1/robots/').success(function (data) {
-        $scope.robots = data.robots;
+      function error(msg) {
+        $scope.alerts.push({type: 'danger', msg: msg });
+      }
+
+      $scope.getRobots = function () {
+        $scope.robots = Robot.query(function () {
+          $scope.robots.unshift($scope.newRobot);
+        }, function () {
+          error('Could not obtain list of robots');
+        });
         $scope.robots.unshift($scope.newRobot);
-      }).error(function () {
-        error('Could not obtain list of robots');
-      });
-    };
+      };
 
-    $scope.updateRobot = function (index, remove) {
-      var robot = $scope.robots[index];
-      var id = robot.id;
+      $scope.updateRobot = function (index, remove) {
+        var robot = $scope.robots[index];
+        var id = robot.id;
 
-      if (remove) {
-        if (window.confirm('Are you sure you want to delete this robot?' +
-                           ' You cannot undo this!')) {
-          $http['delete']('/v1/robots/' + id, robot).success(function (data) {
-            if (data.rows > 0) {
-              var index = $scope.robots.indexOf(robot);
-              if (index !== -1) {
-                $scope.robots.splice(index, 1);
+        if (remove) {
+          if (window.confirm('Are you sure you want to delete this robot?' +
+                             ' You cannot undo this!')) {
+            Robot.remove({ id: id }, function (data) {
+              if (data.rows > 0) {
+                var index = $scope.robots.indexOf(robot);
+                if (index !== -1) {
+                  $scope.robots.splice(index, 1);
+                }
+              } else {
+                error('Could not find robot to delete');
               }
+            }, function () {
+              error('Could not delete robot');
+            });
+          }
+        } else {
+          Robot.save({ id: id }, robot, function (data) {
+            if (!id) {
+              $scope.robots.push(data.robot);
             } else {
-              error('Could not find robot to delete');
+              angular.extend(robot, data.robot);
             }
-          }).error(function () {
-            error('Could not delete robot');
+          }, function () {
+            error('Could not ' + (id ? 'update' : 'create') + ' robot');
           });
         }
-      } else if (!id) {
-        $http.post('/v1/robots/', robot).success(function (data) {
-          $scope.robots.push(data.robot);
-        }).error(function () {
-          error('Could not create robot');
-        });
-      } else {
-        $http.put('/v1/robots/' + id, robot).success(function (data) {
-          angular.extend(robot, data.robot);
-        }).error(function () {
-          error('Could not update robot');
-        });
-      }
-    };
-  }]);
+      };
+    }]);

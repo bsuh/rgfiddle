@@ -1,4 +1,5 @@
 import bottle
+import json
 from models import Robot, model_json
 from runner import run_game
 
@@ -20,12 +21,13 @@ def run_match():
     return {'history': run_game(json['player1'], json['player2'])}
 
 
-@bottle.route('/v1/robots/')
+@bottle.route('/v1/robots')
 def robot_list():
-    return {'robots': map(model_json, Robot.select())}
+    bottle.response.content_type = 'application/json'
+    return json.dumps(map(model_json, Robot.select()))
 
 
-@bottle.post('/v1/robots/')
+@bottle.post('/v1/robots')
 def robot_create():
     json = bottle.request.json
 
@@ -33,7 +35,7 @@ def robot_create():
     return {'robot': model_json(new_robot)}
 
 
-@bottle.put('/v1/robots/<id:int>')
+@bottle.post('/v1/robots/<id:int>')
 def robot_update(id):
     json = bottle.request.json
 
