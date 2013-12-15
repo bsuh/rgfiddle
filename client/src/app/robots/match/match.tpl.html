@@ -1,60 +1,76 @@
 <div ng-controller="MatchCtrl">
-  <p class="lead row">
-    <span class="text-danger">{{robots[$index].name}}</span> vs
-    <span class="text-primary">{{robots[opponent.index].name}}</span>
-  </p>
+  <div class="row">
+    <div class="col-xs-12">
+      <p class="lead">
+        <span class="text-danger">{{robots[$index].name}}</span> vs
+        <span class="text-primary">{{robots[opponent.index].name}}</span>
+      </p>
+    </div>
+  </div>
   
   <div class="row">
-    <div class="btn-group" ng-init="opponent.index = 0">
-      <button class="btn btn-default dropdown-toggle">
-        Select opponent&nbsp;<span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li ng-repeat="robot in robots">
-          <a ng-click="opponent.index = $index">{{robot.name}}</a>
-        </li>
-      </ul>
+    <div class="col-xs-12">
+      <div class="btn-group" ng-init="opponent.index = 0">
+        <button class="btn btn-default dropdown-toggle">
+          Select opponent&nbsp;<span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li ng-repeat="robot in robots">
+            <a ng-click="opponent.index = $index">{{robot.name}}</a>
+          </li>
+        </ul>
+      </div>
+      <button ng-click="runMatch($index, opponent.index)"
+              class="btn btn-primary">Run match</button>
+      <i ng-if="statusClasses" ng-class="statusClasses" class="fa"></i>
     </div>
-    <button ng-click="runMatch($index, opponent.index)"
-            class="btn btn-primary">Run match</button>
-    <i ng-if="statusClasses" ng-class="statusClasses" class="fa"></i>
   </div>
   
   <div ng-if="history">
-    <rg-map board="history[match.turn].board"
-            click="chosenRobotIndex = index"
-            class="row"></rg-map>
-    
     <div class="row">
-      <input type="range" ng-model="match.turn"
-             min="0" max="{{history.length-1}}" step="1" value="0"
-             class="match-turn-slider" />
+      <div class="col-xs-12">
+        <rg-map board="history[match.turn].board"
+                click="chosenRobotIndex = index"
+                class="row"></rg-map>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <input type="range" ng-model="match.turn"
+               min="0" max="{{history.length-1}}" step="1" value="0"
+               class="match-turn-slider" />
+      </div>
     </div>
     
     <div class="row">
-      <button ng-click="changeTurn(-1)" class="btn btn-success">
-        <i class="fa fa-step-backward"></i>
-      </button>
-      <button ng-click="changeTurn(1)" class="btn btn-success">
-        <i class="fa fa-step-forward"></i>
-      </button>
+      <div class="col-xs-12">
+        <button ng-click="changeTurn(-1)" class="btn btn-success">
+          <i class="fa fa-step-backward"></i>
+        </button>
+        <button ng-click="changeTurn(1)" class="btn btn-success">
+          <i class="fa fa-step-forward"></i>
+        </button>
 
-      <span class="pull-right">
-        Turn: {{match.turn}}
-        <span class="text-danger">
-          {{match.player1}}: {{history[match.turn].scores[0]}}
+        <span class="pull-right">
+          Turn: {{match.turn}}
+          <span class="text-danger">
+            {{match.player1}}: {{history[match.turn].scores[0]}}
+          </span>
+          <span class="text-primary">
+            {{match.player2}}: {{history[match.turn].scores[1]}}
+          </span>
         </span>
-        <span class="text-primary">
-          {{match.player2}}: {{history[match.turn].scores[1]}}
-        </span>
-      </span>
+      </div>
     </div>
 
     <div ng-if="history[match.turn].board[chosenRobotIndex].log"
          class="row">
-      <br/>
-      Robot Log:
-      <pre>{{history[match.turn].board[chosenRobotIndex].log}}</pre>
+      <div class="col-xs-12">
+        <br/>
+        Robot Log:
+        <pre>{{history[match.turn].board[chosenRobotIndex].log}}</pre>
+      </div>
     </div>
   </div>
 </div>

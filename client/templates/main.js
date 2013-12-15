@@ -38,62 +38,78 @@ angular.module("/client/src/app/robots/editor/editor.tpl.html", []).run(["$templ
 angular.module("/client/src/app/robots/match/match.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("/client/src/app/robots/match/match.tpl.html",
     "<div ng-controller=\"MatchCtrl\">\n" +
-    "  <p class=\"lead row\">\n" +
-    "    <span class=\"text-danger\">{{robots[$index].name}}</span> vs\n" +
-    "    <span class=\"text-primary\">{{robots[opponent.index].name}}</span>\n" +
-    "  </p>\n" +
+    "  <div class=\"row\">\n" +
+    "    <div class=\"col-xs-12\">\n" +
+    "      <p class=\"lead\">\n" +
+    "        <span class=\"text-danger\">{{robots[$index].name}}</span> vs\n" +
+    "        <span class=\"text-primary\">{{robots[opponent.index].name}}</span>\n" +
+    "      </p>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
     "  \n" +
     "  <div class=\"row\">\n" +
-    "    <div class=\"btn-group\" ng-init=\"opponent.index = 0\">\n" +
-    "      <button class=\"btn btn-default dropdown-toggle\">\n" +
-    "        Select opponent&nbsp;<span class=\"caret\"></span>\n" +
-    "      </button>\n" +
-    "      <ul class=\"dropdown-menu\">\n" +
-    "        <li ng-repeat=\"robot in robots\">\n" +
-    "          <a ng-click=\"opponent.index = $index\">{{robot.name}}</a>\n" +
-    "        </li>\n" +
-    "      </ul>\n" +
+    "    <div class=\"col-xs-12\">\n" +
+    "      <div class=\"btn-group\" ng-init=\"opponent.index = 0\">\n" +
+    "        <button class=\"btn btn-default dropdown-toggle\">\n" +
+    "          Select opponent&nbsp;<span class=\"caret\"></span>\n" +
+    "        </button>\n" +
+    "        <ul class=\"dropdown-menu\">\n" +
+    "          <li ng-repeat=\"robot in robots\">\n" +
+    "            <a ng-click=\"opponent.index = $index\">{{robot.name}}</a>\n" +
+    "          </li>\n" +
+    "        </ul>\n" +
+    "      </div>\n" +
+    "      <button ng-click=\"runMatch($index, opponent.index)\"\n" +
+    "              class=\"btn btn-primary\">Run match</button>\n" +
+    "      <i ng-if=\"statusClasses\" ng-class=\"statusClasses\" class=\"fa\"></i>\n" +
     "    </div>\n" +
-    "    <button ng-click=\"runMatch($index, opponent.index)\"\n" +
-    "            class=\"btn btn-primary\">Run match</button>\n" +
-    "    <i ng-if=\"statusClasses\" ng-class=\"statusClasses\" class=\"fa\"></i>\n" +
     "  </div>\n" +
     "  \n" +
     "  <div ng-if=\"history\">\n" +
-    "    <rg-map board=\"history[match.turn].board\"\n" +
-    "            click=\"chosenRobotIndex = index\"\n" +
-    "            class=\"row\"></rg-map>\n" +
-    "    \n" +
     "    <div class=\"row\">\n" +
-    "      <input type=\"range\" ng-model=\"match.turn\"\n" +
-    "             min=\"0\" max=\"{{history.length-1}}\" step=\"1\" value=\"0\"\n" +
-    "             class=\"match-turn-slider\" />\n" +
+    "      <div class=\"col-xs-12\">\n" +
+    "        <rg-map board=\"history[match.turn].board\"\n" +
+    "                click=\"chosenRobotIndex = index\"\n" +
+    "                class=\"row\"></rg-map>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <div class=\"row\">\n" +
+    "      <div class=\"col-xs-12\">\n" +
+    "        <input type=\"range\" ng-model=\"match.turn\"\n" +
+    "               min=\"0\" max=\"{{history.length-1}}\" step=\"1\" value=\"0\"\n" +
+    "               class=\"match-turn-slider\" />\n" +
+    "      </div>\n" +
     "    </div>\n" +
     "    \n" +
     "    <div class=\"row\">\n" +
-    "      <button ng-click=\"changeTurn(-1)\" class=\"btn btn-success\">\n" +
-    "        <i class=\"fa fa-step-backward\"></i>\n" +
-    "      </button>\n" +
-    "      <button ng-click=\"changeTurn(1)\" class=\"btn btn-success\">\n" +
-    "        <i class=\"fa fa-step-forward\"></i>\n" +
-    "      </button>\n" +
+    "      <div class=\"col-xs-12\">\n" +
+    "        <button ng-click=\"changeTurn(-1)\" class=\"btn btn-success\">\n" +
+    "          <i class=\"fa fa-step-backward\"></i>\n" +
+    "        </button>\n" +
+    "        <button ng-click=\"changeTurn(1)\" class=\"btn btn-success\">\n" +
+    "          <i class=\"fa fa-step-forward\"></i>\n" +
+    "        </button>\n" +
     "\n" +
-    "      <span class=\"pull-right\">\n" +
-    "        Turn: {{match.turn}}\n" +
-    "        <span class=\"text-danger\">\n" +
-    "          {{match.player1}}: {{history[match.turn].scores[0]}}\n" +
+    "        <span class=\"pull-right\">\n" +
+    "          Turn: {{match.turn}}\n" +
+    "          <span class=\"text-danger\">\n" +
+    "            {{match.player1}}: {{history[match.turn].scores[0]}}\n" +
+    "          </span>\n" +
+    "          <span class=\"text-primary\">\n" +
+    "            {{match.player2}}: {{history[match.turn].scores[1]}}\n" +
+    "          </span>\n" +
     "        </span>\n" +
-    "        <span class=\"text-primary\">\n" +
-    "          {{match.player2}}: {{history[match.turn].scores[1]}}\n" +
-    "        </span>\n" +
-    "      </span>\n" +
+    "      </div>\n" +
     "    </div>\n" +
     "\n" +
     "    <div ng-if=\"history[match.turn].board[chosenRobotIndex].log\"\n" +
     "         class=\"row\">\n" +
-    "      <br/>\n" +
-    "      Robot Log:\n" +
-    "      <pre>{{history[match.turn].board[chosenRobotIndex].log}}</pre>\n" +
+    "      <div class=\"col-xs-12\">\n" +
+    "        <br/>\n" +
+    "        Robot Log:\n" +
+    "        <pre>{{history[match.turn].board[chosenRobotIndex].log}}</pre>\n" +
+    "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "</div>\n" +
