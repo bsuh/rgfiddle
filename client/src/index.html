@@ -4,7 +4,7 @@
     <link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet" type="text/css">
 
     <title>rgfiddle</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="shortcut icon" href="/client/src/icon.png">
 
@@ -44,7 +44,7 @@
       <div class="navbar-header">
         <a class="navbar-brand" ui-sref="home">rgfiddle</a>
       </div>
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-collapse">
         <li ng-class="{ active: $state.includes('robots') }">
           <a ui-sref="robots">Robots</a>
         </li>
