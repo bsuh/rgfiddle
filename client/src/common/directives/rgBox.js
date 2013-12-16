@@ -29,18 +29,23 @@ angular.
         var unwatch = scope.$watch(
           attrs.board + '[' + attrs.index + ']', function (newVal) {
             var node = element[0];
+            var prevClasses = node.classList.contains('selected') ?
+              'selected ' : '';
 
             if (newVal.type === 'obstacle') {
               element.replaceWith('<span class="box obstacle"></span>');
               unwatch();
+              return;
             } else if (newVal.type === 'normal') {
-              node.className = 'box normal';
+              node.className = prevClasses + 'box normal';
               while (node.firstChild) {
                 removeNode(node, node.firstChild);
               }
+              return;
             }
 
-            node.className = ['box', newVal.type, newVal.action].join(' ');
+            node.className = prevClasses +
+              ['box', newVal.type, newVal.action].join(' ');
 
             if (newVal.hp) {
               if (node.children.length >= 1) {
