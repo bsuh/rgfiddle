@@ -51,7 +51,7 @@
       </ul>
     </nav>
 
-    <div class="container" ng-init="alerts = []">
+    <div class="container" ng-controller="AlertCtrl">
       <alert ng-if="alerts.length" type="'info'">
         Is the backend running? If it is perhaps try updating rgfiddle and rgkit.
       </alert>
@@ -75,6 +75,7 @@
     <script src="/client/templates/main.js"></script>
     <script src="/client/src/app/rgfiddle.js"></script>
     <script src="/client/src/app/states.js"></script>
+    <script src="/client/src/app/alerts.js"></script>
     <script src="/client/src/app/robots/robots.js"></script>
     <script src="/client/src/app/robots/editor/editor.js"></script>
     <script src="/client/src/app/robots/match/match.js"></script>
@@ -82,5 +83,7 @@
     <script src="/client/src/common/directives/rgBox.js"></script>
     <script src="/client/src/common/directives/keepModelValue.js"></script>
     <script src="/client/src/common/directives/filechooser.js"></script>
+    <script src="/client/src/common/services/robot.js"></script>
+    <script src="/client/src/common/services/alerts.js"></script>
   </body>
 </html>
