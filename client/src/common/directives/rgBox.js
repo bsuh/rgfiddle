@@ -22,7 +22,7 @@ angular.
                 'box', newVal.type, newVal.action].join(' '));
 
               if (element[0].hasChildNodes()) {
-                element[0].firstChild.nodeValue = newVal.hp;
+                element[0].firstChild.firstChild.nodeValue = newVal.hp;
                 angular.element(element[0].lastChild).removeClass().
                   addClass([
                     'glyphicon',
@@ -30,7 +30,9 @@ angular.
                     'text-' + (newVal.action === 'move' ? 'primary' : 'danger')
                   ].join(' '));
               } else {
-                element.append(document.createTextNode(newVal.hp));
+                var p = document.createElement('p');
+                p.appendChild(document.createTextNode(newVal.hp));
+                element.append(p);
 
                 if (newVal.target) {
                   var action = angular.element('<span></span>');
