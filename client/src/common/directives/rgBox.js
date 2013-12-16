@@ -7,42 +7,73 @@ angular.
       replace: true,
       template: '<span></span>',
       link: function (scope, element, attrs) {
+        var spans = [];
+        var pars = [];
+        var texts = [];
+
+        function removeNode(parent, node) {
+          while (node.firstChild) {
+            removeNode(node, node.firstChild);
+          }
+          node.className = '';
+          if (node.tagName === 'SPAN') {
+            spans.push(node);
+          } else if (node.tagName === 'P') {
+            pars.push(node);
+          } else if (node.nodeType === 3) { // text node
+            texts.push(node);
+          }
+          parent.removeChild(node);
+        }
+
         var unwatch = scope.$watch(
           attrs.board + '[' + attrs.index + ']', function (newVal) {
+            var node = element[0];
+
             if (newVal.type === 'obstacle') {
               element.replaceWith('<span class="box obstacle"></span>');
               unwatch();
             } else if (newVal.type === 'normal') {
-              element.removeClass().addClass('box normal');
-              while (element[0].hasChildNodes()) {
-                element[0].removeChild(element[0].lastChild);
+              node.className = 'box normal';
+              while (node.firstChild) {
+                removeNode(node, node.firstChild);
+              }
+            }
+
+            node.className = ['box', newVal.type, newVal.action].join(' ');
+
+            if (newVal.hp) {
+              if (node.children.length >= 1) {
+                node.firstChild.firstChild.nodeValue = newVal.hp;
+              } else {
+                var p = pars.pop() || document.createElement('p');
+                var text = texts.pop() || document.createTextNode('');
+                text.nodeValue = newVal.hp;
+
+                p.appendChild(text);
+                node.appendChild(p);
+              }
+            }
+
+            if (newVal.target) {
+              if (node.children.length === 2) {
+                node.lastChild.className = [
+                    'glyphicon',
+                    'glyphicon-arrow-' + newVal.target,
+                    'text-' + (newVal.action === 'move' ? 'primary' : 'danger')
+                ].join(' ');
+              } else {
+                var span = spans.pop() || document.createElement('span');
+                span.className = [
+                    'glyphicon',
+                    'glyphicon-arrow-' + newVal.target,
+                    'text-' + (newVal.action === 'move' ? 'primary' : 'danger')
+                  ].join(' ');
+                node.appendChild(span);
               }
             } else {
-              element.removeClass().addClass([
-                'box', newVal.type, newVal.action].join(' '));
-
-              if (element[0].hasChildNodes()) {
-                element[0].firstChild.firstChild.nodeValue = newVal.hp;
-                angular.element(element[0].lastChild).removeClass().
-                  addClass([
-                    'glyphicon',
-                    'glyphicon-arrow-' + newVal.target,
-                    'text-' + (newVal.action === 'move' ? 'primary' : 'danger')
-                  ].join(' '));
-              } else {
-                var p = document.createElement('p');
-                p.appendChild(document.createTextNode(newVal.hp));
-                element.append(p);
-
-                if (newVal.target) {
-                  var action = angular.element('<span></span>');
-                  action.addClass([
-                    'glyphicon',
-                    'glyphicon-arrow-' + newVal.target,
-                    'text-' + (newVal.action === 'move' ? 'primary' : 'danger')
-                  ].join(' '));
-                  element.append(action);
-                }
+              while (node.children.length > 1) {
+                removeNode(node, node.lastChild);
               }
             }
           });
