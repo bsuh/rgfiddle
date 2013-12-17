@@ -90,8 +90,35 @@ def find_robot(robots, robot_id):
     return None
 
 
-def turn(g):
+def record_turn(g):
     return {'scores': g.get_scores(), 'board': game_board(g)}
+
+
+def _run_turn(g, history):
+    directions = {
+        (-1, 0): 'left',
+        (1, 0): 'right',
+        (0, 1): 'down',
+        (0, -1): 'up'
+    }
+
+    g.run_turn()
+    history.append(record_turn(g))
+
+    for loc, action in g.get_action_at(g.turns - 1).iteritems():
+        x, y = action['loc']
+        box = history[-2]['board'][x+y*19]
+        box['log'] = MyPlayer.log.get((x, y), '')
+
+        if 'spawn' == action['name']:
+            continue
+
+        name = action['name']
+        box['action'] = name
+        if name in ('move', 'attack'):
+            target_x, target_y = action['target']
+            box['target'] = directions[(target_x - x),
+                                       (target_y - y)]
 
 
 def make_game(code1, code2):
@@ -102,7 +129,7 @@ def make_game(code1, code2):
     g = MyGame(
         MyPlayer(code=code1),
         MyPlayer(code=code2),
-        record_history=True)
+        record_actions=True)
 
     return g
 
@@ -110,6 +137,7 @@ def make_game(code1, code2):
 def run_turn(code1, code2, board, turn):
     g = make_game(code1, code2)
 
+    g.turns = turn - 1
     for i, box in enumerate(board):
         x, y = i % settings.board_size, i / settings.board_size
         _type = box['type']
@@ -117,49 +145,18 @@ def run_turn(code1, code2, board, turn):
             g.spawn_robot(int(_type == 'blue'), (x, y))
             g._field[(x, y)].hp = box['hp']
 
-    g.turn = turn
-    g.run_turn()
+    g.turns = turn
+    history = [record_turn(g)]
+    _run_turn(g, history)
 
-    return turn(g)
+    return history[0]
 
 
 def run_game(code1, code2):
-    directions = {
-        (-1, 0): 'left',
-        (1, 0): 'right',
-        (0, 1): 'down',
-        (0, -1): 'up'
-    }
-
     g = make_game(code1, code2)
 
-    history = [turn(g)]
+    history = [record_turn(g)]
     for i in xrange(settings.max_turns):
-        g.run_turn()
-        history.append(turn(g))
-
-        if len(history) < 3:
-            continue
-
-        for player_id in (0, 1):
-            for robot in g.history[player_id][g.turns - 1]:
-                last_robot = find_robot(g.history[player_id][g.turns - 2],
-                                        robot['robot_id'])
-                if last_robot is None:
-                    continue
-
-                x, y = last_robot['location']
-                box = history[-2]['board'][x+y*19]
-                box['log'] = MyPlayer.log.get((x, y), '')
-
-                if 'action' not in robot:
-                    continue
-
-                action = robot['action']
-                box['action'] = action[0]
-                if action[0] in ('move', 'attack'):
-                    target_x, target_y = action[1]
-                    box['target'] = directions[(target_x - x),
-                                               (target_y - y)]
+        _run_turn(g, history)
 
     return history
