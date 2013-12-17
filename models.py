@@ -1,3 +1,4 @@
+import json
 import peewee
 
 
@@ -19,3 +20,18 @@ class Robot(BaseModel):
 
 
 Robot.create_table(True)
+
+
+def scenario_json(scenario):
+    scenario = dict(model_json(scenario))
+    scenario['board'] = json.loads(scenario['board'])
+    return scenario
+
+
+class Scenario(BaseModel):
+    name = peewee.CharField()
+    board = peewee.CharField()
+    turn = peewee.IntegerField()
+
+
+Scenario.create_table(True)
