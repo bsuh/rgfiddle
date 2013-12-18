@@ -2,6 +2,7 @@
 angular.
   module('rgfiddle', [
     'templates-main',
+    'services.httpCounter',
     'rgfiddle.states',
     'rgfiddle.alerts',
     'rgfiddle.robots'

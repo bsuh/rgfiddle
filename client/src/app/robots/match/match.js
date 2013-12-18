@@ -23,13 +23,10 @@ angular.
       }
 
       $scope.runMatch = function (index, index2) {
-        $scope.statusClasses = 'fa-spinner fa-spin';
-
         var robot1 = $scope.robots[index];
         var robot2 = $scope.robots[index2];
 
         if (!robot1 || !robot2) {
-          $scope.statusClasses = 'fa-warning';
           return;
         }
 
@@ -45,7 +42,6 @@ angular.
             $scope.history = optimizeHistory(data.history);
           }).error(function () {
             alerts.error('Could not run match');
-            $scope.statusClasses = 'fa-warning';
           });
       };
     }]);

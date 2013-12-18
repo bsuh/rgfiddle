@@ -40,15 +40,27 @@
     <link href="/client/src/style/style.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-collapse navbar-fixed-top">
       <div class="navbar-header">
         <a class="navbar-brand" ui-sref="robots">rgfiddle</a>
       </div>
-      <ul class="nav navbar-nav navbar-collapse">
+      <ul class="nav navbar-nav">
         <li ng-class="{ active: $state.includes('robots') }">
           <a ui-sref="robots">Robots</a>
         </li>
+        <li ng-class="{ active: $state.includes('scenarios') }">
+          <a ui-sref="scenarios">Scenarios</a>
+        </li>
       </ul>
+      <div ng-if="global.requestCount" class="navbar-form navbar-right">
+        <div class="spinner">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+      </div>
     </nav>
 
     <div class="container" ng-controller="AlertCtrl">
@@ -85,5 +97,6 @@
     <script src="/client/src/common/directives/filechooser.js"></script>
     <script src="/client/src/common/services/robot.js"></script>
     <script src="/client/src/common/services/alerts.js"></script>
+    <script src="/client/src/common/services/httpCounter.js"></script>
   </body>
 </html>
