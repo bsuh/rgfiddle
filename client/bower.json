@@ -9,7 +9,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.2.3",
+    "angular": "~1.2.4",
     "angular-resource": "~1.2.5",
     "angular-ui-router": "~0.2.0",
     "bootstrap": "~3.0.2",
@@ -17,5 +17,8 @@
     "font-awesome": "~4.0.3",
     "angular-ui-codemirror": "https://github.com/angular-ui/ui-codemirror/archive/master.zip",
     "angular-ui-utils": "~0.0.4"
+  },
+  "resolutions": {
+    "angular": "~1.2.4"
   }
 }
