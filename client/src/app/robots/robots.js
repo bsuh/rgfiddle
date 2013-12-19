@@ -35,25 +35,21 @@ angular.
         if (remove) {
           if (window.confirm('Are you sure you want to delete this robot?' +
                              ' You cannot undo this!')) {
-            $robot.remove({ id: id }, function (data) {
-              if (data.rows > 0) {
-                var index = $scope.robots.indexOf(robot);
-                if (index !== -1) {
-                  $scope.robots.splice(index, 1);
-                }
-              } else {
-                alerts.error('Could not find robot to delete');
+            $robot.remove({ id: id }, function () {
+              var index = $scope.robots.indexOf(robot);
+              if (index !== -1) {
+                $scope.robots.splice(index, 1);
               }
             }, function () {
               alerts.error('Could not delete robot');
             });
           }
         } else {
-          $robot.save({ id: id }, robot, function (data) {
+          $robot.save({ id: id }, robot, function (_robot) {
             if (!id) {
-              $scope.robots.push(data.robot);
+              $scope.robots.push(_robot);
             } else {
-              angular.extend(robot, data.robot);
+              angular.extend(robot, _robot);
             }
           }, function () {
             alerts.error('Could not ' + (id ? 'update' : 'create') + ' robot');

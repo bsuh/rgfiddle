@@ -40,26 +40,30 @@ def robot_list():
 
 @bottle.post('/v1/robots')
 def robot_create():
-    json = bottle.request.json
+    jsn = bottle.request.json
 
-    new_robot = Robot.create(**json)
-    return {'robot': model_json(new_robot)}
+    new_robot = Robot.create(**jsn)
+
+    bottle.response.content_type = 'application/json'
+    return json.dumps(model_json(new_robot))
 
 
 @bottle.post('/v1/robots/<id:int>')
 def robot_update(id):
-    json = bottle.request.json
+    jsn = bottle.request.json
 
     robot = Robot.get(Robot.id == id)
-    robot.name = json['name']
-    robot.code = json['code']
+    robot.name = jsn['name']
+    robot.code = jsn['code']
     robot.save()
-    return {'robot': model_json(robot)}
+
+    bottle.response.content_type = 'application/json'
+    return json.dumps(model_json(robot))
 
 
 @bottle.delete('/v1/robots/<id:int>')
 def robot_delete(id):
-    return {'rows': Robot.get(Robot.id == id).delete_instance()}
+    Robot.get(Robot.id == id).delete_instance()
 
 
 @bottle.route('/v1/scenarios')
