@@ -13,53 +13,23 @@ from rgkit.settings import settings
 class MyPlayer(game.Player):
     log = {}
 
-    def __init__(self, code):
-        game.Player.__init__(self, code='')
+    def _get_action(self, game_state, game_info, robot, seed):
+        old_stdout, sys.stdout = sys.stdout, StringIO()
+        action = game.Player._get_action(
+            self, game_state, game_info, robot, seed)
 
-        self._mod = imp.new_module('usercode%d' % id(self))
+        MyPlayer.log[robot.location] = log = sys.stdout.getvalue()
+        sys.stdout = old_stdout
+        if len(log) > 0:
+            print log,
 
-        def my_import(name, globals={}, locals={}, fromlist=[], level=-1):
-            if name == 'rg':
-                return rg
-            else:
-                return real_import(name, globals, locals, fromlist, level)
-
-        builtins = dict(__builtins__)
-        real_import, builtins['__import__'] = builtins['__import__'], my_import
-        self._mod.__dict__['__builtins__'] = builtins
-        exec code in self._mod.__dict__
-
-    def get_robot(self):
-        robot = game.Player.get_robot(self)
-
-        def my_act(self, game):
-            try:
-                old_stdout = sys.stdout
-                sys.stdout = my_stdout = StringIO()
-                action = real_act(game)
-            except Exception:
-                traceback.print_exc(file=sys.stdout)
-                action = ['guard']
-            finally:
-                sys.stdout = old_stdout
-                MyPlayer.log[self.location] = log = my_stdout.getvalue()
-                if len(log) > 0:
-                    print log,
-
-            return action
-
-        if not hasattr(self, '_hooked'):
-            real_act = robot.act
-            robot.act = types.MethodType(my_act, robot)
-            self._hooked = True
-
-        return robot
+        return action
 
 
 class MyGame(game.Game):
-    def make_robots_act(self):
+    def get_robots_actions(self):
         MyPlayer.log = {}
-        return game.Game.make_robots_act(self)
+        return game.Game.get_robots_actions(self)
 
     def finish_running_turns_if_necessary(self):
         return
@@ -69,10 +39,10 @@ def game_board(game):
     boxes = []
     for y in range(settings.board_size):
         for x in range(settings.board_size):
-            robot = game._field[(x, y)]
             if (x, y) in settings.obstacles:
                 boxes.append({'type': 'obstacle'})
-            elif robot is not None:
+            elif (x, y) in game.state.robots:
+                robot = game.state.robots[(x, y)]
                 boxes.append({
                     'type': ['red', 'blue'][robot.player_id],
                     'hp': robot.hp
@@ -105,7 +75,7 @@ def _run_turn(g, history):
     g.run_turn()
     history.append(record_turn(g))
 
-    for loc, action in g.get_action_at(g.turns - 1).iteritems():
+    for loc, action in g.actions_on_turn[g.state.turn - 1].iteritems():
         x, y = action['loc']
         box = history[-2]['board'][x+y*19]
         box['log'] = MyPlayer.log.get((x, y), '')
@@ -137,15 +107,14 @@ def make_game(code1, code2):
 def run_turn(code1, code2, board, turn):
     g = make_game(code1, code2)
 
-    g.turns = turn - 1
+    g.state.turn = turn - 1
     for i, box in enumerate(board):
         x, y = i % settings.board_size, i / settings.board_size
         _type = box['type']
         if _type == 'red' or _type == 'blue':
-            g.spawn_robot(int(_type == 'blue'), (x, y))
-            g._field[(x, y)].hp = box['hp']
+            g.state.add_robot((x, y), int(_type == 'blue'), box['hp'])
 
-    g.turns = turn
+    g.state.turn = turn
     history = [record_turn(g)]
     _run_turn(g, history)
 
