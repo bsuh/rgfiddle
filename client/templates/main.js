@@ -85,10 +85,10 @@ angular.module("/client/src/app/robots/match/match.tpl.html", []).run(["$templat
     "    <div class=\"row\">\n" +
     "      <div class=\"col-xs-12\">\n" +
     "        <button ng-click=\"changeTurn(-1)\" class=\"btn btn-success\">\n" +
-    "          <i class=\"fa fa-step-backward\"></i>\n" +
+    "          <i class=\"glyphicon glyphicon-step-backward\"></i>\n" +
     "        </button>\n" +
     "        <button ng-click=\"changeTurn(1)\" class=\"btn btn-success\">\n" +
-    "          <i class=\"fa fa-step-forward\"></i>\n" +
+    "          <i class=\"glyphicon glyphicon-step-forward\"></i>\n" +
     "        </button>\n" +
     "\n" +
     "        <span class=\"pull-right\">\n" +
