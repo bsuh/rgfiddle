@@ -1,0 +1,76 @@
+<div ng-controller="ScenariosCtrl">
+  <tabset ng-init="getScenarios()">
+    <tab ng-repeat="scenario in scenarios"
+         select="selectScenario($index)"
+         active="scenario.active">
+      <tab-heading ng-switch="$first">
+        <div ng-switch-when="false">
+          {{scenario.name}}
+        </div>
+        <div ng-switch-when="true">
+          <span class="glyphicon glyphicon-plus"></span>&nbsp;New Scenario
+        </div>
+      </tab-heading>
+
+      <div class="row">
+        <!-- left column with game map -->
+        <div class="col-md-8">
+          <form name="scenarioForm" class="form-inline" novalidate>
+            <div class="form-group" ng-class="{ 'has-error': scenarioForm.scenarioName.$dirty &amp;&amp; !scenarioForm.scenarioName.$valid }">
+              <input type="text" ng-model="scenario.name"
+                     ng-minlength="2" ng-maxlength="20"
+                     keep-model-value=""
+                     name="scenarioName" required class="form-control" />
+            </div>
+            <button ng-click="updateScenario($index)"
+                    class="btn btn-default">Save</button>
+            <button ng-if="!$first" ng-click="updateScenario($index, true)"
+                    class="btn btn-danger">Delete</button>
+          </form>
+
+          <rg-map tabindex="0"
+                  board="scenario.board"
+                  click="selectBox(scenario, index)"
+                  ui-keydown="{ 82: 'makeRed()', 66: 'makeBlue()', 88: 'makeNormal()' }"
+                  class="row"
+                  style="outline: none"></rg-map>
+        </div>
+
+        <!-- right column with scenario settings -->
+        <div class="col-md-4" ng-init="getRobots();testRobot.index=0">
+          <div class="row">
+            <div class="col-xs-12">
+              <p class="lead">
+                <span class="text-danger">{{robots[testRobot.index].name}}</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="btn-group">
+                <button class="btn btn-default dropdown-toggle">
+                  Select bot&nbsp;<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li ng-repeat="robot in robots">
+                    <a ng-click="testRobot.index = $index">{{robot.name}}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <pre>{{ scenario.board[selectedIndex] | json }}</pre>
+              <input type="number"
+                     ng-model="scenario.board[selectedIndex].hp"
+                     ng-change="refreshBox()" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </tab>
+  </tabset>
+</div>

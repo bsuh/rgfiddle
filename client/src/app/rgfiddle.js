@@ -5,7 +5,8 @@ angular.
     'services.httpCounter',
     'rgfiddle.states',
     'rgfiddle.alerts',
-    'rgfiddle.robots'
+    'rgfiddle.robots',
+    'rgfiddle.scenarios'
   ]).
   run(['$rootScope', '$state', '$stateParams',
        function ($rootScope, $state, $stateParams) {

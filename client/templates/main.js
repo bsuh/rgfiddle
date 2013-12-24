@@ -1,4 +1,4 @@
-angular.module('templates-main', ['/client/src/app/robots/editor/editor.tpl.html', '/client/src/app/robots/match/match.tpl.html', '/client/src/app/robots/robots.tpl.html', '/client/src/common/directives/rgMap.tpl.html']);
+angular.module('templates-main', ['/client/src/app/robots/editor/editor.tpl.html', '/client/src/app/robots/match/match.tpl.html', '/client/src/app/robots/robots.tpl.html', '/client/src/app/scenarios/scenarios.tpl.html', '/client/src/common/directives/rgMap.tpl.html']);
 
 angular.module("/client/src/app/robots/editor/editor.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("/client/src/app/robots/editor/editor.tpl.html",
@@ -133,13 +133,94 @@ angular.module("/client/src/app/robots/robots.tpl.html", []).run(["$templateCach
     "      <div class=\"row\">\n" +
     "\n" +
     "        <!-- left column with code mirror -->\n" +
-    "        <div class=\"col-lg-8\">\n" +
+    "        <div class=\"col-md-8\">\n" +
     "          <div ng-include=\"'/client/src/app/robots/editor/editor.tpl.html'\"></div>\n" +
     "        </div>\n" +
     "\n" +
     "        <!-- right column with game map -->\n" +
-    "        <div class=\"col-lg-4\">\n" +
+    "        <div class=\"col-md-4\">\n" +
     "          <div ng-include=\"'/client/src/app/robots/match/match.tpl.html'\"></div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </tab>\n" +
+    "  </tabset>\n" +
+    "</div>\n" +
+    "");
+}]);
+
+angular.module("/client/src/app/scenarios/scenarios.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("/client/src/app/scenarios/scenarios.tpl.html",
+    "<div ng-controller=\"ScenariosCtrl\">\n" +
+    "  <tabset ng-init=\"getScenarios()\">\n" +
+    "    <tab ng-repeat=\"scenario in scenarios\"\n" +
+    "         select=\"selectScenario($index)\"\n" +
+    "         active=\"scenario.active\">\n" +
+    "      <tab-heading ng-switch=\"$first\">\n" +
+    "        <div ng-switch-when=\"false\">\n" +
+    "          {{scenario.name}}\n" +
+    "        </div>\n" +
+    "        <div ng-switch-when=\"true\">\n" +
+    "          <span class=\"glyphicon glyphicon-plus\"></span>&nbsp;New Scenario\n" +
+    "        </div>\n" +
+    "      </tab-heading>\n" +
+    "\n" +
+    "      <div class=\"row\">\n" +
+    "        <!-- left column with game map -->\n" +
+    "        <div class=\"col-md-8\">\n" +
+    "          <form name=\"scenarioForm\" class=\"form-inline\" novalidate>\n" +
+    "            <div class=\"form-group\" ng-class=\"{ 'has-error': scenarioForm.scenarioName.$dirty &amp;&amp; !scenarioForm.scenarioName.$valid }\">\n" +
+    "              <input type=\"text\" ng-model=\"scenario.name\"\n" +
+    "                     ng-minlength=\"2\" ng-maxlength=\"20\"\n" +
+    "                     keep-model-value=\"\"\n" +
+    "                     name=\"scenarioName\" required class=\"form-control\" />\n" +
+    "            </div>\n" +
+    "            <button ng-click=\"updateScenario($index)\"\n" +
+    "                    class=\"btn btn-default\">Save</button>\n" +
+    "            <button ng-if=\"!$first\" ng-click=\"updateScenario($index, true)\"\n" +
+    "                    class=\"btn btn-danger\">Delete</button>\n" +
+    "          </form>\n" +
+    "\n" +
+    "          <rg-map tabindex=\"0\"\n" +
+    "                  board=\"scenario.board\"\n" +
+    "                  click=\"selectBox(scenario, index)\"\n" +
+    "                  ui-keydown=\"{ 82: 'makeRed()', 66: 'makeBlue()', 88: 'makeNormal()' }\"\n" +
+    "                  class=\"row\"\n" +
+    "                  style=\"outline: none\"></rg-map>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <!-- right column with scenario settings -->\n" +
+    "        <div class=\"col-md-4\" ng-init=\"getRobots();testRobot.index=0\">\n" +
+    "          <div class=\"row\">\n" +
+    "            <div class=\"col-xs-12\">\n" +
+    "              <p class=\"lead\">\n" +
+    "                <span class=\"text-danger\">{{robots[testRobot.index].name}}</span>\n" +
+    "              </p>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "\n" +
+    "          <div class=\"row\">\n" +
+    "            <div class=\"col-xs-12\">\n" +
+    "              <div class=\"btn-group\">\n" +
+    "                <button class=\"btn btn-default dropdown-toggle\">\n" +
+    "                  Select bot&nbsp;<span class=\"caret\"></span>\n" +
+    "                </button>\n" +
+    "                <ul class=\"dropdown-menu\">\n" +
+    "                  <li ng-repeat=\"robot in robots\">\n" +
+    "                    <a ng-click=\"testRobot.index = $index\">{{robot.name}}</a>\n" +
+    "                  </li>\n" +
+    "                </ul>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "\n" +
+    "          <div class=\"row\">\n" +
+    "            <div class=\"col-xs-12\">\n" +
+    "              <pre>{{ scenario.board[selectedIndex] | json }}</pre>\n" +
+    "              <input type=\"number\"\n" +
+    "                     ng-model=\"scenario.board[selectedIndex].hp\"\n" +
+    "                     ng-change=\"refreshBox()\" />\n" +
+    "            </div>\n" +
+    "          </div>\n" +
     "        </div>\n" +
     "      </div>\n" +
     "    </tab>\n" +

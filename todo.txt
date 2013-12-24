@@ -1,0 +1,16 @@
+TODO: current scenarios merge with robots
+ - add ability to switch board size and editor size
+ - select between VS and Scenario mode
+ - prettier form for modifying box hp, color, type and displaying robot log
+ - rerun turn on robot AI change & robot hp change
+ - expectations
+  - ??
+
+scenarios
+ - list of scenarios for robots
+   - drag n drop
+   - duplicate
+   - delete
+   - rename
+   - preview
+   - run test for scenario/robot/robots
