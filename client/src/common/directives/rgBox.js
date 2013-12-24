@@ -33,7 +33,18 @@ angular.
               'selected ' : '';
 
             if (newVal.type === 'obstacle') {
-              element.replaceWith('<span class="box obstacle"></span>');
+              var index = parseInt(attrs.index, 10);
+              if (index < 19) {
+                element.replaceWith('<span class="box obstacle">' +
+                                    '<p>' + (index % 19) + '</p>' +
+                                    '</span>');
+              } else if (index % 19 === 0) {
+                element.replaceWith('<span class="box obstacle">' +
+                                    '<p>' + (index / 19) + '</p>' +
+                                    '</span>');
+              } else {
+                element.replaceWith('<span class="box obstacle"></span>');
+              }
               unwatch();
               return;
             } else if (newVal.type === 'normal') {
